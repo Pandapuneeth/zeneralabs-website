@@ -184,11 +184,13 @@
 <!-- LOADER -->
 <div id="loader">
   <div class="loader-inner">
-    <svg class="loader-hex" viewBox="0 0 120 120" fill="none">
-      <polygon class="hex-track" points="60,6 111,33 111,87 60,114 9,87 9,33"/>
-      <polygon class="hex-anim" points="60,6 111,33 111,87 60,114 9,87 9,33"/>
-      <text x="60" y="68" text-anchor="middle" fill="#ff007f" font-size="26" font-family="Syne" font-weight="800">ZL</text>
-    </svg>
+    <div class="loader-logo-wrap">
+      <img src="assets/logo.jpeg" alt="Zenera Labs" class="loader-logo-img">
+      <svg class="loader-ring" viewBox="0 0 120 120" fill="none">
+        <polygon class="hex-track" points="60,6 111,33 111,87 60,114 9,87 9,33"/>
+        <polygon class="hex-anim" points="60,6 111,33 111,87 60,114 9,87 9,33"/>
+      </svg>
+    </div>
     <div class="loader-bar"><div class="loader-bar-fill"></div></div>
     <p class="loader-label">ZENERA LABS</p>
   </div>
@@ -204,11 +206,8 @@
 
 <!-- NAVBAR -->
 <header id="navbar">
-  <a href="index.html" class="logo-link">
-    <svg viewBox="0 0 44 44" fill="none" width="40" height="40">
-      <polygon points="22,3 41,12.5 41,31.5 22,41 3,31.5 3,12.5" stroke="#ff007f" stroke-width="1.5" fill="rgba(255,0,127,0.06)"/>
-      <text x="22" y="27" text-anchor="middle" fill="#ff007f" font-size="12" font-family="Syne" font-weight="800">ZL</text>
-    </svg>
+  <a href="/" class="logo-link">
+    <img src="assets/logo.jpeg" alt="Zenera Labs" class="nav-logo-img">
     <span class="logo-text">ZENERA LABS</span>
   </a>
   <nav id="desktop-nav">
@@ -446,7 +445,7 @@
 
       <div class="tmember founder-card reveal" style="--d:0s">
         <div class="tmember-img">
-          <img src="assets/puneeth punacha.jpeg" alt="Puneeth Punacha" loading="lazy" onerror="this.closest('.tmember-img').classList.add('img-err');this.style.display='none'">
+          <img src="assets/puneeth-punacha.jpeg" alt="Puneeth Punacha" loading="lazy" onerror="this.closest('.tmember-img').classList.add('img-err');this.style.display='none'">
           <div class="tmember-overlay"></div>
           <div class="founder-badge">Founder</div>
         </div>
@@ -459,7 +458,7 @@
 
       <div class="tmember reveal" style="--d:0.1s">
         <div class="tmember-img">
-          <img src="assets/vighnesh m.jpeg" alt="Vighnesh M" loading="lazy" onerror="this.closest('.tmember-img').classList.add('img-err');this.style.display='none'">
+          <img src="assets/vighnesh-m.jpeg" alt="Vighnesh M" loading="lazy" onerror="this.closest('.tmember-img').classList.add('img-err');this.style.display='none'">
           <div class="tmember-overlay"></div>
         </div>
         <div class="tmember-info">
@@ -470,7 +469,7 @@
 
       <div class="tmember reveal" style="--d:0.2s">
         <div class="tmember-img">
-          <img src="assets/hamsini sy.jpeg" alt="Hamsini SY" loading="lazy" onerror="this.closest('.tmember-img').classList.add('img-err');this.style.display='none'">
+          <img src="assets/hamsini-sy.jpeg" alt="Hamsini SY" loading="lazy" onerror="this.closest('.tmember-img').classList.add('img-err');this.style.display='none'">
           <div class="tmember-overlay"></div>
         </div>
         <div class="tmember-info">
@@ -554,10 +553,7 @@
   <div class="footer-inner">
     <div class="footer-top">
       <div class="footer-brand">
-        <svg viewBox="0 0 44 44" fill="none" width="34" height="34">
-          <polygon points="22,3 41,12.5 41,31.5 22,41 3,31.5 3,12.5" stroke="#ff007f" stroke-width="1.5" fill="rgba(255,0,127,0.06)"/>
-          <text x="22" y="27" text-anchor="middle" fill="#ff007f" font-size="12" font-family="Syne" font-weight="800">ZL</text>
-        </svg>
+        <img src="assets/logo.jpeg" alt="Zenera Labs" class="footer-logo-img">
         <div>
           <span class="footer-name">ZENERA LABS</span>
           <span class="footer-tag">Build Better. Ship Faster.</span>
