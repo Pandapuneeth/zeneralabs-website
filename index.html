@@ -4,285 +4,400 @@
   <meta charset="UTF-8">
   <title>Zenera Labs — AI & Digital Solutions</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Zenera Labs — AI automation, web & app development, and final year project support.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- LOADER -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
 <div id="loader">
   <div class="loader-inner">
-    <svg class="loader-logo" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <polygon points="50,5 95,27.5 95,72.5 50,95 5,72.5 5,27.5" stroke="#ff007f" stroke-width="2" fill="none" class="hex-outline"/>
-      <text x="50" y="58" text-anchor="middle" fill="#ff007f" font-size="22" font-family="Syne" font-weight="800">ZL</text>
+    <svg class="loader-hex" viewBox="0 0 120 120" fill="none">
+      <polygon class="hex-track" points="60,6 111,33 111,87 60,114 9,87 9,33"/>
+      <polygon class="hex-anim" points="60,6 111,33 111,87 60,114 9,87 9,33"/>
+      <text x="60" y="68" text-anchor="middle" fill="#ff007f" font-size="26" font-family="Syne" font-weight="800">ZL</text>
     </svg>
-    <p class="loader-text">ZENERA LABS</p>
+    <div class="loader-bar"><div class="loader-bar-fill"></div></div>
+    <p class="loader-label">ZENERA LABS</p>
   </div>
 </div>
 
-<!-- NOISE OVERLAY -->
-<div class="noise"></div>
+<div class="noise" aria-hidden="true"></div>
+<div class="orb orb-1" aria-hidden="true"></div>
+<div class="orb orb-2" aria-hidden="true"></div>
+<div class="orb orb-3" aria-hidden="true"></div>
+<div class="grid-overlay" aria-hidden="true"></div>
+<canvas id="bg-canvas" aria-hidden="true"></canvas>
 
-<!-- CANVAS BACKGROUND -->
-<canvas id="bg-canvas"></canvas>
-
-<!-- NAVBAR -->
 <header id="navbar">
   <a href="#" class="logo-link">
-    <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" width="36" height="36">
-      <polygon points="20,2 38,11 38,29 20,38 2,29 2,11" stroke="#ff007f" stroke-width="1.5" fill="rgba(255,0,127,0.05)"/>
-      <text x="20" y="25" text-anchor="middle" fill="#ff007f" font-size="11" font-family="Syne" font-weight="800">ZL</text>
+    <svg viewBox="0 0 44 44" fill="none" width="40" height="40">
+      <polygon points="22,3 41,12.5 41,31.5 22,41 3,31.5 3,12.5" stroke="#ff007f" stroke-width="1.5" fill="rgba(255,0,127,0.06)"/>
+      <text x="22" y="27" text-anchor="middle" fill="#ff007f" font-size="12" font-family="Syne" font-weight="800">ZL</text>
     </svg>
-    <span>ZENERA LABS</span>
+    <span class="logo-text">ZENERA LABS</span>
   </a>
-  <nav>
-    <a href="#stats">Impact</a>
+  <nav id="desktop-nav">
+    <a href="#impact">Impact</a>
     <a href="#services">Services</a>
     <a href="#team">Team</a>
-    <a href="#contact" class="nav-cta">Get a Quote</a>
+    <a href="#contact">Contact</a>
+    <a href="https://wa.me/918073378278" class="nav-cta" target="_blank">
+      Get a Quote
+      <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
   </nav>
-  <button class="hamburger" id="hamburger" aria-label="Menu">
+  <button class="hamburger" id="hamburger" aria-label="Open menu">
     <span></span><span></span><span></span>
   </button>
 </header>
 
-<!-- MOBILE NAV -->
 <div class="mobile-nav" id="mobile-nav">
-  <a href="#stats" onclick="closeMobile()">Impact</a>
+  <a href="#impact" onclick="closeMobile()">Impact</a>
   <a href="#services" onclick="closeMobile()">Services</a>
   <a href="#team" onclick="closeMobile()">Team</a>
-  <a href="#contact" onclick="closeMobile()">Get a Quote</a>
+  <a href="#contact" onclick="closeMobile()">Contact</a>
+  <a href="https://wa.me/918073378278" class="mobile-cta" target="_blank" onclick="closeMobile()">Get a Quote</a>
 </div>
 
 <!-- HERO -->
-<section class="hero">
-  <div class="hero-tag reveal">Digital Solutions Agency</div>
-  <h1 class="hero-title reveal">
-    We Build<br>
-    <span class="gradient-text">AI-Powered</span><br>
-    Solutions
-  </h1>
-  <p class="hero-sub reveal">Automation • Scalable Systems • Full Stack Development<br>For Businesses & Final Year Students</p>
-  <div class="hero-actions reveal">
-    <a href="#contact" class="btn-primary">
-      <span>Free Consultation</span>
-      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </a>
-    <a href="#services" class="btn-ghost">Our Services</a>
+<section class="hero" id="hero">
+  <div class="hero-eyebrow reveal">
+    <span class="pulse-dot"></span>
+    Available for projects — India & Remote
   </div>
-  <div class="hero-scroll reveal">
+  <h1 class="hero-title">
+    <span class="hero-line reveal" style="--d:0.1s">We Build</span>
+    <span class="hero-line reveal gradient-text" style="--d:0.25s">AI-Powered</span>
+    <span class="hero-line reveal" style="--d:0.4s">Solutions</span>
+  </h1>
+  <p class="hero-sub reveal" style="--d:0.55s">
+    Automation &middot; Scalable Systems &middot; Full Stack Development<br>
+    For Businesses &amp; Final Year Students
+  </p>
+  <div class="hero-ctas reveal" style="--d:0.7s">
+    <a href="https://wa.me/918073378278" class="btn-primary" target="_blank">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+      Free Consultation
+    </a>
+    <a href="#services" class="btn-outline">Explore Services</a>
+  </div>
+  <div class="hero-trust reveal" style="--d:0.85s">
+    <div class="trust-item"><span class="trust-num">50+</span><span class="trust-label">Students</span></div>
+    <div class="trust-sep"></div>
+    <div class="trust-item"><span class="trust-num">10</span><span class="trust-label">AI Systems</span></div>
+    <div class="trust-sep"></div>
+    <div class="trust-item"><span class="trust-num">3</span><span class="trust-label">Apps Shipped</span></div>
+    <div class="trust-sep"></div>
+    <div class="trust-item"><span class="trust-num">10</span><span class="trust-label">Research Papers</span></div>
+  </div>
+  <div class="scroll-indicator">
+    <div class="scroll-mouse"><div class="scroll-wheel"></div></div>
     <span>Scroll</span>
-    <div class="scroll-line"></div>
   </div>
 </section>
 
-<!-- STATS -->
-<section id="stats" class="stats-section">
-  <div class="stats-grid">
-    <div class="stat-item reveal">
-      <div class="stat-num" data-target="50">0</div>
-      <div class="stat-plus">+</div>
-      <div class="stat-label">Students Helped</div>
-    </div>
-    <div class="stat-item reveal">
-      <div class="stat-num" data-target="10">0</div>
-      <div class="stat-plus"></div>
-      <div class="stat-label">AI Automations Built</div>
-    </div>
-    <div class="stat-item reveal">
-      <div class="stat-num" data-target="3">0</div>
-      <div class="stat-plus"></div>
-      <div class="stat-label">Flutter Apps Shipped</div>
-    </div>
-    <div class="stat-item reveal">
-      <div class="stat-num" data-target="10">0</div>
-      <div class="stat-plus"></div>
-      <div class="stat-label">Research Papers Written</div>
+<!-- MARQUEE -->
+<div class="marquee-wrap" aria-hidden="true">
+  <div class="marquee-track">
+    <span>AI Automation</span><span class="dot">✦</span>
+    <span>Web Development</span><span class="dot">✦</span>
+    <span>Flutter Apps</span><span class="dot">✦</span>
+    <span>Backend Systems</span><span class="dot">✦</span>
+    <span>Final Year Projects</span><span class="dot">✦</span>
+    <span>Research Papers</span><span class="dot">✦</span>
+    <span>AI Automation</span><span class="dot">✦</span>
+    <span>Web Development</span><span class="dot">✦</span>
+    <span>Flutter Apps</span><span class="dot">✦</span>
+    <span>Backend Systems</span><span class="dot">✦</span>
+    <span>Final Year Projects</span><span class="dot">✦</span>
+    <span>Research Papers</span><span class="dot">✦</span>
+  </div>
+</div>
+
+<!-- IMPACT -->
+<section id="impact" class="impact-section">
+  <div class="container">
+    <div class="section-label reveal">Our Impact</div>
+    <h2 class="section-title reveal">Numbers that speak</h2>
+    <p class="section-sub reveal">Every project is treated like our own.</p>
+    <div class="impact-grid">
+      <div class="impact-card reveal" style="--d:0s">
+        <div class="ic-emoji">🎓</div>
+        <div class="ic-row"><span class="ic-num" data-target="50">0</span><span class="ic-plus">+</span></div>
+        <div class="ic-label">Final Year Students Guided</div>
+        <p class="ic-desc">From idea to submission, we've helped 50+ students ship their final year projects with confidence.</p>
+      </div>
+      <div class="impact-card reveal" style="--d:0.1s">
+        <div class="ic-emoji">🤖</div>
+        <div class="ic-row"><span class="ic-num" data-target="10">0</span></div>
+        <div class="ic-label">AI Automations Deployed</div>
+        <p class="ic-desc">Custom AI pipelines, chatbots, and ML models built and shipped for real clients.</p>
+      </div>
+      <div class="impact-card reveal" style="--d:0.2s">
+        <div class="ic-emoji">📱</div>
+        <div class="ic-row"><span class="ic-num" data-target="3">0</span></div>
+        <div class="ic-label">Flutter Apps Live</div>
+        <p class="ic-desc">Full stack cross-platform apps — from UI to database to deployment.</p>
+      </div>
+      <div class="impact-card reveal" style="--d:0.3s">
+        <div class="ic-emoji">📄</div>
+        <div class="ic-row"><span class="ic-num" data-target="10">0</span></div>
+        <div class="ic-label">Research Papers</div>
+        <p class="ic-desc">IEEE, Springer, and journal papers written and formatted for students.</p>
+      </div>
+      <div class="impact-card reveal" style="--d:0.4s">
+        <div class="ic-emoji">🌐</div>
+        <div class="ic-row"><span class="ic-num" data-target="1">0</span></div>
+        <div class="ic-label">Website Deployed</div>
+        <p class="ic-desc">Pixel-perfect, fast, and responsive websites built for businesses.</p>
+      </div>
+      <div class="impact-card impact-cta-card reveal" style="--d:0.5s">
+        <p>Ready to be our next success story?</p>
+        <a href="https://wa.me/918073378278" class="btn-primary small" target="_blank">Let's Talk</a>
+      </div>
     </div>
   </div>
-  <div class="stats-divider"></div>
 </section>
 
 <!-- SERVICES -->
-<section id="services" class="section">
-  <div class="section-header">
-    <div class="section-tag reveal">What We Do</div>
+<section id="services" class="services-section">
+  <div class="container">
+    <div class="section-label reveal">What We Do</div>
     <h2 class="section-title reveal">Our Services</h2>
-  </div>
+    <p class="section-sub reveal">We build fast. We build right. And we make it look damn good.</p>
+    <div class="services-grid">
 
-  <div class="services-grid">
-
-    <div class="service-card reveal" style="--delay:0s" onclick="openLink('https://github.com/YOURUSERNAME/ai-projects')">
-      <div class="service-icon">
-        <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="5" stroke="#ff007f" stroke-width="1.5"/><path d="M14 2v4M14 22v4M2 14h4M22 14h4M5.5 5.5l2.8 2.8M19.7 19.7l2.8 2.8M5.5 22.5l2.8-2.8M19.7 8.3l2.8-2.8" stroke="#ff007f" stroke-width="1.5" stroke-linecap="round"/></svg>
+      <div class="svc reveal" style="--d:0s">
+        <div class="svc-top">
+          <div class="svc-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="4" stroke="#ff007f" stroke-width="1.5"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M16.9 16.9l2.1 2.1M4.9 19.1l2.1-2.1M16.9 7.1l2.1-2.1" stroke="#ff007f" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <span class="svc-num">01</span>
+        </div>
+        <h3>AI & ML Automation</h3>
+        <p>Intelligent systems that learn, adapt and work 24/7. Chatbots, predictive models, workflow automation — we build the AI that works while you sleep.</p>
+        <div class="svc-tags"><span>LLMs</span><span>ML Models</span><span>Chatbots</span></div>
+        <span class="svc-arrow">↗</span>
       </div>
-      <div class="service-num">01</div>
-      <h3>AI & ML Automation</h3>
-      <p>Intelligent systems that learn, adapt and work 24/7. From chatbots to predictive analytics — we automate what slows you down.</p>
-      <div class="service-arrow">→</div>
+
+      <div class="svc reveal" style="--d:0.1s">
+        <div class="svc-top">
+          <div class="svc-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="2" y="4" width="20" height="16" rx="2" stroke="#ff007f" stroke-width="1.5"/><path d="M2 9h20M8 4v5" stroke="#ff007f" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <span class="svc-num">02</span>
+        </div>
+        <h3>Web Development</h3>
+        <p>Modern, blazing-fast websites designed to convert. Pixel-perfect responsive UI with the latest tech stack — built for performance and results.</p>
+        <div class="svc-tags"><span>React</span><span>Next.js</span><span>Tailwind</span></div>
+        <span class="svc-arrow">↗</span>
+      </div>
+
+      <div class="svc reveal" style="--d:0.2s">
+        <div class="svc-top">
+          <div class="svc-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="5" y="2" width="14" height="20" rx="3" stroke="#ff007f" stroke-width="1.5"/><circle cx="12" cy="17" r="1.5" fill="#ff007f"/><path d="M9 6h6M9 10h4" stroke="#ff007f" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <span class="svc-num">03</span>
+        </div>
+        <h3>Full Stack Flutter Apps</h3>
+        <p>Cross-platform apps that feel native on Android and iOS. From auth to payments to deployment — end to end, we ship complete products.</p>
+        <div class="svc-tags"><span>Flutter</span><span>Firebase</span><span>REST APIs</span></div>
+        <span class="svc-arrow">↗</span>
+      </div>
+
+      <div class="svc reveal" style="--d:0.3s">
+        <div class="svc-top">
+          <div class="svc-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="2" y="5" width="20" height="5" rx="1.5" stroke="#ff007f" stroke-width="1.5"/><rect x="2" y="14" width="20" height="5" rx="1.5" stroke="#ff007f" stroke-width="1.5"/><circle cx="6" cy="7.5" r="1" fill="#ff007f"/><circle cx="6" cy="16.5" r="1" fill="#ff007f"/></svg>
+          </div>
+          <span class="svc-num">04</span>
+        </div>
+        <h3>Backend Systems</h3>
+        <p>Rock-solid APIs and server architecture that scale. Secure, fast, and maintainable architecture for your growing product or platform.</p>
+        <div class="svc-tags"><span>Node.js</span><span>Python</span><span>PostgreSQL</span></div>
+        <span class="svc-arrow">↗</span>
+      </div>
+
+      <div class="svc svc--wide reveal" style="--d:0.4s">
+        <div class="svc-wide-inner">
+          <div class="svc-wide-left">
+            <div class="svc-top">
+              <div class="svc-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7l10 5 10-5-10-5z" stroke="#ff007f" stroke-width="1.5" stroke-linejoin="round"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5" stroke="#ff007f" stroke-width="1.5" stroke-linejoin="round"/></svg>
+              </div>
+              <span class="svc-num">05</span>
+            </div>
+            <h3>Final Year Project Support</h3>
+            <p>50+ students helped across engineering, CS, and data science. Full support from ideation to final presentation — we make sure you submit something you're proud of.</p>
+            <div class="svc-tags" style="margin-top:16px"><span>Project Dev</span><span>Research Papers</span><span>Documentation</span><span>IEEE Format</span><span>Presentations</span></div>
+          </div>
+          <div class="svc-wide-right">
+            <div class="svc-wide-stat">
+              <span class="big-num">50+</span>
+              <span class="big-label">Students Helped</span>
+            </div>
+            <a href="https://wa.me/918073378278" class="btn-primary small" target="_blank">Get Help Now</a>
+          </div>
+        </div>
+      </div>
+
     </div>
-
-    <div class="service-card reveal" style="--delay:0.1s" onclick="openLink('https://github.com/YOURUSERNAME/web-projects')">
-      <div class="service-icon">
-        <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="2" y="5" width="24" height="18" rx="2" stroke="#ff007f" stroke-width="1.5"/><path d="M2 10h24M9 5v5" stroke="#ff007f" stroke-width="1.5" stroke-linecap="round"/></svg>
-      </div>
-      <div class="service-num">02</div>
-      <h3>Web Development</h3>
-      <p>Modern, blazing-fast websites that convert. Pixel-perfect responsive design built for performance and results.</p>
-      <div class="service-arrow">→</div>
-    </div>
-
-    <div class="service-card reveal" style="--delay:0.2s" onclick="openLink('https://github.com/YOURUSERNAME/fullstack-projects')">
-      <div class="service-icon">
-        <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="4" y="4" width="9" height="9" rx="1.5" stroke="#ff007f" stroke-width="1.5"/><rect x="15" y="4" width="9" height="9" rx="1.5" stroke="#ff007f" stroke-width="1.5"/><rect x="4" y="15" width="9" height="9" rx="1.5" stroke="#ff007f" stroke-width="1.5"/><rect x="15" y="15" width="9" height="9" rx="1.5" stroke="#ff007f" stroke-width="1.5"/></svg>
-      </div>
-      <div class="service-num">03</div>
-      <h3>Full Stack Flutter Apps</h3>
-      <p>Cross-platform mobile apps that look native on every device. From concept to App Store — we ship complete products.</p>
-      <div class="service-arrow">→</div>
-    </div>
-
-    <div class="service-card reveal" style="--delay:0.3s" onclick="openLink('https://github.com/YOURUSERNAME/backend-projects')">
-      <div class="service-icon">
-        <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="5" width="22" height="6" rx="2" stroke="#ff007f" stroke-width="1.5"/><rect x="3" y="17" width="22" height="6" rx="2" stroke="#ff007f" stroke-width="1.5"/><circle cx="8" cy="8" r="1.5" fill="#ff007f"/><circle cx="8" cy="20" r="1.5" fill="#ff007f"/></svg>
-      </div>
-      <div class="service-num">04</div>
-      <h3>Backend Systems</h3>
-      <p>Rock-solid APIs and infrastructure that scale. Secure, fast, and maintainable architecture for your growing product.</p>
-      <div class="service-arrow">→</div>
-    </div>
-
-    <div class="service-card reveal service-card--wide" style="--delay:0.4s" onclick="openLink('https://wa.me/918296765502')">
-      <div class="service-icon">
-        <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M4 22l2-6a10 10 0 1 1 4 4l-6 2z" stroke="#ff007f" stroke-width="1.5" stroke-linejoin="round"/></svg>
-      </div>
-      <div class="service-num">05</div>
-      <h3>Final Year Project Support</h3>
-      <p>50+ students helped. Full support from ideation to submission — coding, research papers, documentation & presentation prep.</p>
-      <div class="service-tags">
-        <span>Research Papers</span>
-        <span>Project Development</span>
-        <span>Documentation</span>
-      </div>
-      <div class="service-arrow">→</div>
-    </div>
-
   </div>
 </section>
 
 <!-- TEAM -->
-<section id="team" class="section">
-  <div class="section-header">
-    <div class="section-tag reveal">The People</div>
-    <h2 class="section-title reveal">Meet Our Team</h2>
-  </div>
+<section id="team" class="team-section">
+  <div class="container">
+    <div class="section-label reveal">The People</div>
+    <h2 class="section-title reveal">Meet the Team</h2>
+    <p class="section-sub reveal">Engineers, designers, and builders who care about the craft.</p>
+    <div class="team-grid">
 
-  <div class="team-grid">
+      <div class="tmember founder-card reveal" style="--d:0s">
+        <div class="tmember-img">
+          <img src="assets/member1.jpg" alt="Puneeth Punacha" loading="lazy">
+          <div class="tmember-overlay"></div>
+          <div class="founder-badge">Founder</div>
+        </div>
+        <div class="tmember-info">
+          <h3>Puneeth Punacha</h3>
+          <p class="tmember-role">Founder & AI Engineer</p>
+          <a href="mailto:puneethpunacha@zeneralabs.in" class="tmember-email">puneethpunacha@zeneralabs.in</a>
+        </div>
+      </div>
 
-    <div class="member reveal" style="--delay:0s">
-      <div class="member-img-wrap">
-        <img src="assets/member1.jpg" alt="Founder" loading="lazy">
-        <div class="member-overlay"></div>
+      <div class="tmember reveal" style="--d:0.1s">
+        <div class="tmember-img"><img src="assets/member2.jpg" alt="Member 2" loading="lazy"><div class="tmember-overlay"></div></div>
+        <div class="tmember-info"><h3>Member 2</h3><p class="tmember-role">Frontend Developer</p></div>
       </div>
-      <div class="member-info">
-        <h3>Your Name</h3>
-        <p>Founder & AI Engineer</p>
+
+      <div class="tmember reveal" style="--d:0.2s">
+        <div class="tmember-img"><img src="assets/logo.jpeg" alt="Member 3" loading="lazy"><div class="tmember-overlay"></div></div>
+        <div class="tmember-info"><h3>Member 3</h3><p class="tmember-role">Backend Developer</p></div>
       </div>
+
+      <div class="tmember reveal" style="--d:0.3s">
+        <div class="tmember-img"><img src="assets/member4.jpg" alt="Member 4" loading="lazy"><div class="tmember-overlay"></div></div>
+        <div class="tmember-info"><h3>Member 4</h3><p class="tmember-role">Full Stack Developer</p></div>
+      </div>
+
+      <div class="tmember reveal" style="--d:0.4s">
+        <div class="tmember-img"><img src="assets/member5.jpg" alt="Member 5" loading="lazy"><div class="tmember-overlay"></div></div>
+        <div class="tmember-info"><h3>Member 5</h3><p class="tmember-role">Security Specialist</p></div>
+      </div>
+
+      <div class="tmember reveal" style="--d:0.5s">
+        <div class="tmember-img"><img src="assets/member6.jpg" alt="Member 6" loading="lazy"><div class="tmember-overlay"></div></div>
+        <div class="tmember-info"><h3>Member 6</h3><p class="tmember-role">AI Engineer</p></div>
+      </div>
+
     </div>
-
-    <div class="member reveal" style="--delay:0.1s">
-      <div class="member-img-wrap">
-        <img src="assets/member2.jpg" alt="Member 2" loading="lazy">
-        <div class="member-overlay"></div>
-      </div>
-      <div class="member-info">
-        <h3>Member 2</h3>
-        <p>Frontend Developer</p>
-      </div>
-    </div>
-
-    <div class="member reveal" style="--delay:0.2s">
-      <div class="member-img-wrap">
-        <img src="assets/logo.jpeg" alt="Member 3" loading="lazy">
-        <div class="member-overlay"></div>
-      </div>
-      <div class="member-info">
-        <h3>Member 3</h3>
-        <p>Backend Developer</p>
-      </div>
-    </div>
-
-    <div class="member reveal" style="--delay:0.3s">
-      <div class="member-img-wrap">
-        <img src="assets/member4.jpg" alt="Member 4" loading="lazy">
-        <div class="member-overlay"></div>
-      </div>
-      <div class="member-info">
-        <h3>Member 4</h3>
-        <p>Full Stack Developer</p>
-      </div>
-    </div>
-
-    <div class="member reveal" style="--delay:0.4s">
-      <div class="member-img-wrap">
-        <img src="assets/member5.jpg" alt="Member 5" loading="lazy">
-        <div class="member-overlay"></div>
-      </div>
-      <div class="member-info">
-        <h3>Member 5</h3>
-        <p>Security Specialist</p>
-      </div>
-    </div>
-
-    <div class="member reveal" style="--delay:0.5s">
-      <div class="member-img-wrap">
-        <img src="assets/member6.jpg" alt="Member 6" loading="lazy">
-        <div class="member-overlay"></div>
-      </div>
-      <div class="member-info">
-        <h3>Member 6</h3>
-        <p>AI Engineer</p>
-      </div>
-    </div>
-
   </div>
 </section>
 
 <!-- CONTACT -->
-<section id="contact" class="contact-section reveal">
-  <div class="contact-inner">
-    <div class="contact-left">
-      <div class="section-tag">Let's Talk</div>
-      <h2>Ready to build<br><span class="gradient-text">something powerful?</span></h2>
-      <p>Whether you're a business looking to automate, or a student needing project help — we've got you covered.</p>
-      <div class="contact-badges">
-        <div class="badge">⚡ Fast Delivery</div>
-        <div class="badge">🛡️ Quality Assured</div>
-        <div class="badge">💬 24/7 Support</div>
+<section id="contact" class="contact-section">
+  <div class="container">
+    <div class="contact-card reveal">
+      <div class="contact-glow"></div>
+      <div class="contact-left">
+        <div class="section-label">Get In Touch</div>
+        <h2>Let's build<br><span class="gradient-text">something great.</span></h2>
+        <p>Whether you're a startup, SME, or a student with a deadline — we're ready to help you ship something you're proud of.</p>
+        <div class="contact-links">
+
+          <a href="https://wa.me/918073378278" class="clink" target="_blank">
+            <div class="clink-icon green">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            </div>
+            <div class="clink-text">
+              <span class="clink-label">WhatsApp / Call</span>
+              <span class="clink-val">+91 80733 78278</span>
+            </div>
+            <span class="clink-arr">↗</span>
+          </a>
+
+          <a href="mailto:zeneralabs@gmail.com" class="clink">
+            <div class="clink-icon pink">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M2 7l10 7 10-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </div>
+            <div class="clink-text">
+              <span class="clink-label">General Enquiries</span>
+              <span class="clink-val">zeneralabs@gmail.com</span>
+            </div>
+            <span class="clink-arr">↗</span>
+          </a>
+
+          <a href="mailto:puneethpunacha@zeneralabs.in" class="clink">
+            <div class="clink-icon pink">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.5"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </div>
+            <div class="clink-text">
+              <span class="clink-label">Founder — Puneeth Punacha</span>
+              <span class="clink-val">puneethpunacha@zeneralabs.in</span>
+            </div>
+            <span class="clink-arr">↗</span>
+          </a>
+
+        </div>
       </div>
-    </div>
-    <div class="contact-right">
-      <a class="whatsapp-btn" href="https://wa.me/918296765502" target="_blank">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-        <span>Chat on WhatsApp</span>
-      </a>
-      <p class="contact-note">Usually replies within 1 hour</p>
+      <div class="contact-right">
+        <div class="resp-card">
+          <div class="resp-avatar">
+            <img src="assets/member1.jpg" alt="Puneeth" onerror="this.style.display='none'">
+            <svg class="resp-fallback" viewBox="0 0 48 48" fill="none" width="48" height="48"><polygon points="24,3 45,13.5 45,34.5 24,45 3,34.5 3,13.5" stroke="#ff007f" stroke-width="1.5" fill="rgba(255,0,127,0.1)"/><text x="24" y="30" text-anchor="middle" fill="#ff007f" font-size="14" font-family="Syne" font-weight="800">ZL</text></svg>
+            <span class="resp-online"></span>
+          </div>
+          <div class="resp-text">
+            <strong>Puneeth Punacha</strong>
+            <p>Usually replies in under an hour 🚀</p>
+          </div>
+        </div>
+        <a href="https://wa.me/918073378278" class="whatsapp-cta" target="_blank">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          Start on WhatsApp
+        </a>
+        <div class="cbadges">
+          <span>⚡ Fast Delivery</span>
+          <span>🛡️ Quality First</span>
+          <span>🤝 Student-Friendly</span>
+          <span>🌙 24/7 Available</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
   <div class="footer-inner">
-    <div class="footer-logo">
-      <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" width="28" height="28">
-        <polygon points="20,2 38,11 38,29 20,38 2,29 2,11" stroke="#ff007f" stroke-width="1.5" fill="rgba(255,0,127,0.05)"/>
-        <text x="20" y="25" text-anchor="middle" fill="#ff007f" font-size="11" font-family="Syne" font-weight="800">ZL</text>
-      </svg>
-      <span>ZENERA LABS</span>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <svg viewBox="0 0 44 44" fill="none" width="34" height="34">
+          <polygon points="22,3 41,12.5 41,31.5 22,41 3,31.5 3,12.5" stroke="#ff007f" stroke-width="1.5" fill="rgba(255,0,127,0.06)"/>
+          <text x="22" y="27" text-anchor="middle" fill="#ff007f" font-size="12" font-family="Syne" font-weight="800">ZL</text>
+        </svg>
+        <div>
+          <span class="footer-name">ZENERA LABS</span>
+          <span class="footer-tag">Build Better. Ship Faster.</span>
+        </div>
+      </div>
+      <div class="footer-links">
+        <a href="mailto:zeneralabs@gmail.com">zeneralabs@gmail.com</a>
+        <a href="tel:+918073378278">+91 80733 78278</a>
+        <a href="https://wa.me/918073378278" target="_blank">WhatsApp Us ↗</a>
+      </div>
     </div>
-    <p>© 2026 Zenera Labs. All rights reserved.</p>
+    <div class="footer-bottom">
+      <p>© 2026 Zenera Labs. All rights reserved. Built with ♥ in India.</p>
+    </div>
   </div>
 </footer>
 
