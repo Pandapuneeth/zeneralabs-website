@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>OG Image Generator — Zenera Labs</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  body { background: #111; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; margin: 0; font-family: 'DM Sans', sans-serif; gap: 24px; }
+  #card {
+    width: 1200px; height: 630px;
+    background: #050505;
+    position: relative; overflow: hidden;
+    border: 1px solid rgba(255,0,127,.3);
+    flex-shrink: 0;
+  }
+  .grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px); background-size: 60px 60px; }
+  .orb1 { position: absolute; width: 500px; height: 500px; border-radius: 50%; background: radial-gradient(circle, rgba(255,0,127,.18), transparent 70%); top: -150px; right: -100px; }
+  .orb2 { position: absolute; width: 300px; height: 300px; border-radius: 50%; background: radial-gradient(circle, rgba(255,77,166,.1), transparent 70%); bottom: -80px; left: -60px; }
+  .content { position: relative; z-index: 2; padding: 64px 80px; height: 100%; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between; }
+  .top { display: flex; align-items: center; gap: 14px; }
+  .hex { width: 48px; height: 48px; }
+  .logo-text { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 18px; letter-spacing: 4px; color: #ff007f; }
+  .badge { display: inline-flex; align-items: center; gap: 8px; border: 1px solid rgba(255,0,127,.3); background: rgba(255,0,127,.1); color: #ff007f; font-size: 13px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; padding: 6px 14px; border-radius: 100px; margin-bottom: 20px; }
+  .dot { width: 7px; height: 7px; background: #ff007f; border-radius: 50%; }
+  h1 { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 72px; line-height: 1.05; letter-spacing: -2px; color: white; margin: 0 0 16px; }
+  h1 span { background: linear-gradient(135deg, #ff007f, #ff4da6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .sub { color: rgba(255,255,255,.5); font-size: 20px; line-height: 1.5; max-width: 600px; }
+  .bottom { display: flex; justify-content: space-between; align-items: flex-end; }
+  .pills { display: flex; gap: 10px; flex-wrap: wrap; }
+  .pill { padding: 6px 14px; border-radius: 100px; border: 1px solid rgba(255,0,127,.25); color: #ff007f; font-size: 13px; font-weight: 500; }
+  .contact { text-align: right; }
+  .contact p { color: rgba(255,255,255,.3); font-size: 13px; margin: 0 0 4px; }
+  .contact strong { color: rgba(255,255,255,.7); font-size: 15px; }
+  button { padding: 12px 28px; background: #ff007f; color: white; border: none; border-radius: 8px; font-size: 15px; font-weight: 600; cursor: pointer; font-family: 'DM Sans', sans-serif; }
+  button:hover { background: #e6006f; }
+  p.note { color: rgba(255,255,255,.4); font-size: 13px; text-align: center; }
+</style>
+</head>
+<body>
+
+<div id="card">
+  <div class="grid"></div>
+  <div class="orb1"></div>
+  <div class="orb2"></div>
+  <div class="content">
+    <div>
+      <div class="top">
+        <svg class="hex" viewBox="0 0 44 44" fill="none">
+          <polygon points="22,3 41,12.5 41,31.5 22,41 3,31.5 3,12.5" stroke="#ff007f" stroke-width="1.5" fill="rgba(255,0,127,0.06)"/>
+          <text x="22" y="27" text-anchor="middle" fill="#ff007f" font-size="12" font-family="Syne" font-weight="800">ZL</text>
+        </svg>
+        <span class="logo-text">ZENERA LABS</span>
+      </div>
+    </div>
+    <div>
+      <div class="badge"><span class="dot"></span> Bangalore, India · Est. 2024</div>
+      <h1>We Build<br><span>AI-Powered</span><br>Solutions</h1>
+      <p class="sub">AI Automation · Web & Flutter Apps · Final Year Project Support</p>
+    </div>
+    <div class="bottom">
+      <div class="pills">
+        <span class="pill">50+ Students</span>
+        <span class="pill">10 AI Systems</span>
+        <span class="pill">3 Apps Shipped</span>
+        <span class="pill">10 Research Papers</span>
+      </div>
+      <div class="contact">
+        <p>Get in touch</p>
+        <strong>zeneralabs@gmail.com</strong>
+      </div>
+    </div>
+  </div>
+</div>
+
+<button onclick="saveImage()">📸 Download og-image.jpg</button>
+<p class="note">Save this as <code>assets/og-image.jpg</code> in your project root</p>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script>
+async function saveImage() {
+  const card = document.getElementById('card');
+  const canvas = await html2canvas(card, { scale: 1, useCORS: true, backgroundColor: '#050505' });
+  const link = document.createElement('a');
+  link.download = 'og-image.jpg';
+  link.href = canvas.toDataURL('image/jpeg', 0.95);
+  link.click();
+}
+</script>
+</body>
+</html>
