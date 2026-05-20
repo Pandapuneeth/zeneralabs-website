@@ -161,7 +161,14 @@ header.scrolled{background:rgba(5,5,5,.88);border-bottom:1px solid var(--border)
 /* ── TEAM ────────────────────────────────── */
 .team-section{position:relative;z-index:2;padding:100px 0}
 .team-section .section-sub{margin:0 auto 60px}
-.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+
+/* ── AVATAR (no-photo members) ── */
+.tmember-avatar{background:radial-gradient(circle at 30% 30%, rgba(255,255,255,.06), rgba(255,255,255,.02));display:flex;align-items:center;justify-content:center;position:relative;border-bottom:1px solid rgba(255,255,255,.07)}
+.avatar-initials{font-family:'Syne',sans-serif;font-weight:800;font-size:38px;color:var(--av-color,var(--pink));z-index:1;letter-spacing:1px;opacity:.9;text-shadow:0 0 40px var(--av-color,var(--pink))}
+.avatar-ring{position:absolute;inset:20px;border:1.5px solid var(--av-color,var(--pink));border-radius:50%;opacity:.25;animation:ringPulse 3s ease-in-out infinite}
+@keyframes ringPulse{0%,100%{transform:scale(1);opacity:.2}50%{transform:scale(1.06);opacity:.5}}
+.tmember:hover .avatar-ring{opacity:.6}
 .tmember{background:var(--surface);border:1px solid var(--border);border-radius:var(--r16);overflow:hidden;transition:border-color .3s,transform .3s}
 .tmember:hover{border-color:var(--pink-border);transform:translateY(-6px)}
 .tmember-img{position:relative;aspect-ratio:1/1;overflow:hidden}
@@ -230,8 +237,7 @@ footer{position:relative;z-index:2;border-top:1px solid var(--border);padding:40
   .svc--wide{grid-column:span 1}
   .svc-wide-inner{grid-template-columns:1fr;gap:24px}
   .svc-wide-right{align-items:flex-start}
-  .team-grid{grid-template-columns:repeat(2,1fr)}
-  .contact-card{grid-template-columns:1fr;gap:36px;padding:40px 32px}
+  .team-grid{grid-template-columns:repeat(3,1fr)}
 }
 @media(max-width:600px){
   body{cursor:auto}
@@ -242,6 +248,7 @@ footer{position:relative;z-index:2;border-top:1px solid var(--border);padding:40
   header{padding:0 20px}
   .impact-grid{grid-template-columns:1fr 1fr}
   .team-grid{grid-template-columns:repeat(2,1fr)}
+  .avatar-initials{font-size:28px}
   .contact-card{padding:28px 20px}
   .footer-inner{padding:0 20px}
   .footer-top{flex-direction:column;align-items:flex-start}
