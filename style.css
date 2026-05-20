@@ -24,10 +24,10 @@ body.ch .cursor-ring{width:52px;height:52px;border-color:var(--pink)}
 #loader{position:fixed;inset:0;background:#000;display:flex;align-items:center;justify-content:center;z-index:9000;transition:opacity .6s,visibility .6s}
 #loader.hidden{opacity:0;visibility:hidden;pointer-events:none}
 .loader-inner{display:flex;flex-direction:column;align-items:center;gap:18px}
-.nav-logo-img{width:36px;height:36px;border-radius:8px;object-fit:cover;border:1px solid var(--pink-border)}
-.footer-logo-img{width:32px;height:32px;border-radius:8px;object-fit:cover;border:1px solid var(--pink-border)}
+.nav-logo-img{width:36px;height:36px;border-radius:8px;object-fit:contain;background:rgba(255,0,127,.06);border:1px solid var(--pink-border)}
+.footer-logo-img{width:32px;height:32px;border-radius:8px;object-fit:contain;background:rgba(255,0,127,.06);border:1px solid var(--pink-border)}
 .loader-logo-wrap{position:relative;width:80px;height:80px;display:flex;align-items:center;justify-content:center}
-.loader-logo-img{width:56px;height:56px;border-radius:12px;object-fit:cover;position:relative;z-index:1;border:1px solid var(--pink-border)}
+.loader-logo-img{width:56px;height:56px;border-radius:12px;object-fit:contain;background:rgba(255,0,127,.06);position:relative;z-index:1;border:1px solid var(--pink-border)}
 .loader-ring{position:absolute;inset:0;width:80px;height:80px;animation:loaderSpin 2.5s linear infinite}
 .hex-track{stroke:rgba(255,0,127,.15);stroke-width:2;fill:none}
 .hex-anim{stroke:var(--pink);stroke-width:2;fill:none;stroke-dasharray:320;stroke-dashoffset:320;animation:drawHex 1.2s ease forwards}
