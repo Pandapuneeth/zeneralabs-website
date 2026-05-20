@@ -1,5 +1,10 @@
 /* ══ ZENERA LABS — contact.js ══ */
 
+// ── EmailJS config ──
+const EMAILJS_SERVICE_ID  = 'service_xdlvzze';
+const EMAILJS_TEMPLATE_ID = 'template_fu7588d';
+const EMAILJS_PUBLIC_KEY  = 'pD_FAm9FzOx9KgQ5h';
+
 // ── Pre-select service from URL param (?service=xxx) ──
 (function() {
   const params = new URLSearchParams(window.location.search);
@@ -91,22 +96,47 @@ if (form) {
       showToast('Please fill in all required fields.', 'error');
       return;
     }
+
     const btn = document.getElementById('formSubmit');
     btn.querySelector('.submit-text').style.display = 'none';
     btn.querySelector('.submit-arrow').style.display = 'none';
     btn.querySelector('.submit-loading').style.display = 'inline-flex';
     btn.disabled = true;
 
-    // Build WhatsApp message as fallback since there's no backend yet
     const name    = document.getElementById('fname').value.trim();
     const email   = document.getElementById('femail').value.trim();
     const phone   = document.getElementById('fphone').value.trim();
     const service = document.getElementById('selectedService').value;
     const msg     = document.getElementById('fmsg').value.trim();
+    const time    = new Date().toLocaleString('en-IN', {
+      day: 'numeric', month: 'long', year: 'numeric',
+      hour: '2-digit', minute: '2-digit', hour12: true
+    });
 
-    // Simulate a brief send delay, then show success + open WhatsApp
-    await new Promise(r => setTimeout(r, 1200));
+    // ── Send email via EmailJS ──
+    let emailSent = false;
+    try {
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          from_name:  name,
+          from_email: email,
+          phone:      phone || 'Not provided',
+          service:    service,
+          message:    msg,
+          time:       time
+        },
+        EMAILJS_PUBLIC_KEY
+      );
+      emailSent = true;
+      showToast('Message sent! We\'ll be in touch soon 🚀', 'success');
+    } catch (err) {
+      console.error('EmailJS error:', err);
+      showToast('Email failed — but WhatsApp is opening as backup!', 'info');
+    }
 
+    // ── Always open WhatsApp too ──
     const waText = encodeURIComponent(
       `*New Inquiry — Zenera Labs Website*\n\n` +
       `*Name:* ${name}\n` +
@@ -115,11 +145,9 @@ if (form) {
       `*Service:* ${service}\n\n` +
       `*Message:*\n${msg}`
     );
-
-    // Open WhatsApp with pre-filled message
     window.open(`https://wa.me/918073378278?text=${waText}`, '_blank');
 
-    // Show success overlay
+    // ── Show success overlay ──
     document.getElementById('successOverlay').classList.add('active');
     form.reset();
     document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
