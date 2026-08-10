@@ -3,6 +3,7 @@ import { Syne, DM_Sans } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { SiteHeader } from "@/components/site-header";
+import { SmoothScroll } from "@/components/smooth-scroll";
 import { Loader } from "@/components/loader";
 import { CustomCursor } from "@/components/custom-cursor";
 import { BgParticles } from "@/components/bg-particles";
@@ -131,6 +132,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <JsonLd data={webSiteJsonLd} />
 
         <ToastProvider>
+          <SmoothScroll />
           <SiteHeader />
           {children}
         </ToastProvider>

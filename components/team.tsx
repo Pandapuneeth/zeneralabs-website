@@ -6,7 +6,7 @@ import { Reveal } from "@/components/reveal";
 
 export function Team() {
   return (
-    <section id="team" className="relative z-[2] scroll-mt-[86px] py-24 md:py-28">
+    <section id="team" className="relative z-[2] scroll-mt-[126px] py-24 md:py-28">
       <div className="mx-auto w-full max-w-[1100px] px-6 md:px-12">
         <Reveal
           className="mb-3 inline-block text-[11px] font-semibold tracking-[0.4em] text-primary uppercase"

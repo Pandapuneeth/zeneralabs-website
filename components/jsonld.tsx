@@ -1,3 +1,5 @@
+import { PRICING_CATEGORIES } from "@/lib/pricing";
+
 export function JsonLd({ data }: { data: Record<string, unknown> }) {
   return (
     <script
@@ -181,6 +183,47 @@ export const contactBreadcrumbJsonLd = {
       position: 2,
       name: "Contact",
       item: "https://zeneralabs.in/contact.html",
+    },
+  ],
+};
+
+const catalogPrice = (price: string) => Number(price.replace(/[₹,*+\s]/g, ""));
+
+export const pricingPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "Zenera Labs — Development & AI Pricing",
+  url: "https://zeneralabs.in/pricing",
+  description:
+    "Transparent starting prices for web development, mobile apps, AI & ML, business automation, student projects and design & engineering from Zenera Labs.",
+  provider: {
+    "@type": "Organization",
+    name: "Zenera Labs",
+    url: "https://zeneralabs.in",
+    telephone: "+918073378278",
+  },
+  areaServed: { "@type": "Country", name: "India" },
+  offers: PRICING_CATEGORIES.flatMap((cat) =>
+    cat.tiers.map((tier) => ({
+      "@type": "Offer",
+      name: `${cat.label} — ${tier.name}`,
+      description: tier.note,
+      priceCurrency: "INR",
+      price: catalogPrice(tier.price),
+    })),
+  ),
+};
+
+export const pricingBreadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://zeneralabs.in/" },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Pricing",
+      item: "https://zeneralabs.in/pricing",
     },
   ],
 };

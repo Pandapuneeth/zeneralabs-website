@@ -210,8 +210,6 @@
     outline-color: var(--ring);
   }
   html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 86px;
     color-scheme: dark;
     -webkit-tap-highlight-color: transparent;
   }
