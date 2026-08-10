@@ -28,7 +28,7 @@ function quoteHref(service: string) {
 
 export function Services() {
   return (
-    <section id="services" className="relative z-[2] scroll-mt-[86px] py-24 md:py-28">
+    <section id="services" className="relative z-[2] scroll-mt-[126px] py-24 md:py-28">
       <div className="mx-auto w-full max-w-[1100px] px-6 md:px-12">
         <Reveal
           className="mb-3 inline-block text-[11px] font-semibold tracking-[0.4em] text-primary uppercase"
@@ -60,7 +60,7 @@ export function Services() {
                     {service.num}
                   </span>
                 </div>
-                <h3 className="font-heading scroll-mt-[102px] text-xl font-bold mb-3">{service.title}</h3>
+                <h3 className="font-heading scroll-mt-[126px] text-xl font-bold mb-3">{service.title}</h3>
                 <p className="mb-5 leading-relaxed text-[14px] text-muted-foreground">{service.desc}</p>
                 <div className="mt-auto mb-5 flex flex-wrap gap-1.5">
                   {service.tags.map((tag) => (
@@ -100,7 +100,7 @@ export function Services() {
                     {SERVICE_STUDENT.num}
                   </span>
                 </div>
-                <h3 className="font-heading scroll-mt-[102px] text-xl font-bold mb-3">
+                <h3 className="font-heading scroll-mt-[126px] text-xl font-bold mb-3">
                   {SERVICE_STUDENT.title}
                 </h3>
                 <p className="mb-5 leading-relaxed text-[14px] text-muted-foreground">

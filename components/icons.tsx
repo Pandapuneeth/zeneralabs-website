@@ -161,6 +161,36 @@ export function DesignIcon(props: ServiceIconProps) {
   );
 }
 
+export function AutomationIcon(props: ServiceIconProps) {
+  const { size, ...rest } = props;
+  return (
+    <Svg size={size} {...rest}>
+      <circle cx="12" cy="12" r="3" stroke="currentColor" strokeWidth="1.5" />
+      <path
+        d="M12 2.5v4M12 17.5v4M2.5 12h4M17.5 12h4M5.3 5.3l2.8 2.8M15.9 15.9l2.8 2.8M18.7 5.3l-2.8 2.8M8.1 15.9l-2.8 2.8"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+      />
+    </Svg>
+  );
+}
+
+export function CodeIcon(props: ServiceIconProps) {
+  const { size, ...rest } = props;
+  return (
+    <Svg size={size} {...rest}>
+      <path
+        d="M8 7l-5 5 5 5M16 7l5 5-5 5M13 4l-2 16"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </Svg>
+  );
+}
+
 export function StudentIcon(props: ServiceIconProps) {
   const { size, ...rest } = props;
   return (
