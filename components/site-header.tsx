@@ -101,7 +101,7 @@ export function SiteHeader() {
             Zenera Turns 1
           </Badge>
           <p className="min-w-0 truncate text-[12px] font-medium text-primary-foreground/95 md:text-[13px]">
-            Anniversary pricing is live — websites from ₹2,999
+            Anniversary starting prices are live.
           </p>
           <Link
             href="/pricing"
