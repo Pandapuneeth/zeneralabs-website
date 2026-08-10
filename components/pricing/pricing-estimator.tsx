@@ -6,6 +6,7 @@ import type { ComponentType, SVGProps } from "react";
 import { CheckIcon } from "@phosphor-icons/react";
 import { Badge } from "@/components/ui/badge";
 import { Textarea } from "@/components/ui/textarea";
+import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/reveal";
 import { SITE } from "@/lib/site";
@@ -57,6 +58,7 @@ export function PricingEstimator() {
   );
   const [addons, setAddons] = useState<string[]>([]);
   const [description, setDescription] = useState("");
+  const [budget, setBudget] = useState("");
 
   const selected = PRICER_CATEGORIES.find((c) => c.id === category) ?? PRICER_CATEGORIES[0];
   const complexity = COMPLEXITY_OPTIONS.find((c) => c.id === complex) ?? COMPLEXITY_OPTIONS[1];
@@ -80,6 +82,7 @@ export function PricingEstimator() {
       `• Complexity: ${complexity.label}`,
       addonLabels.length ? `• Add-ons: ${addonLabels.map((a) => a.label).join(", ")}` : "• Add-ons: none",
       `• Estimated range: ${fmt(low)} – ${fmt(high)}`,
+      budget.trim() ? `• Approximate budget: ${budget.trim()}` : "",
       description.trim() ? `\n• Project details:\n${description.trim()}` : "",
     ].join("\n");
     window.open(`${SITE.whatsapp}?text=${encodeURIComponent(message)}`, "_blank");
@@ -207,7 +210,7 @@ export function PricingEstimator() {
             </fieldset>
           </Reveal>
 
-          <Reveal delay={0.15} className="lg:sticky lg:top-[136px] lg:self-start">
+          <Reveal delay={0.15}>
             <div className="flex flex-col rounded-[20px] border border-primary/25 bg-linear-to-br from-primary/10 via-primary/5 to-primary/5 p-7 md:p-8">
               <span className="text-[11px] font-semibold tracking-[0.3em] text-primary uppercase">
                 Estimated range
@@ -252,22 +255,41 @@ export function PricingEstimator() {
                 </ul>
               </div>
 
-              <div className="mt-5">
-                <label htmlFor="estimate-notes" className="mb-2 block text-[11px] font-semibold tracking-[0.18em] text-muted-foreground uppercase">
-                  Tell us more <span className="normal-case tracking-normal text-foreground/40">(optional)</span>
-                </label>
-                <Textarea
-                  id="estimate-notes"
-                  rows={3}
-                  maxLength={600}
-                  placeholder="Describe your project, timeline and any specific requirements..."
-                  value={description}
-                  onChange={(e) => setDescription(e.target.value)}
-                  className="min-h-[78px] rounded-xl border-border bg-background/40 text-[13px] placeholder:text-foreground/25 focus-visible:border-primary/30 focus-visible:ring-primary/10"
-                />
+              <div className="mt-6 space-y-4">
+                <div>
+                  <label htmlFor="estimate-budget" className="mb-2 block text-[11px] font-semibold tracking-[0.18em] text-muted-foreground uppercase">
+                    Approximate budget <span className="normal-case tracking-normal text-foreground/40">(optional)</span>
+                  </label>
+                  <Input
+                    id="estimate-budget"
+                    type="text"
+                    inputMode="numeric"
+                    placeholder="e.g. ₹15,000"
+                    value={budget}
+                    onChange={(e) => setBudget(e.target.value)}
+                    className="h-11 rounded-xl border-border bg-background/40 text-[13px] placeholder:text-foreground/25 focus-visible:border-primary/30 focus-visible:ring-primary/10"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="estimate-notes" className="mb-2 block text-[11px] font-semibold tracking-[0.18em] text-muted-foreground uppercase">
+                    Project details <span className="normal-case tracking-normal text-foreground/40">(optional)</span>
+                  </label>
+                  <Textarea
+                    id="estimate-notes"
+                    rows={3}
+                    maxLength={600}
+                    placeholder="Describe your project, timeline and any specific requirements..."
+                    value={description}
+                    onChange={(e) => setDescription(e.target.value)}
+                    className="min-h-[72px] resize-none rounded-xl border-border bg-background/40 p-3 text-[13px] leading-relaxed placeholder:text-foreground/25 focus-visible:border-primary/30 focus-visible:ring-primary/10"
+                  />
+                </div>
               </div>
 
-              <Button onClick={openQuoteRequest} className="h-12 w-full rounded-xl text-[15px] font-semibold">
+              <Button
+                onClick={openQuoteRequest}
+                className="mt-6 h-12 w-full rounded-xl text-[15px] font-semibold"
+              >
                 Get an Exact Quote
                 <ArrowRightIcon width={18} height={18} />
               </Button>

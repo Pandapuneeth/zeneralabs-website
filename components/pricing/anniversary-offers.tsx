@@ -59,6 +59,7 @@ export function AnniversaryOffers() {
         </div>
 
         <Reveal as="p" className="mt-6 text-center text-[12px] text-foreground/40">
+          <span className="font-semibold text-primary">Zenera Turns 1 — Anniversary Starting Price.</span>{" "}
           All prices are &quot;starting at&quot; — final pricing depends on scope, features and integrations.
         </Reveal>
       </div>

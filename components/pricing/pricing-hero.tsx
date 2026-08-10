@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
 import { Reveal } from "@/components/reveal";
 import { SITE } from "@/lib/site";
@@ -27,6 +28,12 @@ export function PricingHero() {
         </Reveal>
         <Reveal as="p" className="mt-3 text-[13px] text-foreground/50" delay={0.3}>
           Prices are starting points. Final pricing depends on your actual requirements.
+        </Reveal>
+        <Reveal delay={0.35} className="mt-5">
+          <Badge className="h-8 rounded-full border-primary/25 bg-primary/10 px-4 text-[12px] font-medium text-primary">
+            <span className="size-[5px] shrink-0 rounded-full bg-primary" aria-hidden="true" />
+            Fair pricing. Real engineering. No unnecessary upselling.
+          </Badge>
         </Reveal>
         <Reveal delay={0.4} className="mt-8 flex flex-wrap gap-3.5">
           <a
