@@ -153,7 +153,6 @@ export const TEAM: TeamMember[] = [
     photo: "assets/hamsini sy.jpeg",
   },
   { name: "Anya R", role: "Full Stack Developer", initials: "AR", color: "#7c3aed" },
-  { name: "Lekhana", role: "Full Stack Web Developer", initials: "LK", color: "#0ea5e9" },
   {
     name: "Naman AU",
     role: "AI Developer Intern",
