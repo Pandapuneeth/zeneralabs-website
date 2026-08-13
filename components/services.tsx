@@ -4,6 +4,7 @@ import { buttonVariants } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { SERVICES, SERVICE_STUDENT } from "@/lib/site";
 import { Reveal } from "@/components/reveal";
+import { CutoutCard, CutoutCardFooter } from "@/components/ui/cutout-card";
 import { cn } from "@/lib/utils";
 import {
   AiIcon,
@@ -50,92 +51,98 @@ export function Services() {
               <Reveal
                 key={service.id}
                 delay={Math.min(i * 0.1, 0.35)}
-                className="relative flex flex-col overflow-hidden rounded-2xl border border-border bg-card p-8 hover:border-primary/25"
+                className="h-full"
               >
-                <div className="mb-5 flex items-center justify-between">
-                  <div className="flex size-12 items-center justify-center rounded-xl border border-primary/25 text-primary bg-primary/15">
-                    <Icon size={22} />
+                <CutoutCard className="flex h-full flex-col p-6 sm:p-8">
+                  <div className="mb-5 flex items-center justify-between">
+                    <div className="flex size-12 items-center justify-center rounded-xl border border-primary/25 text-primary bg-primary/15">
+                      <Icon size={22} />
+                    </div>
+                    <span className="font-heading text-[11px] font-bold tracking-widest text-primary/40">
+                      {service.num}
+                    </span>
                   </div>
-                  <span className="font-heading text-[11px] font-bold tracking-widest text-primary/40">
-                    {service.num}
-                  </span>
-                </div>
-                <h3 className="font-heading scroll-mt-[126px] text-xl font-bold mb-3">{service.title}</h3>
-                <p className="mb-5 leading-relaxed text-[14px] text-muted-foreground">{service.desc}</p>
-                <div className="mt-auto mb-5 flex flex-wrap gap-1.5">
-                  {service.tags.map((tag) => (
-                    <Badge
-                      key={tag}
-                      variant="outline"
-                      className="h-6 rounded-full border-primary/25 bg-transparent px-2.5 text-[11px] font-medium text-primary"
+                  <h3 className="font-heading scroll-mt-[126px] text-xl font-bold text-foreground mb-3">{service.title}</h3>
+                  <p className="mb-5 leading-relaxed text-[14px] text-muted-foreground">{service.desc}</p>
+                  <div className="mt-auto mb-6 flex flex-wrap gap-1.5">
+                    {service.tags.map((tag) => (
+                      <Badge
+                        key={tag}
+                        variant="outline"
+                        className="h-6 rounded-full border-primary/25 bg-transparent px-2.5 text-[11px] font-medium text-primary"
+                      >
+                        {tag}
+                      </Badge>
+                    ))}
+                  </div>
+                  <CutoutCardFooter className="w-full">
+                    <Link
+                      href={quoteHref(service.title)}
+                      className={cn(
+                        buttonVariants({ variant: "outline", size: "sm" }),
+                        "h-9 w-fit rounded-lg px-4 text-[13px]",
+                      )}
                     >
-                      {tag}
-                    </Badge>
-                  ))}
-                </div>
-                <Link
-                  href={quoteHref(service.title)}
-                  className={cn(
-                    buttonVariants({ variant: "outline", size: "sm" }),
-                    "h-9 w-fit rounded-lg px-4 text-[13px]",
-                  )}
-                >
-                  Get a Quote ↗
-                </Link>
+                      Get a Quote ↗
+                    </Link>
+                  </CutoutCardFooter>
+                </CutoutCard>
               </Reveal>
             );
           })}
 
           <Reveal
             delay={0.4}
-            className="relative flex flex-col overflow-hidden rounded-2xl border border-border bg-card p-8 hover:border-primary/25 lg:col-span-2"
+            className="h-full lg:col-span-2"
           >
-            <div className="grid w-full grid-cols-1 items-center gap-12 lg:grid-cols-[1fr_auto]">
-              <div className="flex flex-col">
-                <div className="mb-5 flex items-center justify-between">
-                  <div className="flex size-12 items-center justify-center rounded-xl border border-primary/25 text-primary bg-primary/15">
-                    <StudentIcon size={22} />
+            <CutoutCard className="h-full p-6 sm:p-8">
+              <div className="grid w-full grid-cols-1 items-center gap-12 lg:grid-cols-[1fr_auto]">
+                <div className="flex flex-col">
+                  <div className="mb-5 flex items-center justify-between">
+                    <div className="flex size-12 items-center justify-center rounded-xl border border-primary/25 text-primary bg-primary/15">
+                      <StudentIcon size={22} />
+                    </div>
+                    <span className="font-heading text-[11px] font-bold tracking-widest text-primary/40">
+                      {SERVICE_STUDENT.num}
+                    </span>
                   </div>
-                  <span className="font-heading text-[11px] font-bold tracking-widest text-primary/40">
-                    {SERVICE_STUDENT.num}
-                  </span>
+                  <h3 className="font-heading scroll-mt-[126px] text-xl font-bold text-foreground mb-3">
+                    {SERVICE_STUDENT.title}
+                  </h3>
+                  <p className="mb-5 leading-relaxed text-[14px] text-muted-foreground">
+                    {SERVICE_STUDENT.desc}
+                  </p>
+                  <div className="flex flex-wrap gap-1.5">
+                    {SERVICE_STUDENT.tags.map((tag) => (
+                      <Badge
+                        key={tag}
+                        variant="outline"
+                        className="h-6 rounded-full border-primary/25 bg-transparent px-2.5 text-[11px] font-medium text-primary"
+                      >
+                        {tag}
+                      </Badge>
+                    ))}
+                  </div>
+                  <Link
+                    href={quoteHref(SERVICE_STUDENT.title)}
+                    className={cn(
+                      buttonVariants({ variant: "outline", size: "sm" }),
+                      "mt-6 h-9 w-fit rounded-lg px-4 text-[13px]",
+                    )}
+                  >
+                    Get Help Now →
+                  </Link>
                 </div>
-                <h3 className="font-heading scroll-mt-[126px] text-xl font-bold mb-3">
-                  {SERVICE_STUDENT.title}
-                </h3>
-                <p className="mb-5 leading-relaxed text-[14px] text-muted-foreground">
-                  {SERVICE_STUDENT.desc}
-                </p>
-                <div className="flex flex-wrap gap-1.5">
-                  {SERVICE_STUDENT.tags.map((tag) => (
-                    <Badge
-                      key={tag}
-                      variant="outline"
-                      className="h-6 rounded-full border-primary/25 bg-transparent px-2.5 text-[11px] font-medium text-primary"
-                    >
-                      {tag}
-                    </Badge>
-                  ))}
-                </div>
-                <Link
-                  href={quoteHref(SERVICE_STUDENT.title)}
-                  className={cn(
-                    buttonVariants({ variant: "outline", size: "sm" }),
-                    "mt-5 h-9 w-fit rounded-lg px-4 text-[13px]",
-                  )}
-                >
-                  Get Help Now →
-                </Link>
-              </div>
-              <div className="flex flex-col items-center gap-3 text-center sm:items-start sm:text-left">
-                <div className="flex flex-col items-center sm:items-start">
-                  <span className="font-heading text-6xl font-extrabold leading-none text-primary tabular-nums">
-                    {SERVICE_STUDENT.bigNum}
-                  </span>
-                  <span className="mt-1 text-[13px] text-muted-foreground">{SERVICE_STUDENT.bigLabel}</span>
+                <div className="flex flex-col items-center gap-3 text-center sm:items-start sm:text-left">
+                  <div className="flex flex-col items-center sm:items-start">
+                    <span className="font-heading text-6xl font-extrabold leading-none text-primary tabular-nums">
+                      {SERVICE_STUDENT.bigNum}
+                    </span>
+                    <span className="mt-1 text-[13px] text-muted-foreground">{SERVICE_STUDENT.bigLabel}</span>
+                  </div>
                 </div>
               </div>
-            </div>
+            </CutoutCard>
           </Reveal>
         </div>
       </div>

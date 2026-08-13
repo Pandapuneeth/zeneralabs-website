@@ -219,16 +219,6 @@
     color: var(--foreground);
     overflow-x: hidden;
   }
-  @media (hover: hover) and (pointer: fine) {
-    body {
-      cursor: none;
-    }
-  }
-  @media (max-width: 600px) {
-    body {
-      cursor: auto;
-    }
-  }
   ::selection {
     background: color-mix(in oklab, var(--primary) 35%, transparent);
     color: #fff;

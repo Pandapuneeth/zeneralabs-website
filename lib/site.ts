@@ -178,6 +178,12 @@ export const TEAM: TeamMember[] = [
     role: "ML Engineer & Data Analyst Intern",
     photo: "assets/priyankam.jpeg",
   },
+  {
+    name: "Dhyuthi Shree KS",
+    role: "Machine Learning Engineer Intern",
+    initials: "DS",
+    color: "#22d3ee",
+  },
 ] as const;
 
 export const CONTACT_CHIPS = [
