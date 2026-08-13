@@ -227,3 +227,19 @@ export const pricingBreadcrumbJsonLd = {
     },
   ],
 };
+
+export const ambassadorJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "Zenera Labs Student Ambassador Program",
+  url: "https://zeneralabs.in/ambassador",
+  description:
+    "Refer clients to Zenera Labs and earn 2–8% commission on every project. Free to join, fast payouts.",
+  isPartOf: { "@type": "WebSite", name: "Zenera Labs", url: "https://zeneralabs.in" },
+  about: {
+    "@type": "Organization",
+    name: "Zenera Labs",
+    url: "https://zeneralabs.in",
+    email: "ambassador@zeneralabs.in",
+  },
+};

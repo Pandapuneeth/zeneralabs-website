@@ -13,6 +13,7 @@ export function SiteHeader() {
   const pathname = usePathname();
   const isContact = pathname === "/contact";
   const isPricing = pathname === "/pricing";
+  const isAmbassador = pathname === "/ambassador";
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
@@ -25,7 +26,7 @@ export function SiteHeader() {
   }, []);
 
   useEffect(() => {
-    if (isContact || isPricing) return;
+    if (isContact || isPricing || isAmbassador) return;
     const ids = ["impact", "services", "team"];
     const onScroll = () => {
       let current = "";
@@ -38,7 +39,7 @@ export function SiteHeader() {
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, [isContact, isPricing]);
+    }, [isContact, isPricing, isAmbassador]);
 
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
@@ -134,7 +135,9 @@ export function SiteHeader() {
                   ? isContact
                   : link.label === "Pricing"
                     ? isPricing
-                    : activeSection === link.href.slice(1);
+                    : link.label === "Ambassador"
+                      ? isAmbassador
+                      : activeSection === link.href.slice(1);
               return (
                 <Link
                   key={link.label}

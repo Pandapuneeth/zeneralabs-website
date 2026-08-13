@@ -5,6 +5,8 @@ import { ContactInfo } from "@/components/contact-info";
 import { SiteFooter } from "@/components/site-footer";
 import { Reveal } from "@/components/reveal";
 import { BackArrowIcon } from "@/components/icons";
+import { CutoutCard, cutoutCardSurfaceShadowClassName } from "@/components/ui/cutout-card";
+import { cn } from "@/lib/utils";
 import { JsonLd, contactPageJsonLd, contactBreadcrumbJsonLd } from "@/components/jsonld";
 
 export const metadata: Metadata = {
@@ -87,7 +89,7 @@ export default async function ContactPage({
         <div className="relative z-[2] pb-[100px]">
           <div className="mx-auto w-full max-w-[1100px] px-6 md:px-12">
             <div className="grid grid-cols-1 items-start gap-12 md:grid-cols-[1fr_380px]">
-              <div className="rounded-[20px] border border-border bg-card p-8 md:p-10">
+              <CutoutCard className={cn(cutoutCardSurfaceShadowClassName, "rounded-[28px] bg-card p-7 sm:p-8 md:p-10")}>
                 <div className="mb-9">
                   <h2 className="font-heading text-2xl font-bold mb-2">Send us a message</h2>
                   <p className="text-sm leading-relaxed text-muted-foreground">
@@ -96,7 +98,7 @@ export default async function ContactPage({
                   </p>
                 </div>
                 <ContactForm initialService={initialService} />
-              </div>
+              </CutoutCard>
               <ContactInfo />
             </div>
           </div>
