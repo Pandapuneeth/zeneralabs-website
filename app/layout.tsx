@@ -7,6 +7,7 @@ import { SmoothScroll } from "@/components/smooth-scroll";
 import { Loader } from "@/components/loader";
 import { CustomCursor } from "@/components/custom-cursor";
 import { BgParticles } from "@/components/bg-particles";
+import { CtaIsland } from "@/components/cta-island";
 import { ToastProvider } from "@/components/toast-provider";
 import { GeistSans } from 'geist/font/sans';
 import { GeistMono } from 'geist/font/mono';
@@ -126,6 +127,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           aria-hidden="true"
         />
         <BgParticles />
+        <CtaIsland />
 
         <JsonLd data={orgJsonLd} />
         <JsonLd data={localBusinessJsonLd} />

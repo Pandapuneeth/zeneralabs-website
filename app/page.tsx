@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Hero } from "@/components/hero";
-import { Marquee } from "@/components/marquee";
+import { TextLoop } from "@/components/text-loop";
 import { Impact } from "@/components/impact";
 import { Services } from "@/components/services";
 import { Team } from "@/components/team";
@@ -18,7 +18,26 @@ export default function HomePage() {
     <>
       <main id="main">
         <Hero />
-        <Marquee />
+        <div className="relative z-[2] border-y border-border bg-white/[0.015]" aria-hidden="true">
+          <TextLoop
+            text="AI Automation ✦ Web Development ✦ Flutter Apps ✦ Backend Systems ✦ Final Year Projects"
+            shape="wave"
+            speed={90}
+            separator=""
+            curviness={50}
+            fontSize={46}
+            fontWeight={800}
+            letterSpacing={6}
+            uppercase
+            color="var(--foreground)"
+            ribbon
+            ribbonColor="var(--primary)"
+            ribbonWidth={86}
+            pauseOnHover
+          />
+          <div className="pointer-events-none absolute inset-y-0 left-0 z-[1] w-[120px] bg-linear-to-r from-background to-transparent" aria-hidden="true" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 z-[1] w-[120px] bg-linear-to-l from-background to-transparent" aria-hidden="true" />
+        </div>
         <Impact />
         <Services />
         <Team />
