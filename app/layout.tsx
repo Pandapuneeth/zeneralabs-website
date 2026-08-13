@@ -5,7 +5,6 @@ import { cn } from "@/lib/utils";
 import { SiteHeader } from "@/components/site-header";
 import { SmoothScroll } from "@/components/smooth-scroll";
 import { Loader } from "@/components/loader";
-import { CustomCursor } from "@/components/custom-cursor";
 import { BgParticles } from "@/components/bg-particles";
 import { CtaIsland } from "@/components/cta-island";
 import { ToastProvider } from "@/components/toast-provider";
@@ -116,7 +115,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           Skip to main content
         </a>
         <Loader />
-        <CustomCursor />
 
         <div className="noise" aria-hidden="true" />
         <div className="pointer-events-none fixed top-[-200px] right-[-200px] z-0 size-[600px] rounded-full bg-primary/10 blur-[80px] animate-orb-1" aria-hidden="true" />

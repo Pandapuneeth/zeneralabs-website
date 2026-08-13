@@ -2,6 +2,7 @@ import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
 import { IMPACT_STATS } from "@/lib/site";
 import { Reveal } from "@/components/reveal";
+import { CutoutCard } from "@/components/ui/cutout-card";
 import { CountUp } from "@/components/count-up";
 import { cn } from "@/lib/utils";
 
@@ -27,17 +28,19 @@ export function Impact() {
             <Reveal
               key={stat.label}
               delay={i * 0.1}
-              className="group/card relative flex flex-col overflow-hidden rounded-2xl border border-border bg-card p-7 transition-colors duration-300 hover:border-primary/25"
+              className="h-full"
             >
-              <span className="mb-4 block text-3xl" aria-hidden="true">{stat.emoji}</span>
-              <div className="mb-2 flex items-baseline gap-0.5">
-                <span className="font-heading text-5xl font-extrabold leading-none text-primary tabular-nums">
-                  <CountUp target={stat.target} />
-                </span>
-                {stat.plus && <span className="font-heading text-3xl font-extrabold text-primary">+</span>}
-              </div>
-              <div className="font-heading text-sm font-bold">{stat.label}</div>
-              <p className="mt-2.5 text-[13px] leading-relaxed text-muted-foreground">{stat.desc}</p>
+              <CutoutCard className="flex h-full flex-col p-6 sm:p-7">
+                <span className="mb-4 block text-3xl" aria-hidden="true">{stat.emoji}</span>
+                <div className="mb-2 flex items-baseline gap-0.5">
+                  <span className="font-heading text-5xl font-extrabold leading-none text-primary tabular-nums">
+                    <CountUp target={stat.target} />
+                  </span>
+                  {stat.plus && <span className="font-heading text-3xl font-extrabold text-primary">+</span>}
+                </div>
+                <div className="font-heading text-sm font-bold text-foreground">{stat.label}</div>
+                <p className="mt-2.5 text-[13px] leading-relaxed text-muted-foreground">{stat.desc}</p>
+              </CutoutCard>
             </Reveal>
           ))}
 
