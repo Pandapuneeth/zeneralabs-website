@@ -21,18 +21,17 @@ export default function HomePage() {
         <div className="relative z-[2] border-y border-border bg-white/[0.015]" aria-hidden="true">
           <TextLoop
             text="AI Automation ✦ Web Development ✦ Flutter Apps ✦ Backend Systems ✦ Final Year Projects"
-            shape="wave"
+            shape="line"
             speed={90}
             separator=""
-            curviness={50}
-            fontSize={46}
+            fontSize={36}
             fontWeight={800}
             letterSpacing={6}
             uppercase
             color="var(--foreground)"
             ribbon
             ribbonColor="var(--primary)"
-            ribbonWidth={86}
+            ribbonWidth={56}
             pauseOnHover
           />
           <div className="pointer-events-none absolute inset-y-0 left-0 z-[1] w-[120px] bg-linear-to-r from-background to-transparent" aria-hidden="true" />

@@ -234,7 +234,7 @@ export const ambassadorJsonLd = {
   name: "Zenera Labs Student Ambassador Program",
   url: "https://zeneralabs.in/ambassador",
   description:
-    "Refer clients to Zenera Labs and earn 2–8% commission on every project. Free to join, fast payouts.",
+    "Refer clients to Zenera Labs and earn 20–30% commission on every project. Free to join, fast payouts.",
   isPartOf: { "@type": "WebSite", name: "Zenera Labs", url: "https://zeneralabs.in" },
   about: {
     "@type": "Organization",
