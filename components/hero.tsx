@@ -5,10 +5,24 @@ import { Reveal } from "@/components/reveal";
 import { WhatsAppIcon } from "@/components/icons";
 import { cn } from "@/lib/utils";
 import { Badge } from "./ui/badge";
+import { AnimatedGradient } from "@/components/ui/animated-gradient";
 
 export function Hero() {
   return (
-    <section id="hero" className="relative z-[2] flex min-h-screen flex-col items-center justify-center px-6 pt-[118px] pb-20 text-center">
+    <section id="hero" className="relative z-[2] flex min-h-screen flex-col items-center justify-center overflow-hidden px-6 pt-[118px] pb-20 text-center">
+      <AnimatedGradient
+        config={{ preset: "Aurora" }}
+        noise={{ opacity: 0.8, scale: 1.2 }}
+        className="-z-10"
+      />
+      <div
+        className="pointer-events-none absolute inset-0 -z-10 bg-background/45"
+        aria-hidden="true"
+      />
+      <div
+        className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_75%_60%_at_50%_48%,rgba(5,5,5,0.7),transparent_75%)]"
+        aria-hidden="true"
+      />
       <Reveal>
         <Badge className="h-7 gap-2 rounded-full border-primary/25 bg-primary/15 px-4 py-1.5 text-xs font-medium tracking-[0.2em] text-primary">
           <span className="size-[4px] shrink-0 rounded-full bg-primary animate-pulse-dot" aria-hidden="true" />
@@ -23,7 +37,7 @@ export function Hero() {
         <Reveal
           as="span"
           delay={0.25}
-          className="block bg-linear-to-r from-primary via-primary to-primary bg-[length:200%_auto] bg-clip-text text-transparent animate-grad-shift"
+          className="block bg-linear-to-r from-primary via-primary to-primary bg-[length:200%_auto] bg-clip-text text-transparent animate-grad-shift [filter:drop-shadow(0_0_16px_rgba(0,0,0,0.6))]"
         >
           AI-Powered
         </Reveal>
