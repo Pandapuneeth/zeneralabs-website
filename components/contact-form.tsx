@@ -13,6 +13,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Spinner } from "@/components/ui/spinner";
+import { CosmicButton } from "@/components/ui/cosmic-button";
 import { CONTACT_CHIPS, SITE } from "@/lib/site";
 import { buildHumanTime, buildWhatsAppLink, EMAILJS, type ContactPayload } from "@/lib/email";
 import { useToast } from "@/components/toast-provider";
@@ -256,11 +257,12 @@ export function ContactForm({ initialService = "" }: { initialService?: string }
           </span>
         </div>
 
-        <Button
+        <CosmicButton
+          as="button"
           type="submit"
           id="formSubmit"
           disabled={sending}
-          className="mt-1 h-12 w-full rounded-xl text-[15px] font-semibold"
+          className="mt-1 w-full disabled:cursor-not-allowed disabled:opacity-70"
         >
           {sending ? (
             <>
@@ -273,7 +275,7 @@ export function ContactForm({ initialService = "" }: { initialService?: string }
               <ArrowRightIcon width={18} height={18} />
             </>
           )}
-        </Button>
+        </CosmicButton>
 
         <p className="mt-4 text-center text-[13px] text-muted-foreground">
           Or reach us directly:

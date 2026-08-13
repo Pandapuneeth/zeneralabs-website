@@ -1,64 +1,74 @@
 import Image from "next/image";
 import { SITE, TRUST_BADGES } from "@/lib/site";
 import { Faq } from "@/components/faq";
+import { CutoutCard, cutoutCardSurfaceShadowClassName } from "@/components/ui/cutout-card";
+import { cn } from "@/lib/utils";
 import { MailIcon, UserIcon, WhatsAppIcon } from "@/components/icons";
 
 export function ContactInfo() {
   return (
     <div className="flex flex-col gap-5 md:sticky md:top-[94px]">
-      <div className="flex items-center gap-3.5 rounded-[14px] border border-border bg-card p-5">
-        <div className="relative size-[52px] shrink-0">
-          <Image
-            src="/assets/puneeth punacha.jpeg"
-            alt="Puneeth Punacha"
-            width={52}
-            height={52}
-            className="size-[52px] rounded-full object-cover"
-          />
-          <span
-            className="absolute right-0 bottom-0 size-3 rounded-full border-2 border-background bg-green-500"
-            aria-hidden="true"
-          />
+      <CutoutCard className={cn(cutoutCardSurfaceShadowClassName, "rounded-[20px] bg-card p-5")}>
+        <div className="flex items-center gap-3.5">
+          <div className="relative size-[52px] shrink-0">
+            <Image
+              src="/assets/puneeth punacha.jpeg"
+              alt="Puneeth Punacha"
+              width={52}
+              height={52}
+              className="size-[52px] rounded-full object-cover"
+            />
+            <span
+              className="absolute right-0 bottom-0 size-3 rounded-full border-2 border-background bg-green-500"
+              aria-hidden="true"
+            />
+          </div>
+          <div>
+            <strong className="mb-0.5 block text-[15px] font-semibold">Puneeth Punacha</strong>
+            <p className="text-[13px] text-muted-foreground">Founder · Usually replies in under an hour 🚀</p>
+          </div>
         </div>
-        <div>
-          <strong className="mb-0.5 block text-[15px] font-semibold">Puneeth Punacha</strong>
-          <p className="text-[13px] text-muted-foreground">Founder · Usually replies in under an hour 🚀</p>
-        </div>
-      </div>
+      </CutoutCard>
 
       <div className="flex flex-col gap-2.5">
-        <a href={SITE.whatsapp} className="group flex items-center gap-3 rounded-xl border border-border bg-card px-4 py-3.5 transition-colors hover:border-primary/30 hover:bg-primary/5" target="_blank" rel="noopener">
-          <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-green-500/15 text-green-500">
-            <WhatsAppIcon width={20} height={20} />
-          </div>
-          <div className="min-w-0 flex-1">
-            <span className="block text-[11px] tracking-wide text-muted-foreground">WhatsApp / Call</span>
-            <span className="mt-0.5 block text-[13px] font-medium text-foreground">{SITE.phoneDisplay}</span>
-          </div>
-          <span className="text-muted-foreground transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-primary" aria-hidden="true">↗</span>
-        </a>
+        <CutoutCard className={cn("group flex items-center gap-3 rounded-[18px] border border-border bg-card px-4 py-3.5 shadow-[0px_1px_2px_-1px_color-mix(in_oklab,var(--foreground)_8%,transparent)] transition-colors hover:border-primary/30 hover:bg-primary/5")}>
+          <a href={SITE.whatsapp} target="_blank" rel="noopener" className="flex w-full items-center gap-3">
+            <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-green-500/15 text-green-500">
+              <WhatsAppIcon width={20} height={20} />
+            </div>
+            <div className="min-w-0 flex-1">
+              <span className="block text-[11px] tracking-wide text-muted-foreground">WhatsApp / Call</span>
+              <span className="mt-0.5 block text-[13px] font-medium text-foreground">{SITE.phoneDisplay}</span>
+            </div>
+            <span className="text-muted-foreground transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-primary" aria-hidden="true">↗</span>
+          </a>
+        </CutoutCard>
 
-        <a href={`mailto:${SITE.email}`} className="group flex items-center gap-3 rounded-xl border border-border bg-card px-4 py-3.5 transition-colors hover:border-primary/30 hover:bg-primary/5">
-          <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-primary/15 text-primary">
-            <MailIcon width={20} height={20} />
-          </div>
-          <div className="min-w-0 flex-1">
-            <span className="block text-[11px] tracking-wide text-muted-foreground">General Enquiries</span>
-            <span className="mt-0.5 block text-[13px] font-medium text-foreground">{SITE.email}</span>
-          </div>
-          <span className="text-muted-foreground transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-primary" aria-hidden="true">↗</span>
-        </a>
+        <CutoutCard className={cn("group flex items-center gap-3 rounded-[18px] border border-border bg-card px-4 py-3.5 shadow-[0px_1px_2px_-1px_color-mix(in_oklab,var(--foreground)_8%,transparent)] transition-colors hover:border-primary/30 hover:bg-primary/5")}>
+          <a href={`mailto:${SITE.email}`} className="flex w-full items-center gap-3">
+            <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-primary/15 text-primary">
+              <MailIcon width={20} height={20} />
+            </div>
+            <div className="min-w-0 flex-1">
+              <span className="block text-[11px] tracking-wide text-muted-foreground">General Enquiries</span>
+              <span className="mt-0.5 block text-[13px] font-medium text-foreground">{SITE.email}</span>
+            </div>
+            <span className="text-muted-foreground transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-primary" aria-hidden="true">↗</span>
+          </a>
+        </CutoutCard>
 
-        <a href={`mailto:${SITE.founderEmail}`} className="group flex items-center gap-3 rounded-xl border border-border bg-card px-4 py-3.5 transition-colors hover:border-primary/30 hover:bg-primary/5">
-          <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-primary/15 text-primary">
-            <UserIcon width={20} height={20} />
-          </div>
-          <div className="min-w-0 flex-1">
-            <span className="block text-[11px] tracking-wide text-muted-foreground">Founder</span>
-            <span className="mt-0.5 block text-[13px] font-medium text-foreground">{SITE.founderEmail}</span>
-          </div>
-          <span className="text-muted-foreground transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-primary" aria-hidden="true">↗</span>
-        </a>
+        <CutoutCard className={cn("group flex items-center gap-3 rounded-[18px] border border-border bg-card px-4 py-3.5 shadow-[0px_1px_2px_-1px_color-mix(in_oklab,var(--foreground)_8%,transparent)] transition-colors hover:border-primary/30 hover:bg-primary/5")}>
+          <a href={`mailto:${SITE.founderEmail}`} className="flex w-full items-center gap-3">
+            <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-primary/15 text-primary">
+              <UserIcon width={20} height={20} />
+            </div>
+            <div className="min-w-0 flex-1">
+              <span className="block text-[11px] tracking-wide text-muted-foreground">Founder</span>
+              <span className="mt-0.5 block text-[13px] font-medium text-foreground">{SITE.founderEmail}</span>
+            </div>
+            <span className="text-muted-foreground transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-primary" aria-hidden="true">↗</span>
+          </a>
+        </CutoutCard>
       </div>
 
       <div>
@@ -106,10 +116,13 @@ export function ContactInfo() {
 
       <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2">
         {TRUST_BADGES.map((badge) => (
-          <div className="flex items-center gap-2 rounded-xl border border-border bg-card px-3 py-2.5 text-[13px] text-muted-foreground" key={badge.label}>
+          <CutoutCard
+            key={badge.label}
+            className="flex items-center gap-2 rounded-[14px] border border-border bg-card px-3 py-2.5 text-[13px] text-muted-foreground shadow-[0px_1px_2px_-1px_color-mix(in_oklab,var(--foreground)_8%,transparent)]"
+          >
             <span className="text-base" aria-hidden="true">{badge.icon}</span>
             <span>{badge.label}</span>
-          </div>
+          </CutoutCard>
         ))}
       </div>
 
