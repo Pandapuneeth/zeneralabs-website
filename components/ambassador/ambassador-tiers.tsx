@@ -16,7 +16,7 @@ export function AmbassadorTiers() {
           The more you refer, the more you earn
         </Reveal>
         <Reveal as="p" className="max-w-[520px] leading-relaxed text-muted-foreground">
-          Everyone starts at 2% and climbs to 8% as the value you refer grows. No caps, no
+          Everyone starts at 20% and climbs to 30% as the value you refer grows. No caps, no
           hidden terms.
         </Reveal>
 

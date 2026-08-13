@@ -53,10 +53,10 @@ export function AmbassadorCalculator() {
                 </div>
                 <p className="mt-2 text-sm text-muted-foreground">
                   {value >= 250000
-                    ? "Gold — 8% on every referred project"
+                    ? "Gold — 30% on every referred project"
                     : value >= 80000
-                      ? "Silver — 5% on every referred project"
-                      : "Bronze — 2% on every referred project"}
+                      ? "Silver — 25% on every referred project"
+                      : "Bronze — 20% on every referred project"}
                 </p>
               </div>
               <div className="rounded-2xl border border-primary/25 bg-primary/10 p-6 sm:text-right">

@@ -2,25 +2,25 @@ export const AMBASSADOR_TIERS = [
   {
     tier: "Bronze",
     threshold: "Refer your first project",
-    rate: 2,
-    label: "2%",
-    perks: ["2% commission on every closed project", "Official ambassador referral link", "Payout within 7 days of client payment"],
+    rate: 20,
+    label: "20%",
+    perks: ["20% commission on every closed project", "Official ambassador referral link", "Payout within 7 days of client payment"],
     highlight: false,
   },
   {
     tier: "Silver",
     threshold: "₹80,000+ referred in 90 days",
-    rate: 5,
-    label: "5%",
-    perks: ["5% commission on every closed project", "Priority project status", "Exclusive Zenera swag kit", "Quarterly ambassador meetups"],
+    rate: 25,
+    label: "25%",
+    perks: ["25% commission on every closed project", "Priority project status", "Exclusive Zenera swag kit", "Quarterly ambassador meetups"],
     highlight: true,
   },
   {
     tier: "Gold",
     threshold: "₹2,50,000+ referred in 90 days",
-    rate: 8,
-    label: "8%",
-    perks: ["8% commission on every closed project", "Your own referral dashboard", "Direct line to the founder", "Co-branded opportunities"],
+    rate: 30,
+    label: "30%",
+    perks: ["30% commission on every closed project", "Your own referral dashboard", "Direct line to the founder", "Co-branded opportunities"],
     highlight: false,
   },
 ] as const;
@@ -71,6 +71,6 @@ export const AMBASSADOR_FAQS = [
 ] as const;
 
 export function commissionFor(projectValue: number): { rate: number; commission: number } {
-  const rate = projectValue >= 250000 ? 8 : projectValue >= 80000 ? 5 : 2;
+  const rate = projectValue >= 250000 ? 30 : projectValue >= 80000 ? 25 : 20;
   return { rate, commission: (projectValue * rate) / 100 };
 }

@@ -9,9 +9,9 @@ import { SiteFooter } from "@/components/site-footer";
 import { JsonLd, ambassadorJsonLd } from "@/components/jsonld";
 
 export const metadata: Metadata = {
-  title: "Student Ambassador Program | Earn 2–8% Commission — Zenera Labs",
+  title: "Student Ambassador Program | Earn 20–30% Commission — Zenera Labs",
   description:
-    "Join the Zenera Labs Student Ambassador Program. Refer clients and earn 2–8% commission on every project — no technical work needed. Free to join, paid fast.",
+    "Join the Zenera Labs Student Ambassador Program. Refer clients and earn 20–30% commission on every project — no technical work needed. Free to join, paid fast.",
   keywords: [
     "Zenera Labs ambassador",
     "student ambassador program India",
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName: "Zenera Labs",
-    title: "Student Ambassador Program — Earn 2–8% Commission | Zenera Labs",
+    title: "Student Ambassador Program — Earn 20–30% Commission | Zenera Labs",
     description:
       "Refer clients to Zenera Labs and earn commission on every project. No technical work needed. Free to join.",
     url: "https://zeneralabs.in/ambassador",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Student Ambassador Program | Zenera Labs",
-    description: "Refer clients, earn 2–8% commission. No technical work needed.",
+    description: "Refer clients, earn 20–30% commission. No technical work needed.",
     images: ["https://zeneralabs.in/assets/og-image.jpg"],
   },
 };

@@ -5,7 +5,7 @@ import { WhatsAppIcon } from "@/components/icons";
 import { cn } from "@/lib/utils";
 
 const STATS = [
-  { num: "2–8%", label: "Commission per project" },
+  { num: "20–30%", label: "Commission per project" },
   { num: "7 days", label: "Payout after payment" },
   { num: "₹0", label: "Cost to join" },
   { num: "∞", label: "Earning potential" },
@@ -32,7 +32,7 @@ export function AmbassadorHero() {
             </Reveal>
             <Reveal as="p" className="max-w-[520px] leading-relaxed text-muted-foreground" delay={0.2}>
               Know someone who needs a website, app, AI automation, or final year project help?
-              Bring them to Zenera Labs and earn <strong className="text-foreground">2%–8% commission</strong> on
+              Bring them to Zenera Labs and earn <strong className="text-foreground">20%–30% commission</strong> on
               every project you refer — whether you&apos;re a student, freelancer, or just well connected.
             </Reveal>
             <Reveal delay={0.3} className="mt-8 flex flex-col gap-4 sm:flex-row">
@@ -72,7 +72,7 @@ export function AmbassadorHero() {
               </p>
               <div className="mt-6 grid grid-cols-3 gap-3 border-t border-border pt-5 text-center">
                 <div>
-                  <div className="font-heading text-xl font-extrabold text-primary">8%</div>
+                  <div className="font-heading text-xl font-extrabold text-primary">30%</div>
                   <div className="text-[11px] text-muted-foreground">Top Rate</div>
                 </div>
                 <div>
