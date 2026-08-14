@@ -182,8 +182,7 @@ export const TEAM: TeamMember[] = [
   {
     name: "Dhyuthi Shree KS",
     role: "Machine Learning Engineer Intern",
-    initials: "DS",
-    color: "#22d3ee",
+    photo: "assets/dhyuti.png",
   },
 ] as const;
 
