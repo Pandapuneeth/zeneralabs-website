@@ -240,6 +240,6 @@ export const ambassadorJsonLd = {
     "@type": "Organization",
     name: "Zenera Labs",
     url: "https://zeneralabs.in",
-    email: "ambassador@zeneralabs.in",
+    email: "zeneralabs@gmail.com",
   },
 };
