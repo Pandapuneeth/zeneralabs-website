@@ -27,11 +27,11 @@ export function AmbassadorCta() {
               Apply on WhatsApp
             </CosmicButton>
             <a
-              href={`mailto:ambassador@zeneralabs.in`}
+              href={`mailto:zeneralabs@gmail.com`}
               className="inline-flex h-11 w-full items-center justify-center gap-2 rounded-xl border border-border px-6 text-sm text-muted-foreground transition-colors hover:border-primary/30 hover:text-foreground"
             >
               <MailIcon width={16} height={16} />
-              ambassador@zeneralabs.in
+              zeneralabs@gmail.com
             </a>
           </div>
         </Reveal>

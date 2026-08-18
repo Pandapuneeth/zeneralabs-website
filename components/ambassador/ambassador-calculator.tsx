@@ -19,7 +19,7 @@ function formatINR(n: number) {
 }
 
 export function AmbassadorCalculator() {
-  const [value, setValue] = useState(150000);
+  const [value, setValue] = useState(25000);
   const { rate, commission } = commissionFor(value);
 
   return (
@@ -117,7 +117,7 @@ export function AmbassadorCalculator() {
             </div>
 
             <a
-              href="mailto:ambassador@zeneralabs.in"
+              href="mailto:zeneralabs@gmail.com"
               className="mt-8 inline-flex h-11 items-center justify-center gap-2 rounded-xl border border-primary/30 bg-primary px-6 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
             >
               Start earning <ArrowRightIcon width={16} height={16} />

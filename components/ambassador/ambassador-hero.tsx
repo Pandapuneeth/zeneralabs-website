@@ -40,7 +40,7 @@ export function AmbassadorHero() {
                 Become an Ambassador
               </CosmicButton>
               <a
-                href="mailto:ambassador@zeneralabs.in"
+                href="mailto:zeneralabs@gmail.com"
                 className={cn(
                   "inline-flex h-11 items-center justify-center gap-2 rounded-xl border border-border px-6 text-sm text-muted-foreground transition-colors hover:border-primary/30 hover:text-foreground",
                 )}
