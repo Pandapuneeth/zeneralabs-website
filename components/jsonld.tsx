@@ -243,3 +243,76 @@ export const ambassadorJsonLd = {
     email: "zeneralabs@gmail.com",
   },
 };
+
+export const portfolioPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  name: "Zenera Labs Engineering Portfolio",
+  url: "https://zeneralabs.in/portfolio",
+  description:
+    "Internally developed systems demonstrating Zenera Labs capabilities in AI automation, analytics, cybersecurity and intelligent software.",
+  isPartOf: { "@type": "WebSite", name: "Zenera Labs", url: "https://zeneralabs.in" },
+  about: { "@type": "Organization", name: "Zenera Labs", url: "https://zeneralabs.in" },
+};
+
+export const portfolioBreadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://zeneralabs.in/" },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Portfolio",
+      item: "https://zeneralabs.in/portfolio",
+    },
+  ],
+};
+
+export function caseStudyJsonLd(slug: string, title: string, description: string) {
+  const url = `https://zeneralabs.in/portfolio/${slug}`;
+  return {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    headline: title,
+    description,
+    url,
+    isPartOf: {
+      "@type": "CollectionPage",
+      name: "Zenera Labs Engineering Portfolio",
+      url: "https://zeneralabs.in/portfolio",
+    },
+    author: {
+      "@type": "Organization",
+      name: "Zenera Labs",
+      url: "https://zeneralabs.in",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Zenera Labs",
+      url: "https://zeneralabs.in",
+    },
+  };
+}
+
+export function caseStudyBreadcrumbJsonLd(slug: string, title: string) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://zeneralabs.in/" },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Portfolio",
+        item: "https://zeneralabs.in/portfolio",
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: title,
+        item: `https://zeneralabs.in/portfolio/${slug}`,
+      },
+    ],
+  };
+}
