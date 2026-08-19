@@ -1,0 +1,301 @@
+Customer_ID,Signup_Date,Plan,Customer_Segment,City,State,Acquisition_Channel,Monthly_Revenue_INR,Subscription_Status,Churn_Date,Usage_Hours,Support_Tickets
+CUST-0001,2023-08-17,Basic,Startup,Chennai,Tamil Nadu,Organic,1200,Active,,31.8,1
+CUST-0002,2025-05-14,Basic,Startup,Chennai,Tamil Nadu,Google Ads,1100,Active,,26.5,8
+CUST-0003,2025-05-09,Basic,SMB,Bengaluru,Karnataka,LinkedIn,1300,Active,,15.2,2
+CUST-0004,2024-03-16,Enterprise,Enterprise,Pune,Maharashtra,Referral,48500,Active,,140.6,0
+CUST-0005,2025-07-29,Pro,Enterprise,Chandigarh,Chandigarh,Organic,7400,Active,,63.3,5
+CUST-0006,2024-01-29,Pro,Startup,Chennai,Tamil Nadu,LinkedIn,5700,Active,,80.7,6
+CUST-0007,2024-07-23,Pro,Enterprise,Noida,Uttar Pradesh,Referral,6700,Active,,69.1,1
+CUST-0008,2023-12-17,Pro,Startup,Coimbatore,Tamil Nadu,Referral,12600,Active,,59.0,5
+CUST-0009,2023-04-25,Basic,Startup,Jaipur,Rajasthan,Referral,1100,Churned,2024-12-15,35.3,7
+CUST-0010,2024-03-11,Pro,SMB,Coimbatore,Tamil Nadu,Organic,6100,Active,,59.3,4
+CUST-0011,2025-05-27,Enterprise,Enterprise,Chennai,Tamil Nadu,Sales,34100,Active,,63.6,0
+CUST-0012,2023-08-13,Basic,Startup,Indore,Madhya Pradesh,Google Ads,1800,Churned,2024-12-24,22.1,10
+CUST-0013,2023-01-24,Pro,Startup,Bhopal,Madhya Pradesh,LinkedIn,11300,Active,,27.8,6
+CUST-0014,2023-11-20,Pro,Enterprise,Kolkata,West Bengal,Sales,11200,Active,,83.9,4
+CUST-0015,2025-11-05,Pro,Startup,Noida,Uttar Pradesh,Google Ads,11400,Active,,84.3,5
+CUST-0016,2025-09-27,Basic,SMB,Ahmedabad,Gujarat,Organic,1500,Active,,33.4,1
+CUST-0017,2025-09-22,Pro,Enterprise,Bhopal,Madhya Pradesh,LinkedIn,6000,Active,,86.3,2
+CUST-0018,2024-06-26,Pro,SMB,Hyderabad,Telangana,Sales,11200,Active,,34.1,4
+CUST-0019,2025-03-28,Enterprise,Enterprise,Coimbatore,Tamil Nadu,Sales,54600,Active,,83.7,5
+CUST-0020,2023-02-13,Pro,Startup,Chennai,Tamil Nadu,Organic,10800,Active,,36.0,0
+CUST-0021,2024-11-07,Basic,Startup,Nagpur,Maharashtra,Organic,1300,Active,,31.5,7
+CUST-0022,2024-05-12,Pro,Enterprise,Hyderabad,Telangana,Organic,10400,Active,,49.7,7
+CUST-0023,2023-04-21,Pro,Enterprise,Delhi,Delhi,Organic,11000,Active,,80.3,3
+CUST-0024,2024-01-28,Basic,Startup,Indore,Madhya Pradesh,Organic,1900,Churned,2024-05-04,18.8,10
+CUST-0025,2023-07-20,Basic,Enterprise,Bengaluru,Karnataka,Sales,1500,Churned,2024-12-18,20.3,8
+CUST-0026,2023-05-01,Basic,Startup,Chandigarh,Chandigarh,Organic,1900,Churned,2025-05-03,38.4,10
+CUST-0027,2025-09-23,Basic,Startup,Mumbai,Maharashtra,Google Ads,2100,Churned,2025-11-22,4.2,11
+CUST-0028,2025-09-03,Pro,Enterprise,Noida,Uttar Pradesh,Organic,9200,Churned,2025-10-16,4.6,3
+CUST-0029,2024-04-26,Basic,SMB,Visakhapatnam,Andhra Pradesh,Organic,2200,Churned,2024-08-07,17.9,11
+CUST-0030,2025-12-06,Basic,Startup,Jaipur,Rajasthan,Organic,1800,Churned,2025-12-31,13.4,7
+CUST-0031,2023-05-29,Basic,SMB,Visakhapatnam,Andhra Pradesh,Sales,1100,Active,,20.2,2
+CUST-0032,2024-12-15,Enterprise,Enterprise,Kochi,Kerala,Referral,53700,Active,,155.5,8
+CUST-0033,2023-01-17,Pro,SMB,Delhi,Delhi,Sales,6100,Active,,82.3,8
+CUST-0034,2023-11-15,Basic,SMB,Jaipur,Rajasthan,Organic,2300,Active,,20.2,4
+CUST-0035,2023-04-15,Basic,Startup,Kolkata,West Bengal,Organic,1700,Active,,24.1,4
+CUST-0036,2023-11-27,Pro,SMB,Indore,Madhya Pradesh,Google Ads,5900,Churned,2025-11-23,36.3,10
+CUST-0037,2023-03-15,Pro,SMB,Gurugram,Haryana,Referral,5300,Active,,82.9,0
+CUST-0038,2025-01-02,Basic,Startup,Delhi,Delhi,Referral,2100,Active,,17.2,2
+CUST-0039,2024-04-29,Enterprise,Enterprise,Noida,Uttar Pradesh,Sales,26600,Active,,188.7,6
+CUST-0040,2024-05-23,Basic,SMB,Delhi,Delhi,Referral,1100,Active,,11.7,7
+CUST-0041,2024-12-17,Basic,SMB,Chennai,Tamil Nadu,Organic,2400,Churned,2025-06-23,12.6,3
+CUST-0042,2024-07-25,Basic,Startup,Bhopal,Madhya Pradesh,Referral,1100,Churned,2025-12-23,11.9,11
+CUST-0043,2024-06-27,Basic,SMB,Kochi,Kerala,LinkedIn,1600,Active,,34.5,1
+CUST-0044,2025-02-27,Enterprise,SMB,Mumbai,Maharashtra,LinkedIn,25100,Active,,171.0,3
+CUST-0045,2025-01-15,Basic,SMB,Jaipur,Rajasthan,Google Ads,2400,Active,,26.6,4
+CUST-0046,2025-11-04,Basic,Startup,Chandigarh,Chandigarh,Google Ads,2100,Churned,2025-12-20,27.3,8
+CUST-0047,2023-12-23,Pro,SMB,Bhopal,Madhya Pradesh,LinkedIn,7500,Active,,50.1,5
+CUST-0048,2025-08-10,Basic,SMB,Lucknow,Uttar Pradesh,Referral,1300,Active,,13.5,5
+CUST-0049,2023-07-11,Pro,SMB,Ahmedabad,Gujarat,Organic,6600,Churned,2023-09-16,11.3,9
+CUST-0050,2023-05-30,Pro,Enterprise,Visakhapatnam,Andhra Pradesh,Organic,10700,Active,,48.0,2
+CUST-0051,2023-01-12,Enterprise,Enterprise,Delhi,Delhi,LinkedIn,39300,Active,,193.7,8
+CUST-0052,2025-08-09,Basic,Startup,Delhi,Delhi,Referral,2000,Active,,34.6,5
+CUST-0053,2025-06-25,Pro,SMB,Lucknow,Uttar Pradesh,Referral,12400,Active,,82.8,7
+CUST-0054,2025-07-10,Basic,Startup,Kolkata,West Bengal,LinkedIn,2100,Active,,12.2,7
+CUST-0055,2023-06-08,Pro,Startup,Jaipur,Rajasthan,Referral,9400,Churned,2023-11-29,10.8,4
+CUST-0056,2024-03-14,Basic,Startup,Bhopal,Madhya Pradesh,Referral,1100,Churned,2025-06-07,16.8,11
+CUST-0057,2023-02-10,Enterprise,Enterprise,Chandigarh,Chandigarh,Referral,48100,Active,,108.5,6
+CUST-0058,2024-03-27,Pro,Startup,Nagpur,Maharashtra,Organic,7800,Active,,75.9,2
+CUST-0059,2025-08-15,Enterprise,Enterprise,Bhopal,Madhya Pradesh,Organic,50800,Active,,149.4,1
+CUST-0060,2025-05-27,Basic,Startup,Mumbai,Maharashtra,Organic,1700,Active,,14.8,6
+CUST-0061,2024-07-23,Pro,Enterprise,Kolkata,West Bengal,LinkedIn,8900,Churned,2025-05-15,4.0,7
+CUST-0062,2024-04-04,Pro,SMB,Mumbai,Maharashtra,LinkedIn,12800,Active,,78.7,2
+CUST-0063,2024-05-03,Basic,SMB,Visakhapatnam,Andhra Pradesh,Sales,2000,Active,,28.0,2
+CUST-0064,2023-08-23,Pro,Startup,Ahmedabad,Gujarat,Organic,5200,Active,,60.3,6
+CUST-0065,2025-03-23,Enterprise,SMB,Visakhapatnam,Andhra Pradesh,Google Ads,66100,Active,,154.6,4
+CUST-0066,2023-09-05,Pro,SMB,Mumbai,Maharashtra,Referral,8500,Active,,24.8,5
+CUST-0067,2023-01-26,Pro,Enterprise,Delhi,Delhi,Referral,8000,Active,,78.0,2
+CUST-0068,2025-06-10,Basic,Startup,Kolkata,West Bengal,Google Ads,2100,Active,,18.9,4
+CUST-0069,2024-10-22,Enterprise,Enterprise,Pune,Maharashtra,Organic,54500,Active,,119.7,6
+CUST-0070,2024-11-19,Basic,SMB,Noida,Uttar Pradesh,Referral,1700,Active,,15.2,4
+CUST-0071,2023-01-21,Pro,Startup,Chennai,Tamil Nadu,LinkedIn,9000,Active,,36.8,7
+CUST-0072,2025-10-02,Basic,Startup,Ahmedabad,Gujarat,Organic,2400,Active,,24.9,5
+CUST-0073,2025-08-27,Pro,SMB,Bhopal,Madhya Pradesh,Referral,10800,Active,,41.5,3
+CUST-0074,2023-09-05,Pro,SMB,Bhopal,Madhya Pradesh,Sales,10700,Active,,35.1,7
+CUST-0075,2024-07-20,Pro,Enterprise,Lucknow,Uttar Pradesh,Google Ads,5800,Active,,40.7,5
+CUST-0076,2024-01-03,Basic,SMB,Gurugram,Haryana,Organic,1100,Active,,25.9,2
+CUST-0077,2025-10-02,Basic,Startup,Ahmedabad,Gujarat,Referral,1900,Active,,34.0,4
+CUST-0078,2025-09-05,Basic,Startup,Nagpur,Maharashtra,Organic,2300,Active,,9.6,4
+CUST-0079,2023-06-24,Enterprise,SMB,Indore,Madhya Pradesh,Google Ads,65500,Active,,128.4,7
+CUST-0080,2025-06-25,Basic,SMB,Indore,Madhya Pradesh,Referral,2300,Churned,2025-08-09,38.0,5
+CUST-0081,2024-03-08,Basic,Startup,Chennai,Tamil Nadu,Organic,1200,Churned,2025-05-20,19.1,11
+CUST-0082,2025-08-20,Basic,Startup,Ahmedabad,Gujarat,LinkedIn,1900,Churned,2025-10-08,37.1,12
+CUST-0083,2024-02-10,Basic,Startup,Gurugram,Haryana,Sales,1300,Churned,2024-08-17,32.1,11
+CUST-0084,2024-08-14,Basic,Startup,Ahmedabad,Gujarat,Google Ads,1600,Active,,19.8,1
+CUST-0085,2023-03-23,Enterprise,Enterprise,Surat,Gujarat,Organic,31000,Active,,151.1,0
+CUST-0086,2024-07-05,Pro,SMB,Noida,Uttar Pradesh,Referral,10300,Active,,39.5,6
+CUST-0087,2025-10-04,Enterprise,Enterprise,Indore,Madhya Pradesh,Referral,68900,Active,,74.1,6
+CUST-0088,2025-10-11,Basic,SMB,Bhopal,Madhya Pradesh,Organic,1200,Active,,14.7,6
+CUST-0089,2025-11-19,Pro,Startup,Bhopal,Madhya Pradesh,Referral,5400,Active,,45.3,7
+CUST-0090,2025-06-24,Pro,Startup,Bhopal,Madhya Pradesh,Organic,7400,Active,,68.9,1
+CUST-0091,2023-03-01,Enterprise,Enterprise,Chennai,Tamil Nadu,LinkedIn,45400,Active,,132.8,1
+CUST-0092,2024-04-05,Enterprise,Enterprise,Coimbatore,Tamil Nadu,Sales,67400,Active,,124.8,4
+CUST-0093,2025-11-08,Pro,SMB,Nagpur,Maharashtra,Sales,7000,Active,,30.1,3
+CUST-0094,2025-11-06,Pro,Startup,Pune,Maharashtra,Organic,11500,Active,,43.8,8
+CUST-0095,2024-07-01,Pro,Startup,Ahmedabad,Gujarat,LinkedIn,9700,Active,,54.3,2
+CUST-0096,2025-07-03,Pro,SMB,Bhopal,Madhya Pradesh,LinkedIn,8100,Active,,42.5,3
+CUST-0097,2024-05-04,Pro,Startup,Indore,Madhya Pradesh,Organic,11100,Active,,83.9,6
+CUST-0098,2025-03-01,Enterprise,Enterprise,Gurugram,Haryana,Referral,27400,Active,,194.8,5
+CUST-0099,2023-07-25,Enterprise,Enterprise,Lucknow,Uttar Pradesh,Sales,26000,Active,,111.5,2
+CUST-0100,2023-06-03,Pro,Enterprise,Jaipur,Rajasthan,Google Ads,8300,Active,,79.6,8
+CUST-0101,2025-02-17,Enterprise,Enterprise,Nagpur,Maharashtra,Sales,27400,Active,,85.2,4
+CUST-0102,2024-04-10,Pro,SMB,Delhi,Delhi,LinkedIn,10800,Active,,51.1,4
+CUST-0103,2023-03-01,Basic,SMB,Ahmedabad,Gujarat,Referral,1900,Churned,2024-09-14,17.7,12
+CUST-0104,2024-01-04,Basic,Startup,Chandigarh,Chandigarh,Google Ads,1500,Active,,22.5,3
+CUST-0105,2025-08-02,Pro,SMB,Bengaluru,Karnataka,Sales,8800,Active,,67.4,2
+CUST-0106,2023-06-01,Basic,Startup,Visakhapatnam,Andhra Pradesh,Referral,1900,Active,,18.7,4
+CUST-0107,2024-02-12,Enterprise,Enterprise,Delhi,Delhi,Organic,62500,Active,,94.4,4
+CUST-0108,2023-02-14,Enterprise,Enterprise,Kolkata,West Bengal,Organic,69900,Active,,196.0,7
+CUST-0109,2024-08-09,Pro,Startup,Kochi,Kerala,Organic,6600,Active,,67.4,2
+CUST-0110,2023-07-18,Enterprise,Enterprise,Ahmedabad,Gujarat,LinkedIn,27200,Active,,159.9,1
+CUST-0111,2024-08-27,Basic,Startup,Hyderabad,Telangana,Organic,2100,Active,,16.0,8
+CUST-0112,2024-07-12,Pro,Startup,Nagpur,Maharashtra,Sales,7400,Active,,43.7,1
+CUST-0113,2025-08-17,Enterprise,SMB,Chennai,Tamil Nadu,Sales,72500,Active,,109.6,8
+CUST-0114,2025-01-19,Basic,Startup,Kolkata,West Bengal,Google Ads,1900,Active,,27.5,4
+CUST-0115,2025-02-19,Pro,Enterprise,Delhi,Delhi,Google Ads,8900,Churned,2025-12-23,14.5,11
+CUST-0116,2024-03-29,Pro,SMB,Coimbatore,Tamil Nadu,Sales,7500,Active,,28.2,0
+CUST-0117,2023-03-18,Basic,Startup,Delhi,Delhi,Organic,2100,Churned,2024-07-14,16.1,10
+CUST-0118,2025-05-08,Pro,SMB,Indore,Madhya Pradesh,Google Ads,11800,Active,,48.6,4
+CUST-0119,2023-03-09,Pro,Startup,Coimbatore,Tamil Nadu,Sales,12000,Active,,88.7,5
+CUST-0120,2025-01-04,Basic,Startup,Delhi,Delhi,Sales,1900,Churned,2025-05-12,26.4,11
+CUST-0121,2023-02-13,Basic,Startup,Gurugram,Haryana,LinkedIn,1400,Churned,2024-05-02,24.3,5
+CUST-0122,2024-11-03,Pro,SMB,Surat,Gujarat,Organic,12000,Active,,89.1,8
+CUST-0123,2024-05-28,Pro,Startup,Bengaluru,Karnataka,Organic,7900,Active,,36.7,5
+CUST-0124,2023-02-02,Basic,Startup,Indore,Madhya Pradesh,Google Ads,1100,Churned,2025-03-04,21.5,3
+CUST-0125,2025-07-14,Pro,Enterprise,Mumbai,Maharashtra,LinkedIn,12400,Active,,56.5,7
+CUST-0126,2023-03-05,Basic,Startup,Chandigarh,Chandigarh,Referral,1200,Active,,32.3,1
+CUST-0127,2023-06-15,Basic,Startup,Gurugram,Haryana,Organic,2300,Active,,26.4,6
+CUST-0128,2025-12-22,Basic,Startup,Indore,Madhya Pradesh,Organic,2400,Churned,2025-12-31,18.3,5
+CUST-0129,2025-04-27,Basic,Startup,Indore,Madhya Pradesh,LinkedIn,1600,Active,,25.0,5
+CUST-0130,2023-11-09,Pro,SMB,Pune,Maharashtra,LinkedIn,5800,Active,,72.1,5
+CUST-0131,2023-09-24,Pro,SMB,Bhopal,Madhya Pradesh,Google Ads,10500,Churned,2024-10-10,35.2,8
+CUST-0132,2023-04-16,Enterprise,Enterprise,Kochi,Kerala,Organic,58300,Active,,148.5,3
+CUST-0133,2023-08-10,Basic,SMB,Delhi,Delhi,LinkedIn,2200,Churned,2024-11-11,34.1,11
+CUST-0134,2023-02-23,Pro,SMB,Kolkata,West Bengal,Organic,7200,Active,,41.6,5
+CUST-0135,2024-12-19,Basic,SMB,Visakhapatnam,Andhra Pradesh,Google Ads,1100,Churned,2025-11-28,38.9,3
+CUST-0136,2025-12-22,Basic,Startup,Jaipur,Rajasthan,Organic,1600,Active,,28.3,1
+CUST-0137,2023-04-18,Basic,SMB,Mumbai,Maharashtra,Google Ads,1600,Churned,2024-07-15,20.5,9
+CUST-0138,2025-04-28,Basic,SMB,Delhi,Delhi,Referral,1200,Active,,25.4,7
+CUST-0139,2025-12-15,Pro,Startup,Chandigarh,Chandigarh,Sales,5400,Churned,2025-12-31,37.9,4
+CUST-0140,2024-06-07,Basic,Startup,Nagpur,Maharashtra,LinkedIn,1400,Churned,2025-12-24,28.7,10
+CUST-0141,2024-12-26,Basic,SMB,Mumbai,Maharashtra,Referral,1900,Active,,30.9,6
+CUST-0142,2025-04-08,Pro,SMB,Delhi,Delhi,Referral,12900,Active,,76.1,7
+CUST-0143,2025-01-11,Basic,SMB,Chennai,Tamil Nadu,Referral,1800,Active,,16.9,4
+CUST-0144,2024-11-26,Basic,SMB,Pune,Maharashtra,Google Ads,1200,Active,,10.8,5
+CUST-0145,2024-12-20,Pro,Enterprise,Gurugram,Haryana,Organic,6200,Active,,32.1,2
+CUST-0146,2023-06-04,Basic,SMB,Nagpur,Maharashtra,Referral,2200,Active,,18.5,5
+CUST-0147,2024-10-09,Basic,Startup,Coimbatore,Tamil Nadu,Google Ads,1600,Active,,15.6,1
+CUST-0148,2024-09-27,Pro,Startup,Kochi,Kerala,LinkedIn,5600,Active,,88.4,1
+CUST-0149,2025-11-04,Basic,SMB,Mumbai,Maharashtra,Referral,2200,Active,,14.6,7
+CUST-0150,2025-10-23,Basic,Startup,Delhi,Delhi,LinkedIn,1700,Active,,7.5,2
+CUST-0151,2023-03-22,Basic,Startup,Coimbatore,Tamil Nadu,Google Ads,2200,Churned,2024-04-26,36.9,8
+CUST-0152,2025-04-17,Pro,SMB,Mumbai,Maharashtra,LinkedIn,10300,Active,,43.1,8
+CUST-0153,2025-03-02,Basic,SMB,Surat,Gujarat,Sales,1700,Churned,2025-06-02,36.8,6
+CUST-0154,2025-03-13,Basic,SMB,Pune,Maharashtra,Referral,1800,Active,,14.9,2
+CUST-0155,2025-12-14,Basic,SMB,Lucknow,Uttar Pradesh,Referral,1700,Active,,33.5,5
+CUST-0156,2025-09-22,Basic,Enterprise,Gurugram,Haryana,Organic,1200,Active,,21.2,8
+CUST-0157,2023-03-19,Pro,Enterprise,Surat,Gujarat,Organic,8100,Churned,2023-10-10,33.6,11
+CUST-0158,2023-12-06,Pro,Startup,Kochi,Kerala,Google Ads,6900,Active,,62.7,7
+CUST-0159,2024-04-24,Pro,SMB,Nagpur,Maharashtra,Sales,6600,Active,,86.3,7
+CUST-0160,2025-08-03,Pro,SMB,Lucknow,Uttar Pradesh,Google Ads,12900,Active,,34.0,2
+CUST-0161,2024-05-27,Basic,Startup,Kochi,Kerala,Google Ads,1200,Active,,20.5,1
+CUST-0162,2024-08-06,Basic,Startup,Coimbatore,Tamil Nadu,Sales,1300,Active,,7.8,3
+CUST-0163,2025-07-12,Enterprise,Enterprise,Indore,Madhya Pradesh,Organic,57900,Active,,107.9,1
+CUST-0164,2025-02-06,Basic,Startup,Delhi,Delhi,LinkedIn,2300,Active,,9.4,0
+CUST-0165,2024-08-10,Enterprise,Enterprise,Gurugram,Haryana,LinkedIn,55700,Active,,50.8,1
+CUST-0166,2023-02-08,Basic,SMB,Bhopal,Madhya Pradesh,Sales,2200,Active,,8.3,4
+CUST-0167,2024-05-01,Basic,Startup,Indore,Madhya Pradesh,Google Ads,2300,Active,,8.3,7
+CUST-0168,2023-02-03,Pro,SMB,Gurugram,Haryana,Referral,5000,Active,,36.8,6
+CUST-0169,2024-01-19,Pro,Startup,Kochi,Kerala,Organic,9300,Active,,75.0,8
+CUST-0170,2023-02-11,Basic,Startup,Chandigarh,Chandigarh,Sales,1500,Active,,15.7,1
+CUST-0171,2024-12-07,Basic,SMB,Delhi,Delhi,LinkedIn,1700,Churned,2025-06-25,22.7,12
+CUST-0172,2023-12-25,Pro,SMB,Nagpur,Maharashtra,Google Ads,11600,Churned,2025-04-26,3.4,5
+CUST-0173,2023-03-31,Pro,Enterprise,Jaipur,Rajasthan,Sales,9200,Active,,77.1,7
+CUST-0174,2024-06-02,Basic,SMB,Ahmedabad,Gujarat,Referral,1100,Active,,15.0,1
+CUST-0175,2025-01-23,Basic,Startup,Coimbatore,Tamil Nadu,Sales,1800,Active,,10.6,7
+CUST-0176,2025-01-22,Enterprise,Enterprise,Pune,Maharashtra,LinkedIn,30200,Active,,199.3,2
+CUST-0177,2024-08-24,Basic,Startup,Ahmedabad,Gujarat,Referral,2200,Active,,10.0,7
+CUST-0178,2024-12-20,Basic,SMB,Kochi,Kerala,Google Ads,1900,Churned,2025-02-07,4.9,12
+CUST-0179,2025-04-11,Basic,SMB,Noida,Uttar Pradesh,Sales,1300,Active,,25.3,7
+CUST-0180,2023-03-13,Basic,Startup,Kochi,Kerala,Referral,2200,Churned,2023-09-06,27.8,7
+CUST-0181,2025-01-31,Basic,Startup,Gurugram,Haryana,Google Ads,1800,Active,,13.4,1
+CUST-0182,2023-02-23,Pro,SMB,Chandigarh,Chandigarh,Sales,6000,Active,,38.2,7
+CUST-0183,2024-03-15,Enterprise,SMB,Nagpur,Maharashtra,Organic,33900,Active,,117.8,7
+CUST-0184,2023-06-29,Pro,Enterprise,Jaipur,Rajasthan,Google Ads,10800,Churned,2025-01-24,13.0,6
+CUST-0185,2023-11-19,Pro,Enterprise,Noida,Uttar Pradesh,LinkedIn,9200,Active,,89.0,2
+CUST-0186,2024-04-29,Pro,Startup,Bhopal,Madhya Pradesh,Google Ads,8800,Active,,58.6,1
+CUST-0187,2023-05-15,Basic,Enterprise,Nagpur,Maharashtra,Google Ads,1800,Active,,7.2,5
+CUST-0188,2023-06-01,Basic,SMB,Kochi,Kerala,Organic,2100,Active,,10.5,2
+CUST-0189,2025-06-05,Pro,Enterprise,Delhi,Delhi,Google Ads,7500,Active,,42.6,3
+CUST-0190,2024-12-09,Enterprise,Enterprise,Ahmedabad,Gujarat,LinkedIn,41400,Active,,193.5,4
+CUST-0191,2023-09-14,Pro,SMB,Pune,Maharashtra,Google Ads,6400,Active,,60.6,2
+CUST-0192,2024-11-22,Pro,SMB,Bengaluru,Karnataka,Organic,12800,Active,,60.4,3
+CUST-0193,2025-05-03,Pro,Startup,Bhopal,Madhya Pradesh,Referral,12800,Active,,37.1,6
+CUST-0194,2024-09-01,Pro,SMB,Noida,Uttar Pradesh,Referral,9000,Active,,43.8,2
+CUST-0195,2024-10-02,Enterprise,Enterprise,Kochi,Kerala,Sales,33600,Active,,127.2,1
+CUST-0196,2024-10-15,Basic,Startup,Coimbatore,Tamil Nadu,Organic,1200,Churned,2025-05-19,34.8,8
+CUST-0197,2024-05-23,Enterprise,Enterprise,Jaipur,Rajasthan,Sales,72300,Active,,164.5,7
+CUST-0198,2025-11-20,Pro,Enterprise,Nagpur,Maharashtra,Organic,12700,Active,,52.0,3
+CUST-0199,2024-03-16,Pro,Startup,Ahmedabad,Gujarat,Referral,12200,Active,,67.1,4
+CUST-0200,2023-01-17,Pro,SMB,Kolkata,West Bengal,LinkedIn,11300,Active,,23.2,0
+CUST-0201,2024-02-03,Basic,Startup,Chandigarh,Chandigarh,Google Ads,2100,Churned,2025-11-22,27.9,3
+CUST-0202,2023-09-21,Enterprise,Enterprise,Jaipur,Rajasthan,Google Ads,49000,Active,,79.9,8
+CUST-0203,2025-04-02,Pro,Startup,Gurugram,Haryana,LinkedIn,11600,Active,,52.0,8
+CUST-0204,2023-10-14,Basic,SMB,Noida,Uttar Pradesh,Referral,2300,Active,,14.0,5
+CUST-0205,2025-11-04,Pro,SMB,Visakhapatnam,Andhra Pradesh,Referral,11700,Churned,2025-12-15,27.6,8
+CUST-0206,2024-09-22,Pro,SMB,Bengaluru,Karnataka,Google Ads,7200,Active,,74.8,3
+CUST-0207,2023-04-16,Pro,Startup,Surat,Gujarat,LinkedIn,8100,Churned,2025-04-02,11.2,11
+CUST-0208,2023-08-14,Basic,Startup,Indore,Madhya Pradesh,Organic,2400,Churned,2025-01-28,31.4,9
+CUST-0209,2023-05-08,Pro,SMB,Bhopal,Madhya Pradesh,Referral,10400,Active,,46.4,2
+CUST-0210,2025-07-30,Enterprise,Enterprise,Kochi,Kerala,Google Ads,72200,Active,,170.5,4
+CUST-0211,2025-09-18,Basic,Startup,Bhopal,Madhya Pradesh,Referral,1600,Active,,26.1,7
+CUST-0212,2024-10-11,Pro,SMB,Kolkata,West Bengal,Referral,9700,Active,,46.6,6
+CUST-0213,2024-12-07,Enterprise,Enterprise,Ahmedabad,Gujarat,Organic,71800,Churned,2025-08-10,26.9,9
+CUST-0214,2024-03-14,Basic,Startup,Bhopal,Madhya Pradesh,Google Ads,1300,Churned,2025-11-24,11.1,2
+CUST-0215,2025-12-23,Basic,Startup,Delhi,Delhi,Referral,2500,Active,,25.4,2
+CUST-0216,2023-01-11,Enterprise,Enterprise,Noida,Uttar Pradesh,Referral,56200,Active,,79.9,4
+CUST-0217,2024-10-19,Basic,Startup,Pune,Maharashtra,Google Ads,1500,Active,,26.7,0
+CUST-0218,2023-12-25,Basic,SMB,Mumbai,Maharashtra,Sales,1800,Active,,10.6,4
+CUST-0219,2023-03-18,Basic,SMB,Delhi,Delhi,Sales,1700,Churned,2025-01-22,22.6,9
+CUST-0220,2023-10-02,Enterprise,Enterprise,Hyderabad,Telangana,LinkedIn,46700,Active,,118.8,4
+CUST-0221,2024-01-17,Basic,Startup,Ahmedabad,Gujarat,Google Ads,1400,Churned,2025-11-21,36.1,8
+CUST-0222,2025-11-21,Basic,Startup,Delhi,Delhi,Organic,1300,Active,,33.1,0
+CUST-0223,2024-06-18,Basic,Startup,Kolkata,West Bengal,Sales,1600,Active,,22.2,4
+CUST-0224,2025-01-06,Pro,Startup,Delhi,Delhi,Referral,6300,Active,,55.2,4
+CUST-0225,2023-08-29,Pro,Enterprise,Kochi,Kerala,Google Ads,6800,Active,,53.5,7
+CUST-0226,2025-02-04,Basic,Startup,Nagpur,Maharashtra,LinkedIn,2400,Active,,27.9,1
+CUST-0227,2025-12-12,Basic,SMB,Pune,Maharashtra,Sales,1200,Churned,2025-12-31,23.8,4
+CUST-0228,2023-12-03,Basic,Startup,Delhi,Delhi,Google Ads,2500,Active,,7.7,8
+CUST-0229,2025-07-01,Pro,SMB,Lucknow,Uttar Pradesh,Referral,9600,Churned,2025-11-16,27.6,6
+CUST-0230,2023-02-14,Basic,SMB,Hyderabad,Telangana,Google Ads,1100,Churned,2023-07-14,22.6,2
+CUST-0231,2023-05-22,Enterprise,Enterprise,Ahmedabad,Gujarat,Referral,33900,Active,,196.7,6
+CUST-0232,2025-02-05,Enterprise,Enterprise,Chandigarh,Chandigarh,Referral,69700,Active,,181.2,2
+CUST-0233,2024-12-13,Basic,Enterprise,Chandigarh,Chandigarh,Google Ads,2500,Active,,30.0,0
+CUST-0234,2024-09-03,Pro,SMB,Indore,Madhya Pradesh,Google Ads,11700,Active,,52.2,2
+CUST-0235,2024-07-18,Basic,SMB,Delhi,Delhi,Organic,2400,Active,,28.0,0
+CUST-0236,2024-05-07,Basic,Startup,Mumbai,Maharashtra,Referral,2400,Active,,6.5,0
+CUST-0237,2025-04-03,Basic,Startup,Mumbai,Maharashtra,Organic,1600,Active,,32.5,5
+CUST-0238,2024-10-18,Basic,SMB,Lucknow,Uttar Pradesh,Organic,1600,Active,,21.7,2
+CUST-0239,2025-05-24,Pro,Startup,Kochi,Kerala,Sales,10500,Active,,56.7,6
+CUST-0240,2025-04-16,Basic,Startup,Bhopal,Madhya Pradesh,Referral,1500,Active,,26.2,7
+CUST-0241,2023-04-29,Pro,Enterprise,Bhopal,Madhya Pradesh,Google Ads,8200,Churned,2023-12-13,14.5,3
+CUST-0242,2025-07-10,Pro,Startup,Hyderabad,Telangana,Organic,8100,Active,,62.2,1
+CUST-0243,2024-01-21,Pro,SMB,Bhopal,Madhya Pradesh,Organic,6700,Active,,43.3,0
+CUST-0244,2024-03-09,Enterprise,Enterprise,Delhi,Delhi,LinkedIn,74400,Active,,86.4,3
+CUST-0245,2025-03-23,Enterprise,Enterprise,Ahmedabad,Gujarat,Referral,60000,Active,,96.3,5
+CUST-0246,2025-11-16,Enterprise,Enterprise,Nagpur,Maharashtra,LinkedIn,46000,Active,,105.6,6
+CUST-0247,2023-04-04,Pro,Startup,Gurugram,Haryana,Organic,9500,Active,,60.5,6
+CUST-0248,2024-08-27,Basic,Startup,Chandigarh,Chandigarh,Google Ads,1500,Active,,24.6,5
+CUST-0249,2024-06-11,Pro,SMB,Nagpur,Maharashtra,Referral,11000,Active,,31.8,8
+CUST-0250,2025-09-27,Basic,SMB,Mumbai,Maharashtra,Google Ads,1200,Active,,25.0,0
+CUST-0251,2025-04-24,Basic,SMB,Pune,Maharashtra,LinkedIn,1000,Active,,18.7,0
+CUST-0252,2025-09-16,Pro,Startup,Bhopal,Madhya Pradesh,Google Ads,5100,Churned,2025-11-10,22.4,6
+CUST-0253,2023-02-05,Pro,SMB,Indore,Madhya Pradesh,LinkedIn,12500,Churned,2023-09-10,21.9,5
+CUST-0254,2024-01-29,Pro,Startup,Kochi,Kerala,Organic,8200,Churned,2025-04-08,19.4,5
+CUST-0255,2024-04-07,Basic,SMB,Pune,Maharashtra,Google Ads,2300,Active,,7.8,6
+CUST-0256,2025-02-11,Pro,Startup,Bengaluru,Karnataka,LinkedIn,5700,Active,,50.4,5
+CUST-0257,2023-07-15,Enterprise,Enterprise,Chennai,Tamil Nadu,Organic,70400,Active,,121.3,0
+CUST-0258,2023-06-02,Pro,Startup,Bhopal,Madhya Pradesh,Google Ads,5300,Churned,2025-11-08,14.0,5
+CUST-0259,2023-10-23,Pro,SMB,Chandigarh,Chandigarh,Sales,7400,Active,,36.8,6
+CUST-0260,2024-11-10,Basic,SMB,Pune,Maharashtra,Google Ads,1700,Churned,2025-07-11,10.8,3
+CUST-0261,2024-11-28,Pro,SMB,Surat,Gujarat,Referral,11300,Active,,64.4,7
+CUST-0262,2025-10-01,Basic,SMB,Chandigarh,Chandigarh,Referral,2400,Active,,16.4,4
+CUST-0263,2024-05-19,Pro,Startup,Gurugram,Haryana,Referral,11400,Active,,71.8,5
+CUST-0264,2025-01-08,Basic,Startup,Ahmedabad,Gujarat,Referral,1600,Churned,2025-03-13,9.1,9
+CUST-0265,2025-11-15,Basic,Startup,Kochi,Kerala,Google Ads,2200,Active,,14.7,6
+CUST-0266,2023-01-26,Basic,Startup,Pune,Maharashtra,LinkedIn,2100,Active,,34.3,8
+CUST-0267,2023-12-14,Pro,Startup,Kolkata,West Bengal,Referral,9000,Churned,2024-06-22,18.5,8
+CUST-0268,2024-09-05,Pro,Startup,Kolkata,West Bengal,Sales,10900,Active,,61.6,3
+CUST-0269,2025-07-26,Basic,Startup,Chandigarh,Chandigarh,Referral,2300,Active,,30.9,7
+CUST-0270,2024-11-16,Basic,SMB,Surat,Gujarat,Organic,1700,Active,,25.9,7
+CUST-0271,2024-10-05,Basic,Startup,Jaipur,Rajasthan,Referral,2400,Active,,34.0,3
+CUST-0272,2024-10-29,Basic,SMB,Chandigarh,Chandigarh,Referral,2200,Churned,2025-08-24,8.8,10
+CUST-0273,2023-02-25,Enterprise,Enterprise,Hyderabad,Telangana,Referral,44100,Active,,60.4,6
+CUST-0274,2025-10-19,Basic,Startup,Kolkata,West Bengal,Google Ads,2500,Active,,16.3,7
+CUST-0275,2025-09-08,Pro,SMB,Indore,Madhya Pradesh,Google Ads,11500,Active,,69.1,8
+CUST-0276,2023-06-24,Basic,Startup,Kochi,Kerala,Organic,2300,Churned,2025-05-04,27.7,8
+CUST-0277,2024-11-10,Enterprise,Enterprise,Bengaluru,Karnataka,Organic,39500,Active,,127.8,3
+CUST-0278,2025-07-01,Basic,Startup,Visakhapatnam,Andhra Pradesh,Google Ads,1300,Active,,5.7,1
+CUST-0279,2024-08-28,Basic,Enterprise,Delhi,Delhi,LinkedIn,2500,Churned,2025-02-23,15.0,5
+CUST-0280,2025-12-03,Pro,SMB,Coimbatore,Tamil Nadu,LinkedIn,8700,Active,,41.0,1
+CUST-0281,2023-02-16,Pro,SMB,Noida,Uttar Pradesh,Sales,11100,Active,,32.2,2
+CUST-0282,2024-11-08,Pro,Enterprise,Chennai,Tamil Nadu,LinkedIn,10200,Active,,64.8,6
+CUST-0283,2025-03-21,Basic,SMB,Hyderabad,Telangana,Referral,1900,Active,,26.1,3
+CUST-0284,2024-07-24,Pro,Enterprise,Pune,Maharashtra,Google Ads,11500,Active,,33.1,5
+CUST-0285,2024-02-08,Pro,Startup,Nagpur,Maharashtra,Google Ads,10200,Active,,47.2,6
+CUST-0286,2023-08-22,Basic,SMB,Surat,Gujarat,Organic,2400,Active,,13.9,1
+CUST-0287,2023-10-02,Basic,Startup,Delhi,Delhi,Organic,2400,Churned,2024-11-22,17.9,4
+CUST-0288,2025-02-24,Basic,Startup,Bhopal,Madhya Pradesh,Google Ads,2300,Active,,10.2,2
+CUST-0289,2025-09-29,Basic,Startup,Coimbatore,Tamil Nadu,Google Ads,1700,Active,,19.5,3
+CUST-0290,2025-02-25,Enterprise,Enterprise,Nagpur,Maharashtra,Referral,57200,Active,,176.0,7
+CUST-0291,2023-12-09,Basic,Startup,Chennai,Tamil Nadu,Referral,1600,Churned,2024-10-19,8.4,9
+CUST-0292,2025-10-11,Pro,Startup,Delhi,Delhi,Organic,9400,Active,,45.7,0
+CUST-0293,2025-06-22,Pro,Enterprise,Delhi,Delhi,LinkedIn,10400,Active,,40.8,0
+CUST-0294,2025-07-10,Basic,SMB,Pune,Maharashtra,Referral,1200,Active,,12.1,5
+CUST-0295,2025-05-26,Basic,Startup,Hyderabad,Telangana,LinkedIn,1100,Active,,21.0,8
+CUST-0296,2023-12-11,Basic,SMB,Ahmedabad,Gujarat,Google Ads,2100,Active,,25.4,1
+CUST-0297,2023-10-05,Enterprise,Enterprise,Mumbai,Maharashtra,Sales,68000,Active,,179.9,3
+CUST-0298,2023-10-27,Pro,Enterprise,Chandigarh,Chandigarh,Referral,9700,Active,,63.9,6
+CUST-0299,2025-07-14,Basic,SMB,Pune,Maharashtra,Referral,1600,Active,,31.3,7
+CUST-0300,2025-09-26,Basic,Startup,Pune,Maharashtra,LinkedIn,1900,Active,,25.9,1

@@ -27,7 +27,7 @@ export function SiteHeader() {
 
   useEffect(() => {
     if (isContact || isPricing || isAmbassador) return;
-    const ids = ["impact", "services", "team"];
+    const ids = ["work", "impact", "services", "team"];
     const onScroll = () => {
       let current = "";
       ids.forEach((id) => {

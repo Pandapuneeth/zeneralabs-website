@@ -3,6 +3,7 @@ import { Hero } from "@/components/hero";
 import { TextLoop } from "@/components/text-loop";
 import { Impact } from "@/components/impact";
 import { Services } from "@/components/services";
+import { HomeWorkSection } from "@/components/portfolio/home-work-section";
 import { Team } from "@/components/team";
 import { CtaStrip } from "@/components/cta-strip";
 import { SiteFooter } from "@/components/site-footer";
@@ -39,6 +40,7 @@ export default function HomePage() {
         </div>
         <Impact />
         <Services />
+        <HomeWorkSection />
         <Team />
         <CtaStrip />
       </main>
