@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { SITE, TRUST_BADGES } from "@/lib/site";
+import { SITE, TEAM, TRUST_BADGES } from "@/lib/site";
 import { Faq } from "@/components/faq";
 import { CutoutCard, cutoutCardSurfaceShadowClassName } from "@/components/ui/cutout-card";
 import { cn } from "@/lib/utils";
@@ -9,25 +9,36 @@ export function ContactInfo() {
   return (
     <div className="flex flex-col gap-5 md:sticky md:top-[94px]">
       <CutoutCard className={cn(cutoutCardSurfaceShadowClassName, "rounded-[20px] bg-card p-5")}>
-        <div className="flex items-center gap-3.5">
-          <div className="relative size-[52px] shrink-0">
-            <Image
-              src="/assets/puneeth punacha.jpeg"
-              alt="Puneeth Punacha"
-              width={52}
-              height={52}
-              className="size-[52px] rounded-full object-cover"
-            />
-            <span
-              className="absolute right-0 bottom-0 size-3 rounded-full border-2 border-background bg-green-500"
-              aria-hidden="true"
-            />
-          </div>
-          <div>
-            <strong className="mb-0.5 block text-[15px] font-semibold">Puneeth Punacha</strong>
-            <p className="text-[13px] text-muted-foreground">Founder · Usually replies in under an hour 🚀</p>
-          </div>
+        <div className="mb-3.5 flex items-center justify-between gap-2">
+          <p className="text-[11px] font-semibold tracking-[0.3em] text-primary uppercase">Meet the team</p>
+          <span className="text-[11px] text-muted-foreground">{TEAM.length} people</span>
         </div>
+        <div className="flex min-w-0 flex-wrap items-center gap-2.5">
+          {TEAM.map((member) =>
+            member.photo ? (
+              <Image
+                key={member.name}
+                src={`/${member.photo}`}
+                alt={member.name}
+                width={36}
+                height={36}
+                className="size-9 shrink-0 rounded-full border-2 border-background object-cover"
+              />
+            ) : (
+              <span
+                key={member.name}
+                title={member.name}
+                className="flex size-9 shrink-0 items-center justify-center rounded-full border-2 border-background bg-primary/15 font-heading text-[10px] font-bold text-primary"
+              >
+                {member.initials}
+              </span>
+            ),
+          )}
+        </div>
+        <p className="mt-3.5 text-xs leading-relaxed text-muted-foreground">
+          Engineers, designers and builders who actually give a damn about the craft. Send the form or reach us
+          directly below — we&apos;ll route you to the right person.
+        </p>
       </CutoutCard>
 
       <div className="flex flex-col gap-2.5">
