@@ -316,3 +316,39 @@ export function caseStudyBreadcrumbJsonLd(slug: string, title: string) {
     ],
   };
 }
+
+export const hiringJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "JobPosting",
+  title: "Growth, Business Development & Marketing Team Roles",
+  description:
+    "Zenera Labs is hiring for its Growth, Business Development & Marketing team — Growth/Business Development Lead, Lead Generation Intern, Sales Development/Outreach Intern and Marketing & Content Intern. Hands-on experience in B2B lead generation, outreach, AI product positioning and real startup growth operations.",
+  hiringOrganization: {
+    "@type": "Organization",
+    name: "Zenera Labs",
+    url: "https://zeneralabs.in",
+    email: "zeneralabs@gmail.com",
+  },
+  employmentType: ["FULL_TIME", "INTERN"],
+  jobLocation: {
+    "@type": "Place",
+    name: "Remote / Hybrid",
+    address: { "@type": "PostalAddress", addressCountry: "IN", addressLocality: "Bangalore" },
+  },
+  applicantLocationRequirements: { "@type": "Country", name: "India" },
+  workHours: "10:00 AM – 5:00 PM",
+  url: "https://zeneralabs.in/hiring",
+  datePosted: "2026-08-21",
+  validThrough: "2026-11-30",
+  directApply: true,
+  email: "zeneralabs@gmail.com",
+};
+
+export const hiringBreadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://zeneralabs.in/" },
+    { "@type": "ListItem", position: 2, name: "Careers", item: "https://zeneralabs.in/hiring" },
+  ],
+};
