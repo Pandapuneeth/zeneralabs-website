@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+
+# Block any admin/private paths if you add them later
+Disallow: /admin/
+Disallow: /private/
+
+# Sitemap location
+Sitemap: https://zeneralabs.in/sitemap.xml
+
+# Crawl delay (be nice to bots)
+Crawl-delay: 1

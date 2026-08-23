@@ -186,6 +186,17 @@ export const TEAM: TeamMember[] = [
     role: "Machine Learning Engineer Intern",
     photo: "assets/dhyuti.png",
   },
+  {
+    name: "Debanjali Biswas",
+    role: "Marketing and Content Creation Lead",
+    photo: "assets/debanjali_biswas.jpeg",
+  },
+  {
+    name: "Ayushi Gautam",
+    role: "Business Development Lead",
+    initials: "AG",
+    color: "#f59e0b",
+  },
 ] as const;
 
 export const CONTACT_CHIPS = [
