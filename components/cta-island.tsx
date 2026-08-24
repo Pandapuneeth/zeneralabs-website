@@ -26,6 +26,14 @@ function IslandContent() {
   ]);
 
   useEffect(() => {
+    const onClose = () => setSize("compact");
+    window.addEventListener("island:open", ((e: CustomEvent) => {
+      if (e.detail !== "cta") onClose();
+    }) as EventListener);
+    return () => window.removeEventListener("island:open", onClose as EventListener);
+  }, [setSize]);
+
+  useEffect(() => {
     if (!isOpen) return;
 
     const onDocClick = (event: MouseEvent) => {
@@ -42,6 +50,9 @@ function IslandContent() {
   const toggle = (event: React.MouseEvent<HTMLDivElement>) => {
     if (state.isAnimating) return;
     if ((event.target as HTMLElement | null)?.closest("a")) return;
+    if (!isOpen) {
+      window.dispatchEvent(new CustomEvent("island:open", { detail: "cta" }));
+    }
     setSize(isOpen ? "compact" : "medium");
   };
 
@@ -53,11 +64,11 @@ function IslandContent() {
       onClick={toggle}
     >
       {isOpen ? (
-        <DynamicContainer className="flex h-full w-full flex-col px-5 pb-4 pt-6 text-left">
-          <DynamicTitle className="text-xl font-black tracking-tight text-white">
+        <DynamicContainer className="flex h-full w-full flex-col px-3 pb-4 pt-6 text-left sm:px-5">
+          <DynamicTitle className="text-lg font-black tracking-tight text-white sm:text-xl">
             Let&apos;s build your project
           </DynamicTitle>
-          <DynamicDescription className="mt-1 text-xs leading-5 text-white/60">
+          <DynamicDescription className="mt-1 text-[11px] leading-5 text-white/60 sm:text-xs">
             Free consultation — we reply within 24 hours.
           </DynamicDescription>
           <DynamicDiv className="mt-auto flex flex-col gap-2">
@@ -81,13 +92,16 @@ function IslandContent() {
         </DynamicContainer>
       ) : (
         <DynamicContainer className="flex h-full w-full items-center justify-center">
-          <div className="flex w-full items-center justify-between px-5">
-            <DynamicDescription className="flex items-center gap-2 text-xs font-medium tracking-wide text-white">
-              <WhatsAppIcon width={15} height={15} />
-              Available for projects
+          <div className="flex w-full items-center justify-between px-3 sm:px-5">
+            <DynamicDescription className="flex items-center gap-1.5 text-[10px] font-medium tracking-wide text-white sm:gap-2 sm:text-xs">
+              <WhatsAppIcon width={13} height={13} className="sm:hidden" />
+              <WhatsAppIcon width={15} height={15} className="hidden sm:block" />
+              <span className="sm:hidden">Projects</span>
+              <span className="hidden sm:inline">Available for projects</span>
             </DynamicDescription>
-            <DynamicDescription className="text-xs font-bold tracking-wide text-white">
-              India &amp; Remote
+            <DynamicDescription className="text-[10px] font-bold tracking-wide text-white sm:text-xs">
+              <span className="sm:hidden">India</span>
+              <span className="hidden sm:inline">India &amp; Remote</span>
             </DynamicDescription>
           </div>
         </DynamicContainer>
@@ -98,7 +112,7 @@ function IslandContent() {
 
 export function CtaIsland() {
   return (
-    <div className="pointer-events-none fixed bottom-6 left-4 z-[60] h-[260px] w-[371px] sm:left-6">
+    <div className="pointer-events-none fixed bottom-6 left-4 z-[60] h-[260px] w-[130px] sm:left-6 sm:w-[371px]">
       <DynamicIslandProvider initialSize="compact">
         <IslandContent />
       </DynamicIslandProvider>
