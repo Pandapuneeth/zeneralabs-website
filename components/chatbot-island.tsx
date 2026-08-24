@@ -235,22 +235,44 @@ function ChatInterface({ onClose }: { onClose: () => void }) {
   );
 }
 
+function IslandTriggerContent({ onClick }: { onClick: () => void }) {
+  const { setSize } = useDynamicIslandSize();
+
+  useEffect(() => {
+    const onClose = () => setSize("compact");
+    window.addEventListener("island:open", ((e: CustomEvent) => {
+      if (e.detail !== "chatbot") onClose();
+    }) as EventListener);
+    return () => window.removeEventListener("island:open", onClose as EventListener);
+  }, [setSize]);
+
+  const handleClick = () => {
+    window.dispatchEvent(new CustomEvent("island:open", { detail: "chatbot" }));
+    onClick();
+  };
+
+  return (
+    <DynamicIsland
+      id="chatbot-island"
+      containerClassName="justify-end"
+      style={{ pointerEvents: "auto", cursor: "pointer" }}
+      onClick={handleClick}
+    >
+      <DynamicContainer className="flex h-full w-full items-center justify-center">
+        <DynamicDescription className="flex items-center gap-1.5 text-[10px] font-semibold text-white sm:gap-2 sm:text-sm">
+          <BotIcon className="size-4 sm:size-5" />
+          <span className="sm:hidden">AI Bot</span>
+          <span className="hidden sm:inline">Chat with our AI Bot</span>
+        </DynamicDescription>
+      </DynamicContainer>
+    </DynamicIsland>
+  );
+}
+
 function IslandTrigger({ onClick }: { onClick: () => void }) {
   return (
     <DynamicIslandProvider initialSize="compact">
-      <DynamicIsland
-        id="chatbot-island"
-        containerClassName="justify-end"
-        style={{ pointerEvents: "auto", cursor: "pointer" }}
-        onClick={onClick}
-      >
-        <DynamicContainer className="flex h-full w-full items-center justify-center">
-          <DynamicDescription className="flex items-center gap-2 text-sm font-semibold text-white">
-            <BotIcon className="size-5" />
-            Chat with our AI Bot
-          </DynamicDescription>
-        </DynamicContainer>
-      </DynamicIsland>
+      <IslandTriggerContent onClick={onClick} />
     </DynamicIslandProvider>
   );
 }
@@ -268,7 +290,7 @@ export function ChatbotIsland() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ type: "spring", stiffness: 400, damping: 30 }}
-            className="pointer-events-auto fixed bottom-20 right-4 z-[60] h-[500px] w-[380px] sm:right-6"
+            className="pointer-events-auto fixed bottom-36 right-4 z-[60] h-[500px] w-[calc(100vw-32px)] sm:bottom-20 sm:right-6 sm:w-[380px]"
           >
             <ChatInterface onClose={() => setIsOpen(false)} />
           </motion.div>
@@ -276,7 +298,7 @@ export function ChatbotIsland() {
       </AnimatePresence>
 
       {/* Trigger Pill */}
-      <div className="pointer-events-none fixed bottom-6 right-4 z-[60] sm:right-6">
+      <div className="pointer-events-none fixed bottom-6 right-4 z-[60] w-[130px] sm:right-6 sm:w-auto">
         <IslandTrigger onClick={() => setIsOpen((v) => !v)} />
       </div>
     </>
