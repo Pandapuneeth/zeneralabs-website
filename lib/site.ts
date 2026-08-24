@@ -188,12 +188,12 @@ export const TEAM: TeamMember[] = [
   },
   {
     name: "Debanjali Biswas",
-    role: "Marketing and Content Creation Lead",
+    role: "Marketing and Content Creation Lead (Full Time)",
     photo: "assets/debanjali_biswas.jpeg",
   },
   {
     name: "Ayushi Gautam",
-    role: "Business Development Lead",
+    role: "Business Development Lead (Full Time)",
     initials: "AG",
     color: "#f59e0b",
   },
