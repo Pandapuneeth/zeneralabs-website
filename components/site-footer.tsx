@@ -12,22 +12,36 @@ export function SiteFooter({ variant = "home" }: { variant?: "home" | "contact" 
     <footer className="relative z-[2] border-t border-border">
       <div className="mx-auto w-full max-w-[1100px] px-6 pt-10 pb-7 md:px-12">
         <div className="mb-8 flex flex-wrap items-start justify-between gap-6">
-          <div className="flex items-center gap-3">
+          <div>
+            <div className="flex items-center gap-3">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/assets/logo.png"
+                alt=""
+                className="size-8 rounded-lg border border-primary/25 bg-primary/10 object-contain"
+                width={32}
+                height={32}
+              />
+              <div>
+                <span className="font-heading block text-sm font-extrabold tracking-[0.3em] text-primary">
+                  ZENERA LABS
+                </span>
+                <span className="mt-0.5 block text-xs text-muted-foreground">{SITE.tagline}</span>
+              </div>
+            </div>
+
+            <span className="mt-4 block text-xs text-muted-foreground">
+              Part of the Arcady Groups Pvt Ltd
+            </span>
+
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/assets/logo.png"
-              alt=""
-              className="size-8 rounded-lg border border-primary/25 bg-primary/10 object-contain"
-              width={32}
-              height={32}
+              src="/parent company.png"
+              alt="Arcady Groups Pvt Ltd"
+              className="mt-2 h-32 w-auto object-contain md:h-40"
             />
-            <div>
-              <span className="font-heading block text-sm font-extrabold tracking-[0.3em] text-primary">
-                ZENERA LABS
-              </span>
-              <span className="mt-0.5 block text-xs text-muted-foreground">{SITE.tagline}</span>
-            </div>
           </div>
+
           {variant === "home" && (
             <div className="flex flex-col gap-2">
               {NAV_LINKS.map((link) => (
