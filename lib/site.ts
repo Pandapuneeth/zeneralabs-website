@@ -197,6 +197,11 @@ export const TEAM: TeamMember[] = [
     initials: "AG",
     color: "#f59e0b",
   },
+  {
+    name: "Swastik Dutta",
+    role: "Full Stack Engineer (Full-time)",
+    photo: "assets/swastik.jpeg",
+  },
 ] as const;
 
 export const CONTACT_CHIPS = [
