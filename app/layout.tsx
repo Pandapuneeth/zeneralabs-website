@@ -12,6 +12,7 @@ import { ToastProvider } from "@/components/toast-provider";
 import { GeistSans } from 'geist/font/sans';
 import { GeistMono } from 'geist/font/mono';
 import { GeistPixelSquare, GeistPixelGrid, GeistPixelCircle, GeistPixelTriangle, GeistPixelLine } from 'geist/font/pixel';
+import { Analytics } from '@vercel/analytics/next';
 
 import {
   JsonLd,
@@ -138,6 +139,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <SiteHeader />
           {children}
         </ToastProvider>
+        <Analytics />
       </body>
     </html>
   );
