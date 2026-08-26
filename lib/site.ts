@@ -202,6 +202,17 @@ export const TEAM: TeamMember[] = [
     role: "Full Stack Engineer (Full-time)",
     photo: "assets/swastik.jpeg",
   },
+  {
+    name: "Chandini N",
+    role: "Machine Learning Engineer Intern",
+    photo: "assets/chandini.jpeg",
+  },
+  { 
+    name: "Chandana Gowda", 
+    role: "Machine Learning Engineer", 
+    initials: "CG", 
+    color: "#7c3aed" 
+  },
 ] as const;
 
 export const CONTACT_CHIPS = [
