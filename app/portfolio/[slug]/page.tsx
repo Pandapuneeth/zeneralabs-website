@@ -105,10 +105,12 @@ export default async function CaseStudyPage({
                 </div>
               ) : null}
 
-              <div>
-                <h3 className="mb-5 font-heading text-lg font-bold text-foreground">Screenshots</h3>
-                <ScreenshotsGallery work={work} />
-              </div>
+              {work.screenshots.length > 0 ? (
+                <div>
+                  <h3 className="mb-5 font-heading text-lg font-bold text-foreground">Screenshots</h3>
+                  <ScreenshotsGallery work={work} />
+                </div>
+              ) : null}
 
               {work.architecture ? (
                 <div>

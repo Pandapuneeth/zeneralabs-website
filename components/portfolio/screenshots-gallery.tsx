@@ -5,6 +5,8 @@ import type { PortfolioWork } from "@/lib/works";
 import { Reveal } from "@/components/reveal";
 
 export function ScreenshotsGallery({ work }: { work: PortfolioWork }) {
+  if (work.screenshots.length === 0) return null;
+
   const dialogRef = useRef<HTMLDialogElement>(null);
   const [selected, setSelected] = useState(0);
   const [open, setOpen] = useState(false);

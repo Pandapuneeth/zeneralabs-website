@@ -78,15 +78,25 @@ export function CaseHero({ work }: { work: PortfolioWork }) {
           </div>
 
           <div className="relative overflow-hidden rounded-3xl border border-border/80 bg-card shadow-[0_16px_48px_-16px_color-mix(in_oklab,var(--primary)_30%,transparent)]">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={cover.src}
-              alt={cover.alt}
-              width={1600}
-              height={1000}
-              className="aspect-[16/10] h-auto w-full object-cover object-top"
-            />
-            <div className="pointer-events-none absolute inset-0 rounded-3xl ring-1 ring-inset ring-border/40" aria-hidden="true" />
+            {cover ? (
+              <>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={cover.src}
+                  alt={cover.alt}
+                  width={1600}
+                  height={1000}
+                  className="aspect-[16/10] h-auto w-full object-cover object-top"
+                />
+                <div className="pointer-events-none absolute inset-0 rounded-3xl ring-1 ring-inset ring-border/40" aria-hidden="true" />
+              </>
+            ) : (
+              <div className="flex aspect-[16/10] w-full items-center justify-center bg-[radial-gradient(120%_120%_at_0%_0%,color-mix(in_oklab,var(--primary)_22%,transparent),transparent_60%)] p-8">
+                <span className="font-heading text-2xl font-bold tracking-tight text-balance text-foreground/80">
+                  {work.title}
+                </span>
+              </div>
+            )}
           </div>
         </div>
       </div>

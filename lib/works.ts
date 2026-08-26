@@ -747,6 +747,587 @@ export const WORKS: PortfolioWork[] = [
       "Deeper evidence deduplication and per-claim confidence tuning",
     ],
   },
+  { ...work("anya-ai-sales-lead-qualification", "Anya", "AI Engineering Associate", "anya/ai-sales-and-lead"),
+    title: "AI Sales & Lead Qualification Agent",
+    tagline:
+      "Turns free-text project enquiries into scored, classified, CRM-ready leads with an AI-drafted follow-up — and a live sales dashboard.",
+    status: "Internally developed · MVP",
+    categories: ["AI Agents", "Sales Automation", "Lead Qualification"],
+    industries: ["Retail & E-commerce", "B2B SaaS", "Agencies"],
+    stackTags: ["n8n", "Google Gemini", "Google Sheets", "Gmail", "Looker Studio", "React"],
+    quoteService: "AI Sales / Lead Agent",
+    problem: [
+      "Sales teams drown in unstructured inbound enquiries and lose hot leads to slow, manual triage — someone has to read each form, judge fit, and decide who to chase first.",
+      "Without a consistent scoring rubric, leads get ranked by gut feel, follow-ups are generic, and there is no real-time visibility into pipeline quality for the team.",
+    ],
+    solutionIntro:
+      "We built an n8n-orchestrated agent that scores and classifies every inbound enquiry the moment it lands, drafts a personalized follow-up, and feeds a live Looker Studio dashboard — no custom backend required.",
+    solution: [
+      "A Bolt.new enquiry form posts to an n8n webhook. n8n logs the raw submission to Google Sheets, then a Google Gemini agent extracts pain and need points, computes a 0–100 lead score across four weighted criteria, classifies Hot/Warm/Cold, marks Qualified/Disqualified/Needs Review, explains its reasoning, and drafts a follow-up email.",
+      "The structured record is written back to Sheets, routed by classification, and emailed via Gmail. Looker Studio reads the same sheet live, giving the team lead volume, average score, classification mix and service-category demand with zero manual reporting.",
+    ],
+    principles: [
+      "Explain every score instead of a black box — missing info is flagged, never guessed",
+      "A fixed JSON schema constrains the model's output so downstream routing stays deterministic",
+      "A single Google Sheet is the system of record for both storage and live reporting",
+    ],
+    capabilities: [
+      { title: "Enquiry intake form", desc: "Public React/Tailwind form that posts structured JSON to the n8n webhook." },
+      { title: "AI lead scoring (0–100)", desc: "Four weighted criteria — scope clarity, budget alignment, urgency and contact viability — summed into one score." },
+      { title: "Hot / Warm / Cold classification", desc: "Tiers paired with Qualified / Disqualified / Needs Review status for routing." },
+      { title: "Reasoning & missing-info flags", desc: "The agent explains each decision and lists what's missing rather than inventing values." },
+      { title: "AI-drafted follow-up email", desc: "Personalized Gmail follow-up routed by classification." },
+      { title: "Live Looker Studio dashboard", desc: "Real-time lead volume, average score, classification mix and service-demand charts." },
+    ],
+    workflow: [
+      { title: "Submit enquiry", desc: "A prospect fills the form with project details, budget and timeline." },
+      { title: "Webhook capture", desc: "n8n receives the JSON and logs the raw submission to Google Sheets." },
+      { title: "AI scoring", desc: "Gemini extracts pain/need points, scores and classifies the lead, and drafts an email." },
+      { title: "Write CRM record", desc: "The structured output is written back to the LeadScore sheet." },
+      { title: "Route & email", desc: "n8n switches on classification and sends the AI-drafted follow-up via Gmail." },
+      { title: "Live dashboard", desc: "Looker Studio reflects the new row instantly for the sales team." },
+    ],
+    technology: [
+      { layer: "Intake", items: ["Bolt.new", "React", "Tailwind CSS", "Lucide"] },
+      { layer: "Orchestration", items: ["n8n (webhook, code, switch, respond-to-webhook)"] },
+      { layer: "AI reasoning", items: ["Google Gemini (gemini-3.5-flash-lite)", "LangChain Agent", "Structured Output Parser"] },
+      { layer: "Storage & messaging", items: ["Google Sheets (LeadIntakeDB, LeadScore)", "Gmail (OAuth2)"] },
+      { layer: "Reporting", items: ["Looker Studio"] },
+    ],
+    validation: {
+      summary:
+        "Validated against a reproducible test set covering Hot/Warm/Cold pass cases plus deliberate failure cases (missing fields, malformed input, spammy submissions).",
+      bullets: [
+        "Scoring rubric spans scope, budget, urgency and contact viability (max 100)",
+        "Classification tiers: Hot 80–100, Warm 50–79, Cold 0–49",
+        "Failure cases intentionally surface missing-information flags instead of guessing",
+      ],
+      security: [
+        "Webhook has no built-in auth — a shared-secret header is the documented public-deployment hardening",
+        "Lead PII is stored in plain text in Sheets and sent to Gemini — flagged for data-handling review",
+        "A consent checkbox is required before any email follow-up",
+      ],
+      limitations: [
+        "Relies on Google Sheets as the system of record, not a production CRM",
+        "Per-tier email behaviour is uniform in the MVP (no Slack alert for Hot leads yet)",
+        "No native webhook authentication without added hardening",
+      ],
+    },
+    demo: {
+      intro: "Watch an enquiry become a scored, classified, CRM-ready lead with a drafted follow-up.",
+      sources: [
+        {
+          src: workAssetByPath(workDirPath("anya", "ai-sales-and-lead"), "AI Sales and Lead Qualification Agent Demo.mp4"),
+          label: "Full flow: form submit → n8n → Gemini scoring → Sheets → Gmail follow-up",
+        },
+      ],
+      poster: workAssetByPath(workDirPath("anya", "ai-sales-and-lead"), "screenshots/localhost_5173_ (1).png"),
+      note: "The demo shows the complete lead-qualification pipeline end to end.",
+    },
+    screenshots: [
+      { src: workAssetByPath(workDirPath("anya", "ai-sales-and-lead"), "screenshots/localhost_5173_.png"), alt: "Project enquiry form", caption: "Enquiry form" },
+      { src: workAssetByPath(workDirPath("anya", "ai-sales-and-lead"), "screenshots/localhost_5173_ (1).png"), alt: "Lead score result view", caption: "Lead score" },
+      { src: workAssetByPath(workDirPath("anya", "ai-sales-and-lead"), "screenshots/AnalyticsDasboard.png"), alt: "Sales analytics dashboard", caption: "Analytics dashboard" },
+      { src: workAssetByPath(workDirPath("anya", "ai-sales-and-lead"), "screenshots/n8n_workflow.png"), alt: "n8n workflow — the 12-node automation", caption: "n8n workflow" },
+      { src: workAssetByPath(workDirPath("anya", "ai-sales-and-lead"), "screenshots/ThankYou.png"), alt: "Submission confirmation", caption: "Confirmation" },
+      { src: workAssetByPath(workDirPath("anya", "ai-sales-and-lead"), "screenshots/Error.png"), alt: "Error handling view", caption: "Error state" },
+    ],
+    documentation: {
+      intro: "The full system diagram.",
+      links: [
+        { title: "Architecture Diagram", href: workAssetByPath(workDirPath("anya", "ai-sales-and-lead"), "docs/Architecture_Diagram.md") },
+      ],
+    },
+    future: [
+      "Tier-specific email behaviour (auto-email Hot, hold Cold for review, Slack alert for Hot)",
+      "Native CRM integration (HubSpot/Salesforce) instead of Google Sheets",
+      "Webhook authentication and spam protection by default",
+      "Multi-language enquiry support",
+    ],
+  },
+  { ...work("naman-enterprise-agent-control-plane", "naman", "AI Developer Intern", "naman/enterprise-agent-control-plane"),
+    title: "Enterprise Agent Control Plane",
+    tagline:
+      "A centralized governance plane that registers, authorizes, rate-limits and audits every AI agent call before it reaches a protected tool.",
+    status: "Internally developed · MVP",
+    categories: ["AI Governance", "AI Security", "Enterprise Software"],
+    industries: ["Enterprise Automation", "Financial Services", "Healthcare"],
+    stackTags: ["Python", "FastAPI", "SQLAlchemy", "Pydantic", "PostgreSQL", "React", "TypeScript", "Docker"],
+    quoteService: "AI Agent Security / Governance",
+    problem: [
+      "AI agents are being handed credentials and tools, but most systems have no centralized enforcement — an agent that drifts beyond its brief can call tools and read data it was never meant to touch.",
+      "Without a single control point there is no consistent authorization, no kill switch and no audit trail, which makes agents a compliance and security liability rather than a lever.",
+    ],
+    solutionIntro:
+      "We built a control plane that sits in front of every agent action: identify the agent, check its status, run the policy engine, and only then allow or deny the tool call — logging everything.",
+    solution: [
+      "Every request flows through a gateway: agent identification → status check → policy engine → tool permission → data scope → rate limit → allow/deny → audit log. The agent never talks to a protected tool directly.",
+      "A dashboard exposes the registry, policies, audit trail and a kill switch, while RBAC governs who can change what. Mock tools demonstrate the enforcement so the security properties can be validated without live infrastructure.",
+    ],
+    principles: [
+      "Every tool call passes policy with no bypass path",
+      "Audit logging is immutable and attached to every decision",
+      "RBAC is enforced server-side on every endpoint",
+    ],
+    capabilities: [
+      { title: "Agent Registry", desc: "Central catalog of every registered agent and its declared capabilities." },
+      { title: "Policy Engine", desc: "Declarative rules that decide allow/deny per agent, tool and data scope." },
+      { title: "Control Gateway", desc: "Single entry point every agent call must pass through." },
+      { title: "Tool Authorization & Data Scope", desc: "Per-tool permission and per-dataset access checks." },
+      { title: "Rate Limiting", desc: "Bounds how often an agent can act (in-memory in the MVP)." },
+      { title: "Kill Switch & Audit Trail", desc: "Instantly disable an agent and record every decision for compliance." },
+      { title: "RBAC Dashboard", desc: "Manage agents, policies and reviews with role-based access." },
+    ],
+    workflow: [
+      { title: "Agent identifies", desc: "The gateway resolves the calling agent from its credential." },
+      { title: "Status check", desc: "Disabled or unknown agents are rejected before any policy runs." },
+      { title: "Policy evaluation", desc: "Tool permission, data scope and rate limit are checked in order." },
+      { title: "Allow / Deny", desc: "Only requests passing all checks reach the protected tool." },
+      { title: "Audit log", desc: "Every decision is recorded with agent, action and outcome." },
+      { title: "Reviewer oversight", desc: "RBAC users manage agents and policies from the dashboard; a kill switch can disable any agent." },
+    ],
+    technology: [
+      { layer: "Backend", items: ["Python", "FastAPI", "SQLAlchemy", "Pydantic", "PostgreSQL", "Alembic", "PyJWT"] },
+      { layer: "Frontend", items: ["React", "TypeScript", "Tailwind CSS"] },
+      { layer: "Infra", items: ["Docker", "Docker Compose"] },
+      { layer: "Testing", items: ["Pytest"] },
+    ],
+    validation: {
+      summary: "Validated against a security matrix of agent/policy/tool combinations; see docs/validation.md for the full scenario set.",
+      bullets: [
+        "Gateway rejects unknown/disabled agents before policy runs",
+        "Tool + data-scope + rate-limit checks run in strict order",
+        "Kill switch disables an agent mid-session",
+      ],
+      security: [
+        "JWT-based agent identity",
+        "Server-side RBAC on every endpoint",
+        "All decisions written to an append-only audit trail",
+      ],
+      limitations: [
+        "In-memory rate limiting in the MVP",
+        "Mock tools for demonstration only",
+        "No multi-tenancy or enterprise SSO yet",
+      ],
+    },
+    screenshots: [
+      { src: workAssetByPath(workDirPath("naman", "enterprise-agent-control-plane"), "screenshots/dashboard.png"), alt: "Control plane dashboard", caption: "Dashboard" },
+      { src: workAssetByPath(workDirPath("naman", "enterprise-agent-control-plane"), "screenshots/agents.png"), alt: "Agent Registry view", caption: "Agent registry" },
+      { src: workAssetByPath(workDirPath("naman", "enterprise-agent-control-plane"), "screenshots/policies.png"), alt: "Policy editor", caption: "Policies" },
+      { src: workAssetByPath(workDirPath("naman", "enterprise-agent-control-plane"), "screenshots/users.png"), alt: "RBAC users view", caption: "Users" },
+      { src: workAssetByPath(workDirPath("naman", "enterprise-agent-control-plane"), "screenshots/audit_logs.png"), alt: "Audit trail", caption: "Audit logs" },
+    ],
+    architecture: {
+      src: workAssetByPath(workDirPath("naman", "enterprise-agent-control-plane"), "ARCHITECTURE.png"),
+      alt: "Control plane: agent → gateway → identification → status → policy engine → tool/data/rate checks → allow/deny → audit → protected tool",
+      caption: "Every agent action is gated by the policy engine before it can reach a protected tool.",
+    },
+    documentation: {
+      intro: "API, architecture, security and validation references.",
+      links: [
+        { title: "API Reference", href: workAssetByPath(workDirPath("naman", "enterprise-agent-control-plane"), "docs/api.md") },
+        { title: "Architecture", href: workAssetByPath(workDirPath("naman", "enterprise-agent-control-plane"), "docs/architecture.md") },
+        { title: "Security", href: workAssetByPath(workDirPath("naman", "enterprise-agent-control-plane"), "docs/security.md") },
+        { title: "Validation", href: workAssetByPath(workDirPath("naman", "enterprise-agent-control-plane"), "docs/validation.md") },
+      ],
+    },
+    future: [
+      "Redis-backed rate limiting",
+      "Cryptographic audit chaining",
+      "Multi-tenancy",
+      "Enterprise SSO",
+      "Anomaly detection",
+      "Cost tracking",
+    ],
+  },
+  { ...work("naman-ai-workforce-simulator", "naman", "AI Developer Intern", "naman/ai-worforce-simulator"),
+    title: "AI Workforce Simulator",
+    tagline:
+      "A deterministic, reproducible discrete-event simulator that stress-tests staffing plans and demand before you touch a real contact centre.",
+    status: "Internally developed · MVP",
+    categories: ["Simulation", "Operations Research", "AI Analytics"],
+    industries: ["BPO / Contact Centres", "Operations", "Workforce Planning"],
+    stackTags: ["Python 3.11", "FastAPI", "NumPy", "React 19", "Tailwind", "Recharts", "OpenRouter"],
+    quoteService: "Operations Simulation / AI Analytics",
+    problem: [
+      "Contact-centre leaders need to test staffing plans, demand spikes and process changes, but doing it on a live floor is risky, expensive and slow.",
+      "Spreadsheet estimates can't capture queue dynamics, SLA erosion or utilization realistically, and never expose the assumptions behind the numbers.",
+    ],
+    solutionIntro:
+      "We built a discrete-event simulation engine that models configurable virtual agents and replays demand scenarios deterministically — so plans can be compared side by side with full transparency.",
+    solution: [
+      "A FastAPI backend runs a single-seeded RNG discrete-event engine: Poisson arrivals, priority+FIFO queue, worker assignment by skill/shift, log-normal processing times, Bernoulli errors and SLA measurement. The React dashboard visualizes throughput, SLA, utilization, backlog and time-series.",
+      "An optional OpenRouter-backed AI Analyst explains the pre-computed numbers only — it never generates or alters results. Every run is reproducible: same config + seed + version ⇒ identical output.",
+    ],
+    principles: [
+      "The simulation engine is the single source of truth; the AI only explains, never invents numbers",
+      "Every run records its seed, config and version for bit-for-bit reproducibility",
+      "A full assumption inspector exposes every model input",
+    ],
+    capabilities: [
+      { title: "Discrete-event engine", desc: "Deterministic, event-driven simulation with one seeded RNG per run." },
+      { title: "Worker modeling", desc: "Per-agent skill, speed, error rate and shift availability." },
+      { title: "Task & queue system", desc: "Poisson arrivals with priority + FIFO queue and configurable task types." },
+      { title: "KPI metrics", desc: "Throughput, SLA compliance, error rate, utilization, backlog and time-series." },
+      { title: "Scenario comparison", desc: "Side-by-side KPI deltas across competing configurations." },
+      { title: "Validation suite", desc: "Edge cases: zero staffing, extreme demand, no demand, reproducibility, invalid input." },
+      { title: "AI Analyst", desc: "Optional OpenRouter operational insight with graceful fallback." },
+    ],
+    workflow: [
+      { title: "Configure workforce", desc: "Set agents' skill, speed, error rate and shifts." },
+      { title: "Set demand profile", desc: "Define arrival rate and task mix over the horizon." },
+      { title: "Run simulation", desc: "The engine processes events deterministically to the horizon." },
+      { title: "Compute KPIs", desc: "Throughput, SLA, utilization and backlog are measured." },
+      { title: "Compare scenarios", desc: "Competing configurations are scored side by side with deltas." },
+      { title: "Review & explain", desc: "The AI Analyst summarizes results; the assumption inspector shows all inputs." },
+    ],
+    technology: [
+      { layer: "Backend", items: ["Python 3.11", "FastAPI", "Pydantic", "NumPy", "SQLAlchemy 2.0", "aiosqlite"] },
+      { layer: "Simulation", items: ["Custom discrete-event engine"] },
+      { layer: "Frontend", items: ["React 19", "Vite", "Tailwind CSS", "Recharts"] },
+      { layer: "AI Analyst", items: ["OpenRouter (optional, backend-only)"] },
+    ],
+    validation: {
+      summary: "A validation suite covers normal operation plus edge cases; reproducibility is verified by an automated same-seed test.",
+      bullets: [
+        "Normal run: SLA ~95%, utilization 70–85% within limits",
+        "Zero staffing: 0 completions, backlog grows, no crash / div-by-zero",
+        "Extreme demand: backlog bounded by cap; no demand: all-zero metrics",
+        "Reproducibility: identical results across runs with the same seed",
+      ],
+      security: [
+        "No hardcoded secrets; .env excluded from Git",
+        "API keys backend-only, never sent to the frontend",
+        "Parameterized ORM queries; restricted CORS; sanitized AI payloads",
+      ],
+      limitations: [
+        "SQLite for the MVP (swap DATABASE_URL for production)",
+        "Errors mark tasks done-but-failed (no auto re-queue)",
+        "Staffing optimizer and Monte-Carlo sensitivity are future work",
+      ],
+    },
+    screenshots: [
+      { src: workAssetByPath(workDirPath("naman", "ai-worforce-simulator"), "screenshots/DASHBOARD.png"), alt: "Simulation dashboard", caption: "Dashboard" },
+      { src: workAssetByPath(workDirPath("naman", "ai-worforce-simulator"), "screenshots/SCENARIO_BUILDER.png"), alt: "Scenario builder", caption: "Scenario builder" },
+      { src: workAssetByPath(workDirPath("naman", "ai-worforce-simulator"), "screenshots/SCENARIOS.png"), alt: "Scenario list", caption: "Scenarios" },
+      { src: workAssetByPath(workDirPath("naman", "ai-worforce-simulator"), "screenshots/COMPARISION.png"), alt: "Scenario comparison", caption: "Comparison" },
+      { src: workAssetByPath(workDirPath("naman", "ai-worforce-simulator"), "screenshots/RESULTS.png"), alt: "Results overview", caption: "Results" },
+      { src: workAssetByPath(workDirPath("naman", "ai-worforce-simulator"), "screenshots/RESULTS_2.png"), alt: "Results detail 2", caption: "Results (2)" },
+      { src: workAssetByPath(workDirPath("naman", "ai-worforce-simulator"), "screenshots/RESULTS_3.png"), alt: "Results detail 3", caption: "Results (3)" },
+      { src: workAssetByPath(workDirPath("naman", "ai-worforce-simulator"), "screenshots/RESULTS_4.png"), alt: "Results detail 4", caption: "Results (4)" },
+      { src: workAssetByPath(workDirPath("naman", "ai-worforce-simulator"), "screenshots/REPORTS.png"), alt: "Reports list", caption: "Reports" },
+      { src: workAssetByPath(workDirPath("naman", "ai-worforce-simulator"), "screenshots/REPORT_2.png"), alt: "Report detail", caption: "Report" },
+      { src: workAssetByPath(workDirPath("naman", "ai-worforce-simulator"), "screenshots/VALIDATION.png"), alt: "Validation view", caption: "Validation" },
+    ],
+    architecture: {
+      src: workAssetByPath(workDirPath("naman", "ai-worforce-simulator"), "ARCHITECTURE (1).png"),
+      alt: "Workforce simulator architecture: users → React frontend → FastAPI → scenario/report services → simulation orchestrator → discrete-event engine → metrics → SQLite → optional AI Analyst",
+      caption: "The simulation engine is the single source of truth; the AI Analyst only explains pre-computed numbers.",
+    },
+    documentation: {
+      intro: "Architecture and validation references.",
+      links: [
+        { title: "Architecture", href: workAssetByPath(workDirPath("naman", "ai-worforce-simulator"), "docs/architecture.md") },
+        { title: "Validation", href: workAssetByPath(workDirPath("naman", "ai-worforce-simulator"), "docs/validation.md") },
+      ],
+    },
+    future: [
+      "Staffing optimizer (LP / heuristic solver)",
+      "Monte-Carlo sensitivity analysis",
+      "Historical calibration against real AHT / SLA data",
+      "Live scenario tuning from the dashboard",
+      "PDF report export",
+    ],
+  },
+  { ...work("priyanka-meridian-customer-churn", "priyanka", "AI Engineering Associate", "priyanka/meridian-customer-churn-revenue-recovery"),
+    title: "Customer Churn Prediction & Revenue-Recovery Analytics",
+    tagline:
+      "A leakage-safe XGBoost churn model on synthetic retail data that quantifies revenue-at-risk and ranks retention interventions by ROI.",
+    status: "Internally developed · Capability Assessment",
+    categories: ["Predictive ML", "Customer Analytics", "Revenue Recovery"],
+    industries: ["Retail & E-commerce", "Fashion & Lifestyle"],
+    stackTags: ["Python", "XGBoost", "scikit-learn", "SHAP", "pandas", "Jupyter"],
+    quoteService: "Churn / Revenue Analytics",
+    problem: [
+      "Meridian Retail Group saw a 14% drop in repeat-purchase rate over two quarters despite stable traffic — leadership suspected silent churn among mid-value customers who stop buying without complaining.",
+      "They needed to predict churn early enough for retention to work, quantify the revenue at risk, and know which intervention pays back — all explainable and auditable for an internal team.",
+    ],
+    solutionIntro:
+      "We built an end-to-end, leakage-safe churn-analytics pipeline on a synthetic 6,000-customer dataset (fixed seed 42) that benchmarks XGBoost against a recency baseline, estimates revenue-at-risk, and ranks interventions by scenario ROI.",
+    solution: [
+      "Thirteen monthly time-based snapshots avoid future leakage; RFM and support/marketing features are computed only from history. XGBoost (threshold 0.63, chosen on validation) beats the recency baseline on PR-AUC (0.374 vs 0.209) and F1 (0.418 vs 0.289).",
+      "Revenue at risk = P(churn) × 60-day value proxy, surfacing high-value high-risk customers. An observational matched-cohort causal analysis and a scenario ROI model (no invented campaign cost) rank Discount / Loyalty Nudge / Personal Outreach. All data is synthetic (seed 42) — a methodology demonstration, not real Meridian figures.",
+    ],
+    principles: [
+      "No feature uses information unavailable at the prediction date (per-feature leakage audit)",
+      "Time-based split, never random shuffle — reflects real train-on-past / deploy-on-present use",
+      "Reproducible end to end from a single master seed",
+    ],
+    capabilities: [
+      { title: "Leakage-safe feature engineering", desc: "RFM, marketing and support features bounded to history with an explicit KEEP/REMOVE audit." },
+      { title: "Churn definition", desc: "Eligible active customers; churn = zero purchases in next 60 days (~9.6% prevalence at latest snapshot)." },
+      { title: "XGBoost vs recency baseline", desc: "Benchmarked on PR-AUC, ROC-AUC, precision, recall, F1, Brier, precision@k." },
+      { title: "Revenue-at-risk", desc: "P(churn) × 60-day value proxy to prioritize high-value high-risk customers." },
+      { title: "Causal / uplift analysis", desc: "Observational matched-cohort ATT with covariate balance checks (CI includes 0)." },
+      { title: "Scenario ROI", desc: "Ranks interventions by assumed capture rates and contact costs — no fabricated campaign spend." },
+      { title: "Reproducibility", desc: "A single MASTER_SEED reproduces byte-identical CSVs." },
+    ],
+    workflow: [
+      { title: "Generate synthetic data", desc: "Four connected CSVs (customers, transactions, marketing, support) over 18 months, seed 42." },
+      { title: "Audit & define churn", desc: "Data-quality audit and an empirically validated churn definition." },
+      { title: "Time-based split", desc: "13 monthly snapshots → 60% train / 20% val / 20% test, no shuffle across time." },
+      { title: "Engineer & model", desc: "Leakage-safe features; recency baseline + XGBoost; threshold picked on validation." },
+      { title: "Evaluate", desc: "PR-AUC / ROC-AUC / precision / recall / @k on TEST, scored once." },
+      { title: "Revenue & ROI", desc: "Revenue-at-risk and scenario ROI from the frozen pipeline; a client deck summarizes it." },
+    ],
+    technology: [
+      { layer: "Language & ML", items: ["Python", "XGBoost", "scikit-learn", "pandas", "NumPy"] },
+      { layer: "Explainability", items: ["SHAP (scaffolded)"] },
+      { layer: "Causal", items: ["Propensity-score matching (observational)"] },
+      { layer: "Notebooks", items: ["Jupyter (data audit, EDA, modeling, causal, ROI)"] },
+    ],
+    validation: {
+      summary: "TEST metrics are from a real executed run (not invented); synthetic-data caveats are documented throughout.",
+      bullets: [
+        "XGBoost PR-AUC 0.374 vs recency baseline 0.209; F1 0.418 vs 0.289",
+        "Precision@k: top 10% of TEST = 0.446 precision / 0.354 recall",
+        "Churn prevalence ~9.6% at latest snapshot (matches the brief's ~9%)",
+        "Causal ATT 95% CI includes 0 — reported as observational, not proof of causation",
+      ],
+      security: [
+        "No real customer data used — fully synthetic",
+        "Referential integrity verified (0 orphaned rows)",
+        "Leakage audit explicitly documents excluded future-knowledge features",
+      ],
+      limitations: [
+        "All data synthetic (seed 42) — methodology demo, not real findings",
+        "Synthetic loyalty tier is fixed, not time-varying (documented caveat)",
+        "No campaign cost in data — actual ROI cannot be estimated, only scenarios",
+      ],
+    },
+    demo: {
+      intro: "Walkthrough of the churn pipeline and the client-facing recovery analysis.",
+      sources: [
+        {
+          src: workAssetByPath(workDirPath("priyanka", "meridian-customer-churn-revenue-recovery"), "CHURN RECOVERY AND ANALYSIS PREDICTION DEMO.mp4"),
+          label: "Churn recovery & analysis prediction demo",
+        },
+      ],
+      note: "The demo walks through prediction, revenue-at-risk and intervention ranking.",
+    },
+    screenshots: [],
+    documentation: {
+      intro: "Client-facing deliverable summarizing the methodology.",
+      links: [
+        { title: "Final Client Presentation", href: workAssetByPath(workDirPath("priyanka", "meridian-customer-churn-revenue-recovery"), "final_client_presentation.pptx") },
+      ],
+    },
+    future: [
+      "Add an inventory / stockout table to test product-availability-driven churn",
+      "Double-ML or instrumental-variable causal approach if a real instrument exists",
+      "Drift monitoring so the client team knows when to retrain",
+    ],
+  },
+  { ...work("sanjay-internal-developer-platform", "sanjay", "AI Engineering Associate", "sanjay/internal_developer_platform"),
+    title: "Internal Developer Platform",
+    tagline:
+      "A self-service platform where developers scaffold services from golden-path templates and provision environments through mandatory, audited policy checks.",
+    status: "Internally developed · MVP",
+    categories: ["Platform Engineering", "Developer Experience", "DevOps Automation"],
+    industries: ["Enterprise Software", "Microservices Organizations"],
+    stackTags: ["Python", "FastAPI", "SQLAlchemy", "React 18", "TypeScript", "Vite", "SQLite"],
+    quoteService: "Internal Developer Platform",
+    problem: [
+      "Teams running 40+ microservices lose days to service onboarding: ticket handoffs, manual config, inconsistent templates and no audit trail.",
+      "Developers wait 2–4 hours just to provision a service, policies get bypassed, and nobody has clear visibility into who owns what.",
+    ],
+    solutionIntro:
+      "We built a self-service developer platform — FastAPI backend, React dashboard — where services are registered in a catalog, scaffolded from approved templates, and provisioned only after a 7-layer policy check, with every action audited.",
+    solution: [
+      "Developers register and scaffold services from golden-path templates (FastAPI, Express) that generate source, tests, Dockerfile and CI/CD config. Every provisioning request passes seven guardrails — role, environment, template approval, template-env, naming, resource limits — with no bypass path, then runs PENDING → VALIDATING → APPROVED → PROVISIONING → COMPLETED.",
+      "RBAC enforces four roles server-side; an immutable audit trail records every action; the dashboard shows live stats and recent activity. Compared to manual onboarding, registration is ~95% faster and provisioning ~97% faster.",
+    ],
+    principles: [
+      "Policy validation sits between auth and provisioning with no bypass",
+      "RBAC enforced on every API endpoint, server-side",
+      "Every action written to an immutable audit trail",
+    ],
+    capabilities: [
+      { title: "Service Catalog", desc: "Register, view, search and filter services with persistent data." },
+      { title: "Golden-path scaffolding", desc: "Generate FastAPI/Express projects with tests, Dockerfile and CI/CD from approved templates." },
+      { title: "Self-service provisioning", desc: "Request environments through a full approval pipeline." },
+      { title: "7-layer policy guardrails", desc: "Role, environment, template, naming and resource-limit checks before any provisioning." },
+      { title: "RBAC", desc: "Four roles (Admin, Platform Engineer, Developer, Viewer) enforced server-side." },
+      { title: "Audit logging", desc: "Immutable trail of every action with user, role, result and reason." },
+      { title: "Developer dashboard", desc: "Real-time stats and recent activity." },
+    ],
+    workflow: [
+      { title: "Sign in (role)", desc: "Admin, Platform Engineer, Developer or Viewer." },
+      { title: "Register service", desc: "Add a service to the central catalog." },
+      { title: "Scaffold", desc: "Pick an approved template; project + tests + Dockerfile + CI/CD are generated." },
+      { title: "Request environment", desc: "Submit a provisioning request for dev / staging / prod." },
+      { title: "Policy check", desc: "Seven guardrails run; violations are rejected and audited." },
+      { title: "Provision & audit", desc: "On approval, artifacts are created and the whole flow is logged." },
+    ],
+    technology: [
+      { layer: "Backend", items: ["Python 3.11", "FastAPI", "SQLAlchemy", "Pydantic"] },
+      { layer: "Database", items: ["SQLite (WAL)"] },
+      { layer: "Frontend", items: ["React 18", "TypeScript", "Vite"] },
+      { layer: "Testing", items: ["pytest", "FastAPI TestClient"] },
+    ],
+    validation: {
+      summary: "52 tests across 8 classes cover CRUD, RBAC, policy bypass, scaffolding and audit isolation; happy and failure paths verified.",
+      bullets: [
+        "52 tests: auth, catalog, templates, provisioning, policy, RBAC, scaffolding, audit",
+        "Developer production-provision rejected and logged; no resources created",
+        "Viewer cannot provision (403); unauthorized requests return 401",
+      ],
+      security: [
+        "No secrets committed (.env gitignored)",
+        "Server-side RBAC on every endpoint",
+        "Policy-before-provisioning with no bypass; Pydantic input validation; CORS allowlist",
+      ],
+      limitations: [
+        "Local sandbox only — creates project files, not real cloud infra",
+        "SQLite, not production-scale",
+        "Header-based auth; JWT/OAuth is future work",
+        "No real CI/CD connection or multi-tenancy",
+      ],
+    },
+    demo: {
+      intro: "End-to-end walkthrough: scaffold a service, provision an environment, watch a policy rejection.",
+      sources: [
+        {
+          src: workAssetByPath(workDirPath("sanjay", "internal_developer_platform"), "internal_developer_platform_demo.mov"),
+          label: "Internal Developer Platform demo (scaffolding, provisioning, policy rejection)",
+        },
+      ],
+      note: "The demo shows the self-service flow and the 7-layer policy guardrails in action.",
+    },
+    screenshots: [
+      { src: workAssetByPath(workDirPath("sanjay", "internal_developer_platform"), "login_page.png"), alt: "Login / role selection", caption: "Login" },
+      { src: workAssetByPath(workDirPath("sanjay", "internal_developer_platform"), "admin_dashboard.png"), alt: "Admin dashboard", caption: "Admin dashboard" },
+      { src: workAssetByPath(workDirPath("sanjay", "internal_developer_platform"), "developer_page.png"), alt: "Developer page", caption: "Developer" },
+      { src: workAssetByPath(workDirPath("sanjay", "internal_developer_platform"), "platfrom_engineer_page.png"), alt: "Platform engineer page", caption: "Platform engineer" },
+      { src: workAssetByPath(workDirPath("sanjay", "internal_developer_platform"), "viewer_page.png"), alt: "Viewer page", caption: "Viewer" },
+      { src: workAssetByPath(workDirPath("sanjay", "internal_developer_platform"), "audit_logs.png"), alt: "Audit logs", caption: "Audit logs" },
+    ],
+    architecture: {
+      src: workAssetByPath(workDirPath("sanjay", "internal_developer_platform"), "architecture_IDP.png"),
+      alt: "Internal Developer Platform architecture: auth → RBAC → service catalog → templates → policy guardrails → provisioning → audit trail",
+      caption: "Policy validation sits between authentication and provisioning with no bypass path.",
+    },
+    documentation: {
+      intro: "Architecture reference for the platform.",
+      links: [
+        { title: "Architecture", href: workAssetByPath(workDirPath("sanjay", "internal_developer_platform"), "docs/architecture.md") },
+      ],
+    },
+    future: [
+      "Real cloud provisioning (AWS / GCP / Azure)",
+      "Kubernetes operator for scaffolded services",
+      "Git integration (auto-create repos)",
+      "Multi-env promotion dev → staging → prod",
+      "OIDC / SAML authentication",
+      "Multi-tenancy",
+    ],
+  },
+  { ...work("dhyuti-ai-customer-support-agent", "dhyuti", "AI Engineering Associate", "dhyuti/ai-customer-support-agent"),
+    title: "AI Customer Support Agent",
+    tagline:
+      "A RAG + tool-using support agent that answers policy questions and performs controlled order actions from a local, self-contained deployment.",
+    status: "Internally developed · MVP",
+    categories: ["Conversational AI", "RAG", "Customer Support"],
+    industries: ["Retail & E-commerce", "Customer Operations"],
+    stackTags: ["Streamlit", "LangChain", "Ollama", "ChromaDB", "SQLite", "llama3.1"],
+    quoteService: "AI Customer Support Agent",
+    problem: [
+      "Support teams field repetitive policy and order questions that drown agents and slow response times, while order lookups and ticket creation still need a human in the loop.",
+      "Off-the-shelf bots either hallucinate policy or can't safely take actions; teams need grounded answers plus controlled operational tools.",
+    ],
+    solutionIntro:
+      "We built a Streamlit support agent that combines document-grounded RAG with controlled tools, running fully locally on Ollama so it stays self-contained and cheap to evaluate.",
+    solution: [
+      "The agent retrieves answers from a Novacart policy knowledge base (ChromaDB) and can perform controlled operations — order lookup, ticket creation, status checks, human escalation — through predefined tools, while the LLM focuses on language and reasoning (llama3.1:8b chosen over 3b for better policy reasoning).",
+      "A local SQLite store holds operational data; unsupported questions (e.g. 'deliver to Antarctica?') are answered honestly as out-of-knowledge rather than invented. Nine validation scenarios all passed.",
+    ],
+    principles: [
+      "Knowledge retrieval and operational actions are separated — the LLM reasons, tools act",
+      "Local Ollama deployment keeps the MVP self-contained and private",
+      "Honest uncertainty — out-of-scope questions are not fabricated",
+    ],
+    capabilities: [
+      { title: "Policy Q&A (RAG)", desc: "Grounded answers retrieved from the Novacart policy knowledge base." },
+      { title: "Order lookup", desc: "Retrieve order status and details via a controlled tool." },
+      { title: "Ticket creation", desc: "Open support tickets for damaged / problem orders." },
+      { title: "Ticket status", desc: "Check the status of an existing ticket." },
+      { title: "Human escalation", desc: "Route cases the agent shouldn't handle to a human." },
+      { title: "Uncertainty handling", desc: "States when the knowledge base can't answer instead of guessing." },
+      { title: "Local deployment", desc: "Runs on Ollama with ChromaDB and SQLite — no cloud dependency." },
+    ],
+    workflow: [
+      { title: "Ask a question", desc: "A customer or agent poses a policy or order question in the chat." },
+      { title: "Retrieve context", desc: "Relevant policy passages are pulled from ChromaDB." },
+      { title: "Reason", desc: "llama3.1:8b generates a grounded answer or decides to use a tool." },
+      { title: "Act (if needed)", desc: "Order lookup, ticket creation / status, or escalation via predefined tools." },
+      { title: "Respond", desc: "The agent returns the answer or action result to the chat." },
+      { title: "Validate", desc: "Behaviour is checked against nine representative scenarios." },
+    ],
+    technology: [
+      { layer: "App", items: ["Streamlit"] },
+      { layer: "Orchestration", items: ["LangChain"] },
+      { layer: "Local LLM", items: ["Ollama", "llama3.1:8b"] },
+      { layer: "Retrieval & data", items: ["ChromaDB", "SQLite"] },
+    ],
+    validation: {
+      summary: "Validated against nine representative customer-support scenarios — all passed (100% for the defined set).",
+      bullets: [
+        "Return policy, returns within 10 days, non-returnable items — PASS",
+        "Order NC1002 / NC1001 lookup — PASS",
+        "Damaged-order ticket creation, ticket status — PASS",
+        "Human escalation — PASS",
+        "'Antarctica delivery' unsupported question handled honestly — PASS",
+      ],
+      security: [
+        "Local deployment keeps data on-machine",
+        "Operational actions gated behind predefined tools, not free-form",
+        "Knowledge separated from actions to limit hallucinated operations",
+      ],
+      limitations: [
+        "Operates only on the configured knowledge base and local data",
+        "MVP for local demo, not production-scale",
+        "No admin KB management UI, auth, or cloud observability yet",
+      ],
+    },
+    demo: {
+      intro: "Live support agent handling policy and order questions, including a controlled ticket action.",
+      sources: [
+        {
+          src: workAssetByPath(workDirPath("dhyuti", "ai-customer-support-agent"), "demo.mov"),
+          label: "AI Customer Support Agent — demo (RAG + order tools)",
+        },
+      ],
+      note: "The demo shows grounded policy answers plus controlled order operations.",
+    },
+    screenshots: [],
+    documentation: {
+      intro: "Technical report, architecture, validation set and policy source.",
+      links: [
+        { title: "Technical Report", href: workAssetByPath(workDirPath("dhyuti", "ai-customer-support-agent"), "AI_Customer_Support_Agent_Technical_Report.pdf") },
+        { title: "Architecture", href: workAssetByPath(workDirPath("dhyuti", "ai-customer-support-agent"), "AI_Customer_Support_Agent_Architecture.pdf") },
+        { title: "Validation Test Set", href: workAssetByPath(workDirPath("dhyuti", "ai-customer-support-agent"), "AI_Customer_Support_Agent_Validation_Test_Set.pdf") },
+        { title: "Novacart Policy Source", href: workAssetByPath(workDirPath("dhyuti", "ai-customer-support-agent"), "demo upload pdf novacart policy.pdf") },
+      ],
+    },
+    future: [
+      "Admin workflow to update / re-index knowledge",
+      "Authentication and role-based access control",
+      "Larger, versioned customer-support test set",
+      "Monitoring, tracing and production observability",
+      "Production database and deployment",
+      "More controlled tools with stronger permissions",
+    ],
+  },
 ];
 
 export function getWork(slug: string): PortfolioWork | undefined {
@@ -757,7 +1338,7 @@ export function getRelatedWorks(slug: string, count = 3): PortfolioWork[] {
   const current = getWork(slug);
   if (!current) return [];
   const rest = WORKS.filter((item) => item.slug !== slug);
-  const order = ["ai-contract-risk-analyser", "security-log-anomaly-detection", "ai-data-analyst-bi-agent", "nl-to-sql-analytics-assistant", "ai-project-workflow-automation", "deep-research-multi-agent-system"];
+  const order = ["ai-contract-risk-analyser", "security-log-anomaly-detection", "ai-data-analyst-bi-agent", "nl-to-sql-analytics-assistant", "ai-project-workflow-automation", "deep-research-multi-agent-system", "anya-ai-sales-lead-qualification", "naman-enterprise-agent-control-plane", "naman-ai-workforce-simulator", "priyanka-meridian-customer-churn", "sanjay-internal-developer-platform", "dhyuti-ai-customer-support-agent"];
   rest.sort((a, b) => order.indexOf(a.slug) - order.indexOf(b.slug));
   return rest.slice(0, count);
 }

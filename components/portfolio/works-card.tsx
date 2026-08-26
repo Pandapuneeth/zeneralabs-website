@@ -12,16 +12,26 @@ export function WorksCard({ work }: { work: PortfolioWork }) {
       className="group flex h-full flex-col overflow-hidden rounded-3xl border border-border/80 bg-card text-card-foreground transition-[box-shadow,border-color] duration-500 hover:border-primary/40 hover:shadow-[0_16px_48px_-16px_color-mix(in_oklab,var(--primary)_35%,transparent)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
     >
       <div className="relative aspect-[16/10] overflow-hidden border-b border-border/60">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={cover.src}
-          alt={cover.alt}
-          width={1600}
-          height={1000}
-          loading="lazy"
-          className="h-full w-full object-cover object-top transition-transform duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:scale-[1.04]"
-        />
-        <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-background/30 via-transparent to-transparent" aria-hidden="true" />
+        {cover ? (
+          <>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={cover.src}
+              alt={cover.alt}
+              width={1600}
+              height={1000}
+              loading="lazy"
+              className="h-full w-full object-cover object-top transition-transform duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:scale-[1.04]"
+            />
+            <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-background/30 via-transparent to-transparent" aria-hidden="true" />
+          </>
+        ) : (
+          <div className="flex h-full w-full items-center justify-center bg-[radial-gradient(120%_120%_at_0%_0%,color-mix(in_oklab,var(--primary)_22%,transparent),transparent_60%)] p-6">
+            <span className="font-heading text-lg font-bold tracking-tight text-balance text-foreground/80">
+              {work.title}
+            </span>
+          </div>
+        )}
       </div>
 
       <div className="flex flex-1 flex-col p-6 sm:p-7">
