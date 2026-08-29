@@ -11,7 +11,7 @@ export function TeamDepartments({ members }: { members: TeamMember[] }) {
 
   return (
     <div>
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {TEAM_CATEGORIES.map((cat) => {
           const count = members.filter((m) => m.category === cat.id).length;
           const isActive = active === cat.id;

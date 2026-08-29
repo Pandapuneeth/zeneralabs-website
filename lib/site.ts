@@ -127,10 +127,9 @@ export const SERVICE_STUDENT = {
 } as const;
 
 export const TEAM_CATEGORIES = [
-  { id: "ml", label: "ML Engineer / Intern" },
-  { id: "ai", label: "AI Engineer / Intern" },
-  { id: "sde", label: "Software Development Engineer / Intern" },
-  { id: "marketing", label: "Marketing & Growth" },
+  { id: "aiml", label: "AI/ML Team" },
+  { id: "engineering", label: "Engineering Team" },
+  { id: "growth", label: "Growth / Business Development" },
 ] as const;
 
 export type TeamCategoryId = (typeof TEAM_CATEGORIES)[number]["id"];
@@ -164,76 +163,76 @@ export const TEAM: TeamMember[] = [
     name: "Hamsini SY",
     role: "ML Engineer",
     photo: "assets/hamsini sy.jpeg",
-    category: "ml",
+    category: "aiml",
   },
-  { name: "Anya R", role: "Full Stack Developer", initials: "AR", color: "#7c3aed", category: "sde" },
+  { name: "Anya R", role: "Full Stack Developer", initials: "AR", color: "#7c3aed", category: "engineering" },
   {
     name: "Naman AU",
     role: "AI Developer Intern",
     photo: "assets/naman au.jpeg",
-    category: "ai",
+    category: "aiml",
   },
   {
     name: "Pragna R",
     role: "Cybersecurity Engineer Intern",
     photo: "assets/pragna r.jpeg",
-    category: "sde",
+    category: "engineering",
   },
   {
     name: "Subhraneel Goswami",
     role: "AI Engineer",
     photo: "assets/subhraneel_goswami.jpeg",
-    category: "ai",
+    category: "aiml",
   },
   {
     name: "Sanjay S",
     role: "Software Developer Intern",
     photo: "assets/sanjays.jpg",
-    category: "sde",
+    category: "engineering",
   },
   {
     name: "Priyanka M",
     role: "ML Engineer & Data Analyst Intern",
     photo: "assets/priyankam.jpeg",
-    category: "ml",
+    category: "engineering",
   },
   {
     name: "Dhyuthi Shree KS",
     role: "Machine Learning Engineer Intern",
     photo: "assets/dhyuti.png",
-    category: "ml",
+    category: "aiml",
   },
   {
     name: "Debanjali Biswas",
     role: "Marketing and Content Creation Lead (Full Time)",
     photo: "assets/debanjali_biswas.jpeg",
-    category: "marketing",
+    category: "growth",
   },
   {
     name: "Ayushi Gautam",
     role: "Business Development Lead (Full Time)",
     initials: "AG",
     color: "#f59e0b",
-    category: "marketing",
+    category: "growth",
   },
   {
     name: "Swastik Dutta",
     role: "Full Stack Engineer (Full-time)",
     photo: "assets/swastik.jpeg",
-    category: "sde",
+    category: "engineering",
   },
   {
     name: "Chandini N",
     role: "Machine Learning Engineer Intern",
     photo: "assets/chandini.jpeg",
-    category: "ml",
+    category: "aiml",
   },
   {
     name: "Chandana Gowda",
     role: "Machine Learning Engineer",
     initials: "CG",
     color: "#7c3aed",
-    category: "ml",
+    category: "aiml",
   },
 ] as const;
 

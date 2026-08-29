@@ -2,12 +2,24 @@ import { Reveal } from "@/components/reveal";
 import type { ReactNode } from "react";
 import { FiTrendingUp, FiSearch, FiSend, FiEdit3, FiUsers } from "react-icons/fi";
 
-const ROLES: { title: string; desc: string; icon: ReactNode; fullTime: boolean }[] = [
+const ROLES: { title: string; desc: string; icon: ReactNode; fullTime: boolean; responsibilities?: string[] }[] = [
   {
     title: "HR Intern",
-    desc: "Support Zenera Labs' people operations — manage hiring outreach, screen applicants, coordinate interviews, maintain candidate pipelines, and help build a great team experience.",
+    desc: "Support Zenera Labs' people operations and help us build a great team experience end to end.",
     icon: <FiUsers size={18} className="shrink-0" />,
     fullTime: false,
+    responsibilities: [
+      "Manage end-to-end recruitment: posting roles, screening applicants, scheduling and coordinating interviews.",
+      "Own the onboarding experience for new hires and interns.",
+      "Maintain accurate employee and intern records, contracts, and documentation.",
+      "Track attendance, leaves, and weekly intern hours.",
+      "Coordinate monthly payroll inputs and timesheet consolidation.",
+      "Support labour-law and compliance basics (offer letters, NDAs, reliefs).",
+      "Help run performance reviews and feedback cycles.",
+      "Drive employee engagement and team-culture initiatives.",
+      "Build and maintain HR policies, templates, and onboarding kits.",
+      "Strong proficiency in Excel / Google Sheets for HR reporting.",
+    ],
   },
   {
     title: "Growth / Business Development Lead",
@@ -76,6 +88,16 @@ export function HiringRoles() {
                   </span>
                 </div>
                 <p className="text-sm leading-relaxed text-pretty text-muted-foreground">{role.desc}</p>
+                {role.responsibilities ? (
+                  <ul className="mt-1 space-y-2 border-t border-border/70 pt-4">
+                    {role.responsibilities.map((item) => (
+                      <li key={item} className="flex gap-2 text-sm leading-relaxed text-pretty text-muted-foreground">
+                        <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary/70" aria-hidden="true" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                ) : null}
               </div>
             </Reveal>
           ))}
