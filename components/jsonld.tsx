@@ -137,7 +137,7 @@ export const homeBreadcrumbJsonLd = {
       name: "Services",
       item: "https://zeneralabs.in/#services",
     },
-    { "@type": "ListItem", position: 3, name: "Team", item: "https://zeneralabs.in/#team" },
+    { "@type": "ListItem", position: 3, name: "Team", item: "https://zeneralabs.in/team" },
     {
       "@type": "ListItem",
       position: 4,
@@ -350,5 +350,14 @@ export const hiringBreadcrumbJsonLd = {
   itemListElement: [
     { "@type": "ListItem", position: 1, name: "Home", item: "https://zeneralabs.in/" },
     { "@type": "ListItem", position: 2, name: "Careers", item: "https://zeneralabs.in/hiring" },
+  ],
+};
+
+export const teamBreadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://zeneralabs.in/" },
+    { "@type": "ListItem", position: 2, name: "Team", item: "https://zeneralabs.in/team" },
   ],
 };

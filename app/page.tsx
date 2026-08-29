@@ -4,7 +4,7 @@ import { TextLoop } from "@/components/text-loop";
 import { Impact } from "@/components/impact";
 import { Services } from "@/components/services";
 import { HomeWorkSection } from "@/components/portfolio/home-work-section";
-import { Team } from "@/components/team";
+import { TeamTeaser } from "@/components/team-teaser";
 import { CtaStrip } from "@/components/cta-strip";
 import { SiteFooter } from "@/components/site-footer";
 import { JsonLd, homeBreadcrumbJsonLd } from "@/components/jsonld";
@@ -41,7 +41,7 @@ export default function HomePage() {
         <Impact />
         <Services />
         <HomeWorkSection />
-        <Team />
+        <TeamTeaser />
         <CtaStrip />
       </main>
       <SiteFooter variant="home" />

@@ -18,7 +18,7 @@ export const NAV_LINKS = [
   { label: "Work", href: "#work" },
   { label: "Impact", href: "#impact" },
   { label: "Services", href: "#services" },
-  { label: "Team", href: "#team" },
+  { label: "Team", href: "/team" },
   { label: "Hiring", href: "/hiring" },
   { label: "Ambassador", href: "/ambassador" },
   { label: "Contact", href: "/contact" },
@@ -126,6 +126,15 @@ export const SERVICE_STUDENT = {
   bigLabel: "Students Helped",
 } as const;
 
+export const TEAM_CATEGORIES = [
+  { id: "ml", label: "ML Engineer / Intern" },
+  { id: "ai", label: "AI Engineer / Intern" },
+  { id: "sde", label: "Software Development Engineer / Intern" },
+  { id: "marketing", label: "Marketing & Growth" },
+] as const;
+
+export type TeamCategoryId = (typeof TEAM_CATEGORIES)[number]["id"];
+
 export type TeamMember = {
   name: string;
   role: string;
@@ -134,6 +143,7 @@ export type TeamMember = {
   email?: string;
   initials?: string;
   color?: string;
+  category?: TeamCategoryId;
 };
 
 export const TEAM: TeamMember[] = [
@@ -154,64 +164,76 @@ export const TEAM: TeamMember[] = [
     name: "Hamsini SY",
     role: "ML Engineer",
     photo: "assets/hamsini sy.jpeg",
+    category: "ml",
   },
-  { name: "Anya R", role: "Full Stack Developer", initials: "AR", color: "#7c3aed" },
+  { name: "Anya R", role: "Full Stack Developer", initials: "AR", color: "#7c3aed", category: "sde" },
   {
     name: "Naman AU",
     role: "AI Developer Intern",
     photo: "assets/naman au.jpeg",
+    category: "ai",
   },
   {
     name: "Pragna R",
     role: "Cybersecurity Engineer Intern",
     photo: "assets/pragna r.jpeg",
+    category: "sde",
   },
   {
     name: "Subhraneel Goswami",
     role: "AI Engineer",
     photo: "assets/subhraneel_goswami.jpeg",
+    category: "ai",
   },
   {
     name: "Sanjay S",
     role: "Software Developer Intern",
     photo: "assets/sanjays.jpg",
+    category: "sde",
   },
   {
     name: "Priyanka M",
     role: "ML Engineer & Data Analyst Intern",
     photo: "assets/priyankam.jpeg",
+    category: "ml",
   },
   {
     name: "Dhyuthi Shree KS",
     role: "Machine Learning Engineer Intern",
     photo: "assets/dhyuti.png",
+    category: "ml",
   },
   {
     name: "Debanjali Biswas",
     role: "Marketing and Content Creation Lead (Full Time)",
     photo: "assets/debanjali_biswas.jpeg",
+    category: "marketing",
   },
   {
     name: "Ayushi Gautam",
     role: "Business Development Lead (Full Time)",
     initials: "AG",
     color: "#f59e0b",
+    category: "marketing",
   },
   {
     name: "Swastik Dutta",
     role: "Full Stack Engineer (Full-time)",
     photo: "assets/swastik.jpeg",
+    category: "sde",
   },
   {
     name: "Chandini N",
     role: "Machine Learning Engineer Intern",
     photo: "assets/chandini.jpeg",
+    category: "ml",
   },
-  { 
-    name: "Chandana Gowda", 
-    role: "Machine Learning Engineer", 
-    initials: "CG", 
-    color: "#7c3aed" 
+  {
+    name: "Chandana Gowda",
+    role: "Machine Learning Engineer",
+    initials: "CG",
+    color: "#7c3aed",
+    category: "ml",
   },
 ] as const;
 
