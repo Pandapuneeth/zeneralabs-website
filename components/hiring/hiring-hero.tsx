@@ -3,7 +3,7 @@ import { CosmicButton } from "@/components/ui/cosmic-button";
 import { FiMapPin, FiClock, FiBriefcase, FiMail, FiSend } from "react-icons/fi";
 
 const APPLY_MAILTO =
-  "mailto:zeneralabs@gmail.com?subject=Application%20%E2%80%93%20Zenera%20Growth%20Team%20%E2%80%93%20%5BRole%5D";
+  "mailto:zeneralabs@gmail.com?subject=Application%20%E2%80%93%20Zenera%20Labs%20%E2%80%93%20%5BRole%5D";
 
 const FACTS = [
   { icon: <FiMapPin size={16} className="shrink-0" />, label: "Location", value: "Remote / Hybrid" },
@@ -30,9 +30,9 @@ export function HiringHero() {
           </span>
         </Reveal>
         <Reveal as="p" className="max-w-[620px] leading-relaxed text-muted-foreground" delay={0.2}>
-          We&apos;re building a dedicated <strong className="text-foreground">Growth, Business Development
-          &amp; Marketing Team</strong> to take Zenera Labs&apos; client acquisition to the next level — hands-on
-          experience in sales, business development, lead generation, outreach and technology marketing.
+          We&apos;re building a dedicated <strong className="text-foreground">Growth, Marketing &amp; People
+          Operations Team</strong> to take Zenera Labs to the next level — hands-on experience in sales, business
+          development, lead generation, outreach, technology marketing and people operations.
         </Reveal>
         <Reveal delay={0.3} className="mt-8 flex flex-col gap-4 sm:flex-row">
           <CosmicButton href={APPLY_MAILTO} target="_self" className="w-full sm:w-auto">

@@ -3,9 +3,10 @@ import { CosmicButton } from "@/components/ui/cosmic-button";
 import { FiSend, FiMail } from "react-icons/fi";
 
 const APPLY_MAILTO =
-  "mailto:zeneralabs@gmail.com?subject=Application%20%E2%80%93%20Zenera%20Growth%20Team%20%E2%80%93%20%5BRole%5D";
+  "mailto:zeneralabs@gmail.com?subject=Application%20%E2%80%93%20Zenera%20Labs%20%E2%80%93%20%5BRole%5D";
 
 const SUBJECT_LABELS = [
+  "HR Intern",
   "Growth / Business Development Lead",
   "Lead Generation Intern",
   "Sales Development / Outreach Intern",
@@ -29,7 +30,7 @@ export function HiringApply() {
               Send your CV + a short introduction about yourself. Use the role name in the subject line.
             </p>
             <p className="mt-3 text-sm text-muted-foreground">
-              Subject: <strong className="text-foreground">Application – Zenera Growth Team – [Role]</strong>
+              Subject: <strong className="text-foreground">Application – Zenera Labs – [Role]</strong>
             </p>
             <p className="mt-6 border-t border-primary/15 pt-5 text-sm text-muted-foreground">
               <strong className="block font-heading text-base font-bold text-foreground">Zenera Labs</strong>

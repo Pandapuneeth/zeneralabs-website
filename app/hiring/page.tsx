@@ -7,15 +7,16 @@ import { SiteFooter } from "@/components/site-footer";
 import { JsonLd, hiringJsonLd, hiringBreadcrumbJsonLd } from "@/components/jsonld";
 
 export const metadata: Metadata = {
-  title: "We're Hiring — Growth, Business Development & Marketing Team | Zenera Labs",
+  title: "We're Hiring — Growth, Marketing & People Operations | Zenera Labs",
   description:
-    "Zenera Labs is expanding. Join our Growth, Business Development & Marketing team — Growth/Business Development Lead, Lead Generation, Sales Outreach and Marketing & Content internships. Real operations, real startup exposure. Remote/hybrid.",
+    "Zenera Labs is expanding. Join our team — Growth/Business Development Lead, Lead Generation, Sales Outreach, Marketing & Content, and HR internships. Real operations, real startup exposure. Remote/hybrid.",
   keywords: [
     "Zenera Labs hiring",
     "business development intern",
     "lead generation internship",
     "sales development internship",
     "marketing internship tech company",
+    "hr intern",
     "B2B sales internship India",
     "growth internship startup",
     "AI company jobs India",
@@ -26,8 +27,8 @@ export const metadata: Metadata = {
     type: "website",
     siteName: "Zenera Labs",
     title: "We're Hiring — Build Zenera Labs' Growth Engine",
-    description:
-      "Growth/Business Development Lead, Lead Generation, Sales Outreach and Marketing internships at Zenera Labs. Real operations. Remote/hybrid.",
+      description:
+        "Growth/Business Development Lead, Lead Generation, Sales Outreach, Marketing & Content, and HR internships at Zenera Labs. Real operations. Remote/hybrid.",
     url: "https://zeneralabs.in/hiring",
     images: [{ url: "https://zeneralabs.in/assets/og-image.jpg", width: 1200, height: 630 }],
     locale: "en_IN",
@@ -35,7 +36,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "We're Hiring — Zenera Labs Growth Team",
-    description: "Growth, Business Development & Marketing roles. Real operations, real exposure.",
+      description: "Growth, Marketing, People Operations & HR roles. Real operations, real exposure.",
     images: ["https://zeneralabs.in/assets/og-image.jpg"],
   },
 };

@@ -1,8 +1,14 @@
 import { Reveal } from "@/components/reveal";
 import type { ReactNode } from "react";
-import { FiTrendingUp, FiSearch, FiSend, FiEdit3 } from "react-icons/fi";
+import { FiTrendingUp, FiSearch, FiSend, FiEdit3, FiUsers } from "react-icons/fi";
 
 const ROLES: { title: string; desc: string; icon: ReactNode; fullTime: boolean }[] = [
+  {
+    title: "HR Intern",
+    desc: "Support Zenera Labs' people operations — manage hiring outreach, screen applicants, coordinate interviews, maintain candidate pipelines, and help build a great team experience.",
+    icon: <FiUsers size={18} className="shrink-0" />,
+    fullTime: false,
+  },
   {
     title: "Growth / Business Development Lead",
     desc: "Lead Zenera's client acquisition strategy, manage the growth pipeline, coordinate outreach, and drive business development.",
@@ -39,13 +45,13 @@ export function HiringRoles() {
             <span className="h-px w-10 bg-primary/30" aria-hidden="true" />
             <span className="text-[11px] font-semibold tracking-[0.4em] text-primary uppercase">Open Roles</span>
           </div>
-          <h2 className="font-heading text-3xl font-extrabold tracking-tight text-balance md:text-4xl">
-            Four ways to join the growth team
-          </h2>
-          <p className="mt-4 leading-relaxed text-muted-foreground">
-            All roles work on real Zenera Labs growth operations — client acquisition, outreach and
-            technology marketing — not busywork.
-          </p>
+            <h2 className="font-heading text-3xl font-extrabold tracking-tight text-balance md:text-4xl">
+              Five ways to join the team
+            </h2>
+            <p className="mt-4 leading-relaxed text-muted-foreground">
+              All roles work on real Zenera Labs operations — client acquisition, outreach, technology
+              marketing and people operations — not busywork.
+            </p>
         </Reveal>
 
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
