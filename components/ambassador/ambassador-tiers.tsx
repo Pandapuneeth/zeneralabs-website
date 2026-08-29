@@ -16,7 +16,7 @@ export function AmbassadorTiers() {
           The more you refer, the more you earn
         </Reveal>
         <Reveal as="p" className="max-w-[520px] leading-relaxed text-muted-foreground">
-          Everyone starts at 20% and climbs to 30% as the value you refer grows. No caps, no
+          Everyone starts at 20% and climbs up to 30% as the value you refer grows. No caps, no
           hidden terms.
         </Reveal>
 
@@ -41,7 +41,7 @@ export function AmbassadorTiers() {
                 </div>
                 <div className="mb-6 flex items-end gap-1">
                   <span className={cn("font-heading text-6xl font-extrabold leading-none tabular-nums", tier.highlight ? "text-primary" : "text-foreground")}>
-                    {tier.label}
+                    Up to {tier.label}
                   </span>
                   <span className="mb-1 text-sm text-muted-foreground">commission</span>
                 </div>

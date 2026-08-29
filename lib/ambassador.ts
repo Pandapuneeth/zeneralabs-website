@@ -12,7 +12,7 @@ export const AMBASSADOR_TIERS = [
     threshold: "₹80,000+ referred in 90 days",
     rate: 25,
     label: "25%",
-    perks: ["25% commission on every closed project", "Priority project status", "Exclusive Zenera swag kit", "Quarterly ambassador meetups"],
+    perks: ["25% commission on every closed project", "Priority project status", "Exclusive Zenera swag kit", "Quarterly ambassador meetups", "Priority payout within 3 days of client payment"],
     highlight: true,
   },
   {
@@ -20,7 +20,7 @@ export const AMBASSADOR_TIERS = [
     threshold: "₹2,50,000+ referred in 90 days",
     rate: 30,
     label: "30%",
-    perks: ["30% commission on every closed project", "Your own referral dashboard", "Direct line to the founder", "Co-branded opportunities"],
+    perks: ["30% commission on every closed project", "Your own referral dashboard", "Direct line to the founder", "Co-branded opportunities", "Featured ambassador spotlight on our channels", "Priority payout within 48 hours of client payment", "Annual top-ambassador retreat & rewards"],
     highlight: false,
   },
 ] as const;

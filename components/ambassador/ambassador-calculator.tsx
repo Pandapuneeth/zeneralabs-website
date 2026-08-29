@@ -49,14 +49,14 @@ export function AmbassadorCalculator() {
                   Your Commission Rate
                 </p>
                 <div className="mt-1 font-heading text-7xl font-extrabold leading-none text-primary tabular-nums">
-                  {rate}%
+                  Up to {rate}%
                 </div>
                 <p className="mt-2 text-sm text-muted-foreground">
                   {value >= 250000
-                    ? "Gold — 30% on every referred project"
+                    ? "Gold — up to 30% on every referred project"
                     : value >= 80000
-                      ? "Silver — 25% on every referred project"
-                      : "Bronze — 20% on every referred project"}
+                      ? "Silver — up to 25% on every referred project"
+                      : "Bronze — up to 20% on every referred project"}
                 </p>
               </div>
               <div className="rounded-2xl border border-primary/25 bg-primary/10 p-6 sm:text-right">
