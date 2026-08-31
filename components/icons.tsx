@@ -191,6 +191,22 @@ export function CodeIcon(props: ServiceIconProps) {
   );
 }
 
+export function LovableIcon(props: ServiceIconProps) {
+  const { size, ...rest } = props;
+  return (
+    <Svg size={size} {...rest}>
+      <path
+        d="M12 2c-3 4-5 7-5 10a5 5 0 0010 0c0-3-2-6-5-10z"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinejoin="round"
+      />
+      <path d="M12 12v4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+      <path d="M9 16l3 4 3-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    </Svg>
+  );
+}
+
 export function StudentIcon(props: ServiceIconProps) {
   const { size, ...rest } = props;
   return (

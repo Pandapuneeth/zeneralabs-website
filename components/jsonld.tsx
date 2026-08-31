@@ -97,6 +97,7 @@ export const localBusinessJsonLd = {
     "@type": "OfferCatalog",
     name: "Zenera Labs Services",
     itemListElement: [
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Lovable to PlayStore & AppStore" } },
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "AI & ML Automation" } },
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "Web Development" } },
       {

@@ -38,27 +38,31 @@ Keep responses concise and friendly. Use the knowledge base to give accurate ans
 
 ## Services
 
-### 01. AI & ML Automation
+### 01. Lovable to PlayStore & AppStore
+Built something on Lovable? We convert it into a production-ready app and launch it on the Play Store and App Store — so your idea reaches real users.
+**Tags:** Lovable to App, Play Store Launch, App Store Launch, Production-Ready
+
+### 02. AI & ML Automation
 Intelligent systems that learn, adapt and work 24/7. Chatbots, predictive models, workflow automation — the AI that works while you sleep.
 **Tags:** LLMs, ML Models, Chatbots, Pipelines
 
-### 02. Web Development
+### 03. Web Development
 Modern, blazing-fast websites designed to convert. Pixel-perfect responsive UI with the latest tech stack — built for performance and results.
 **Tags:** React, Next.js, Tailwind, TypeScript
 
-### 03. Full Stack Flutter Apps
+### 04. Full Stack Flutter Apps
 Cross-platform apps that feel native on Android and iOS. From auth to payments to deployment — end to end, we ship complete products.
 **Tags:** Flutter, Firebase, REST APIs, Dart
 
-### 04. Backend Systems
+### 05. Backend Systems
 Rock-solid APIs and server architecture that scale. Secure, fast, and maintainable architecture for your growing product or platform.
 **Tags:** Node.js, Python, PostgreSQL, Docker
 
-### 05. AutoCAD & Graphic Design
+### 06. AutoCAD & Graphic Design
 Precise 2D/3D technical drawings and eye-catching graphic design. From architectural plans to brand identities — built with pixel-perfect accuracy.
 **Tags:** AutoCAD, 2D/3D, Branding, Graphics
 
-### 06. Final Year Project Support
+### 07. Final Year Project Support
 100+ students helped across engineering, CS, and data science. Full support from ideation to final presentation — we make sure you submit something you're proud of.
 **Tags:** Project Dev, Research Papers, Documentation, IEEE Format, Presentations
 **Stat:** 100+ Students Helped

@@ -81,36 +81,43 @@ export const IMPACT_STATS = [
 
 export const SERVICES = [
   {
-    id: "ai",
+    id: "lovable",
     num: "01",
+    title: "Lovable to PlayStore & AppStore",
+    desc: "Built something on Lovable? We convert it into a production-ready app and launch it on the Play Store and App Store — so your idea reaches real users.",
+    tags: ["Lovable to App", "Play Store Launch", "App Store Launch", "Production-Ready"],
+  },
+  {
+    id: "ai",
+    num: "02",
     title: "AI & ML Automation",
     desc: "Intelligent systems that learn, adapt and work 24/7. Chatbots, predictive models, workflow automation — the AI that works while you sleep.",
     tags: ["LLMs", "ML Models", "Chatbots", "Pipelines"],
   },
   {
     id: "web",
-    num: "02",
+    num: "03",
     title: "Web Development",
     desc: "Modern, blazing-fast websites designed to convert. Pixel-perfect responsive UI with the latest tech stack — built for performance and results.",
     tags: ["React", "Next.js", "Tailwind", "TypeScript"],
   },
   {
     id: "flutter",
-    num: "03",
+    num: "04",
     title: "Full Stack Flutter Apps",
     desc: "Cross-platform apps that feel native on Android and iOS. From auth to payments to deployment — end to end, we ship complete products.",
     tags: ["Flutter", "Firebase", "REST APIs", "Dart"],
   },
   {
     id: "backend",
-    num: "04",
+    num: "05",
     title: "Backend Systems",
     desc: "Rock-solid APIs and server architecture that scale. Secure, fast, and maintainable architecture for your growing product or platform.",
     tags: ["Node.js", "Python", "PostgreSQL", "Docker"],
   },
   {
     id: "design",
-    num: "05",
+    num: "06",
     title: "AutoCAD & Graphic Design",
     desc: "Precise 2D/3D technical drawings and eye-catching graphic design. From architectural plans to brand identities — built with pixel-perfect accuracy.",
     tags: ["AutoCAD", "2D/3D", "Branding", "Graphics"],
@@ -118,7 +125,7 @@ export const SERVICES = [
 ] as const;
 
 export const SERVICE_STUDENT = {
-  num: "06",
+  num: "07",
   title: "Final Year Project Support",
   desc: "100+ students helped across engineering, CS, and data science. Full support from ideation to final presentation — we make sure you submit something you're proud of.",
   tags: ["Project Dev", "Research Papers", "Documentation", "IEEE Format", "Presentations"],
@@ -243,6 +250,7 @@ export const CONTACT_CHIPS = [
   { value: "Backend Systems", label: "⚙️ Backend" },
   { value: "AutoCAD & Graphic Design", label: "✏️ AutoCAD / Design" },
   { value: "Final Year Project Support", label: "🎓 Final Year Project" },
+  { value: "Lovable to PlayStore & AppStore", label: "🚀 Lovable → PlayStore & AppStore" },
   { value: "Other", label: "💡 Other" },
 ] as const;
 

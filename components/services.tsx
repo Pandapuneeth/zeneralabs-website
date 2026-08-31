@@ -12,6 +12,7 @@ import {
   FlutterIcon,
   BackendIcon,
   DesignIcon,
+  LovableIcon,
   StudentIcon,
 } from "@/components/icons";
 
@@ -21,6 +22,7 @@ const SERVICE_ICONS: Record<string, ComponentType<{ size?: number }>> = {
   flutter: FlutterIcon,
   backend: BackendIcon,
   design: DesignIcon,
+  lovable: LovableIcon,
 };
 
 function quoteHref(service: string) {
@@ -55,9 +57,20 @@ export function Services() {
               >
                 <CutoutCard className="flex h-full flex-col p-6 sm:p-8">
                   <div className="mb-5 flex items-center justify-between">
-                    <div className="flex size-12 items-center justify-center rounded-xl border border-primary/25 text-primary bg-primary/15">
-                      <Icon size={22} />
-                    </div>
+                    {service.id === "lovable" ? (
+                      <div className="flex items-center gap-2.5 rounded-xl border border-border/60 bg-background/50 px-3 py-2">
+                        <img src="/lovable-logo.png" alt="Lovable" className="h-6 w-auto object-contain" />
+                        <span className="text-xs font-bold text-muted-foreground">→</span>
+                        <div className="flex items-center gap-1.5">
+                          <img src="/playstore-logo.png" alt="Play Store" className="h-5 w-auto object-contain" />
+                          <img src="/appstore-logo.png" alt="App Store" className="h-5 w-auto object-contain" />
+                        </div>
+                      </div>
+                    ) : (
+                      <div className="flex size-12 items-center justify-center rounded-xl border border-primary/25 text-primary bg-primary/15">
+                        <Icon size={22} />
+                      </div>
+                    )}
                     <span className="font-heading text-[11px] font-bold tracking-widest text-primary/40">
                       {service.num}
                     </span>
