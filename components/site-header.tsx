@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { buttonVariants } from "@/components/ui/button";
@@ -18,6 +18,7 @@ export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
+  const suppressScrollSpy = useRef(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -31,6 +32,7 @@ export function SiteHeader() {
     const ids = ["work", "impact", "services"];
     const headerH = 160;
     const onScroll = () => {
+      if (suppressScrollSpy.current) return;
       let current = "";
       let closestTop = -Infinity;
       ids.forEach((id) => {
@@ -48,6 +50,14 @@ export function SiteHeader() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
     }, [isContact, isPricing, isAmbassador, isHiring]);
+
+  const handleScrollNavClick = (id: string) => {
+    setActiveSection(id);
+    suppressScrollSpy.current = true;
+    window.setTimeout(() => {
+      suppressScrollSpy.current = false;
+    }, 900);
+  };
 
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
@@ -152,6 +162,11 @@ export function SiteHeader() {
                 <Link
                   key={link.label}
                   href={resolveHref(link.href)}
+                  onClick={
+                    link.href.startsWith("#")
+                      ? () => handleScrollNavClick(link.href.slice(1))
+                      : undefined
+                  }
                   className={cn(
                     "relative rounded text-sm font-medium text-muted-foreground transition-colors after:absolute after:bottom-[-4px] after:left-0 after:h-px after:w-0 after:bg-primary after:transition-all after:duration-300 hover:text-foreground hover:after:w-full",
                     isActive && "text-foreground after:w-full",
