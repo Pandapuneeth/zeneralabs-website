@@ -1,4 +1,9 @@
+import ReactPlayer from "react-player";
 import type { PortfolioWork } from "@/lib/works";
+
+function isExternalUrl(src: string): boolean {
+  return /^https?:\/\//.test(src);
+}
 
 export function DemoPlayer({ work }: { work: PortfolioWork }) {
   if (!work.demo) return null;
@@ -12,19 +17,30 @@ export function DemoPlayer({ work }: { work: PortfolioWork }) {
         {demo.sources.map((source) => (
           <figure key={source.src} className="overflow-hidden rounded-2xl border border-border/80 bg-card">
             <div className="relative aspect-video w-full bg-black">
-              <video
-                src={source.src}
-                poster={demo.poster}
-                controls
-                preload="none"
-                playsInline
-                className="h-full w-full"
-              >
-                <p>
-                  Your browser does not support the video tag.{" "}
-                  <a href={source.src} className="text-primary underline underline-offset-4">Download the demo file</a>.
-                </p>
-              </video>
+              {isExternalUrl(source.src) ? (
+                <ReactPlayer
+                  src={source.src}
+                  controls
+                  light={demo.poster ?? true}
+                  width="100%"
+                  height="100%"
+                  style={{ position: "absolute", top: 0, left: 0 }}
+                />
+              ) : (
+                <video
+                  src={source.src}
+                  poster={demo.poster}
+                  controls
+                  preload="none"
+                  playsInline
+                  className="h-full w-full"
+                >
+                  <p>
+                    Your browser does not support the video tag.{" "}
+                    <a href={source.src} className="text-primary underline underline-offset-4">Download the demo file</a>.
+                  </p>
+                </video>
+              )}
             </div>
             <figcaption className="border-t border-border/60 px-5 py-4 text-sm text-muted-foreground">
               {source.label}

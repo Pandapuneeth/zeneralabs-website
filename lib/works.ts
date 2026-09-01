@@ -747,6 +747,128 @@ export const WORKS: PortfolioWork[] = [
       "Deeper evidence deduplication and per-claim confidence tuning",
     ],
   },
+  {
+    ...work("ai-edumark", "subhraneel", "AI Engineer", "ai-edumark"),
+    title: "AI EduMark",
+    tagline: "AI-powered answer sheet scanning and marks card automation — upload, evaluate, review, and publish results in minutes.",
+    status: "Internally developed · MVP",
+    categories: ["AI Automation", "EdTech", "Document Processing"],
+    industries: ["Education", "Schools & Colleges", "Examination Bodies"],
+    stackTags: ["Next.js 16", "React 19", "Turborepo", "OpenAI", "PostgreSQL", "Drizzle ORM", "OpenCV.js", "Better Auth"],
+    quoteService: "AI & ML Automation",
+    problem: [
+      "Manual answer sheet evaluation is slow, inconsistent, and error-prone — teachers spend hours scanning, reading, and tallying marks for hundreds of students per exam.",
+      "Schools need a way to automate marking while keeping a human in the loop for verification, with full RBAC so students only see their own results and teachers manage their own exams.",
+    ],
+    solutionIntro:
+      "We built a Turborepo monorepo platform that rasterizes uploaded answer sheets, preprocesses images with OpenCV.js, evaluates answers with an OpenAI vision model, and presents a review UI for teachers to verify and finalize marks — with role-based access at every step.",
+    solution: [
+      "A teacher uploads a multi-page PDF answer sheet for a selected student and exam. The server rasterizes it into per-page PNGs, then a background image-preprocessing worker cleans, deskews, and quality-checks every page using sharp and OpenCV.js (WASM).",
+      "An AI evaluation worker picks up processed pages, sends them to an OpenAI vision model via Vercel AI SDK with a constrained Zod schema, and produces structured candidate marks with confidence scores. Teachers review, edit, and finalize results through a dedicated review UI — students see only their own published marksheets.",
+    ],
+    principles: [
+      "Human-in-the-loop: AI produces candidate marks, but a teacher must review and approve before any result is published.",
+      "Defense in depth for access: Better Auth + RBAC (owner/admin/teacher/student) enforced at middleware, API, and UI layers.",
+      "No fabrication: the AI model is instructed to return null for uncertain answers rather than guessing.",
+    ],
+    capabilities: [
+      { title: "Answer sheet upload", desc: "Single-PDF upload per student per exam, rasterized into per-page PNGs at upload time." },
+      { title: "Image preprocessing", desc: "Background worker: EXIF rotate → perspective correction (OpenCV.js) → denoise → normalize → sharpen → quality checks." },
+      { title: "AI evaluation", desc: "OpenAI vision model reads preprocessed pages and produces per-question marks with confidence scores via constrained output." },
+      { title: "Human review UI", desc: "Teachers see detected student, source images, candidate marks with confidence, and can edit before finalizing." },
+      { title: "Exam management", desc: "Create exams with question papers, generate join links, and enroll students via RBAC-gated workflows." },
+      { title: "Question paper extraction", desc: "Upload a scanned question paper PDF and extract questions automatically with OpenAI vision." },
+      { title: "Student marksheet view", desc: "Students see only their own published marksheets with per-question breakdowns." },
+      { title: "Multi-tenant RBAC", desc: "Four roles (owner/admin/teacher/student) with org-scoped data isolation via Better Auth." },
+    ],
+    workflow: [
+      { title: "Teacher creates exam", desc: "Defines exam name, subject, questions (manual or extracted from a PDF), and publishes." },
+      { title: "Student joins exam", desc: "Uses a join link to enroll as a student in the organization." },
+      { title: "Teacher uploads sheet", desc: "Picks exam + student, uploads one multi-page PDF. Server rasterizes to PNGs." },
+      { title: "Image preprocessing", desc: "Background worker deskews, denoises, sharpens, and quality-checks every page." },
+      { title: "AI evaluation", desc: "Vision model reads pages and produces per-question marks with confidence scores." },
+      { title: "Teacher reviews", desc: "Reviews detected student, source images, and candidate marks. Edits if needed." },
+      { title: "Finalize & publish", desc: "Approves the sheet — marks become visible to the student on their marksheet." },
+    ],
+    technology: [
+      { layer: "Framework", items: ["Next.js 16 (App Router)", "React 19", "TypeScript"] },
+      { layer: "Monorepo", items: ["Turborepo"] },
+      { layer: "Auth", items: ["Better Auth", "email/password + organizations", "custom RBAC"] },
+      { layer: "Database", items: ["PostgreSQL (Neon)", "Drizzle ORM"] },
+      { layer: "Styling", items: ["Tailwind CSS v4", "shadcn/ui"] },
+      { layer: "Image processing", items: ["sharp (denoise/normalize)", "OpenCV.js (WASM perspective correction)", "pdf-to-img (rasterization)"] },
+      { layer: "AI marking", items: ["OpenAI vision model", "Vercel AI SDK (generateObject)", "Zod constrained output"] },
+      { layer: "Workers", items: ["img-processor-worker (poll loop)", "ai-evals-worker (poll loop)"] },
+    ],
+    validation: {
+      summary:
+        "End-to-end tested across upload, preprocessing, AI evaluation, review, and finalization flows with RBAC enforcement at every layer.",
+      bullets: [
+        "Upload — PDF rasterization, per-page PNG generation, file storage, and sheet/page record creation",
+        "Preprocessing — perspective correction, denoise, sharpen, quality checks with issue tagging",
+        "AI evaluation — structured mark extraction with confidence scoring and needsReview flagging",
+        "Review — teacher can view source images, edit marks, and finalize sheets",
+        "Student view — ownership-checked reads, only completed sheets visible",
+        "RBAC — unauthorized access blocked at middleware, API, and UI layers",
+      ],
+      security: [
+        "Better Auth with org-scoped sessions and role-based permissions",
+        "Middleware redirects unauthenticated users; server helpers guard pages",
+        "API routes check permissions via auth.api.hasPermission",
+        "Student reads gated to their own student rows only",
+        "No secrets in code — all credentials in environment variables",
+      ],
+      limitations: [
+        "Single-PDF upload per sheet (no batch upload yet)",
+        "Local filesystem storage (not cloud-backed in MVP)",
+        "AI marking accuracy depends on scan quality",
+        "No mobile app — web only",
+      ],
+    },
+    demo: {
+      intro: "Walkthrough of the full pipeline: exam creation, answer sheet upload, AI evaluation, teacher review, and student marksheet view.",
+      sources: [
+        {
+          src: "https://youtu.be/p1r97svZyKQ",
+          label: "AI EduMark — complete walkthrough",
+        },
+      ],
+      note: "Demo covers exam creation, student enrollment, sheet upload, preprocessing, AI marking, review, and marksheet generation.",
+    },
+    screenshots: [
+      { src: workAssetByPath(workDirPath("subhraneel", "ai-edumark"), "edumark-login.png"), alt: "AI EduMark login page with email/password authentication", caption: "Login" },
+      { src: workAssetByPath(workDirPath("subhraneel", "ai-edumark"), "create-new-exam-page.png"), alt: "Create new exam page with name, subject, and question fields", caption: "Create exam" },
+      { src: workAssetByPath(workDirPath("subhraneel", "ai-edumark"), "individual-exam-screen-with-exam-joining-link.png"), alt: "Exam detail screen with join link for students", caption: "Exam join link" },
+      { src: workAssetByPath(workDirPath("subhraneel", "ai-edumark"), "student-enrollment-flow.png"), alt: "Student enrollment flow with roll number and organization", caption: "Student enrollment" },
+      { src: workAssetByPath(workDirPath("subhraneel", "ai-edumark"), "upload-answer-sheets-page.png"), alt: "Upload answer sheets page with exam and student selection", caption: "Upload sheets" },
+      { src: workAssetByPath(workDirPath("subhraneel", "ai-edumark"), "answer-sheet-processing-pipeline.png"), alt: "Answer sheet preprocessing pipeline status and progress", caption: "Processing pipeline" },
+      { src: workAssetByPath(workDirPath("subhraneel", "ai-edumark"), "question-paper-extraction-pipeline.png"), alt: "AI-powered question paper extraction from scanned PDF", caption: "Question extraction" },
+      { src: workAssetByPath(workDirPath("subhraneel", "ai-edumark"), "marksheet-generation.png"), alt: "Generated marksheet with per-question marks and totals", caption: "Marksheet generation" },
+    ],
+    architecture: {
+      src: workAssetByPath(workDirPath("subhraneel", "ai-edumark"), "system-diagram.png"),
+      alt: "System architecture of AI EduMark: web app → image processor worker → AI evaluation worker → PostgreSQL",
+      caption: "Turborepo monorepo: Next.js web app → img-processor-worker (sharp + OpenCV.js) → ai-evals-worker (OpenAI vision) → Neon PostgreSQL.",
+    },
+    documentation: {
+      intro: "Technical documentation covering system design, database schema, and permission model.",
+      links: [
+        { title: "System Diagram", href: workAssetByPath(workDirPath("subhraneel", "ai-edumark"), "system-diagram.png") },
+        { title: "DB Schema", href: workAssetByPath(workDirPath("subhraneel", "ai-edumark"), "db-schema-design.png") },
+        { title: "RBAC Matrix", href: workAssetByPath(workDirPath("subhraneel", "ai-edumark"), "rbac-permission-matrix.png") },
+        { title: "File Layout", href: workAssetByPath(workDirPath("subhraneel", "ai-edumark"), "file-and-storage-layout.png") },
+      ],
+    },
+    future: [
+      "Batch upload — multiple students per exam in one upload",
+      "Cloud storage (S3/R2) for uploaded sheets",
+      "Configurable AI marking rubrics per subject",
+      "Parent/guardian portal for marksheet access",
+      "Mobile app for teachers and students",
+      "Analytics dashboard for exam performance trends",
+      "Integration with school management systems",
+    ],
+  },
   { ...work("anya-ai-sales-lead-qualification", "Anya", "AI Engineering Associate", "anya/ai-sales-and-lead"),
     title: "AI Sales & Lead Qualification Agent",
     tagline:
@@ -1338,7 +1460,7 @@ export function getRelatedWorks(slug: string, count = 3): PortfolioWork[] {
   const current = getWork(slug);
   if (!current) return [];
   const rest = WORKS.filter((item) => item.slug !== slug);
-  const order = ["ai-contract-risk-analyser", "security-log-anomaly-detection", "ai-data-analyst-bi-agent", "nl-to-sql-analytics-assistant", "ai-project-workflow-automation", "deep-research-multi-agent-system", "anya-ai-sales-lead-qualification", "naman-enterprise-agent-control-plane", "naman-ai-workforce-simulator", "priyanka-meridian-customer-churn", "sanjay-internal-developer-platform", "dhyuti-ai-customer-support-agent"];
+  const order = ["ai-contract-risk-analyser", "security-log-anomaly-detection", "ai-data-analyst-bi-agent", "nl-to-sql-analytics-assistant", "ai-project-workflow-automation", "deep-research-multi-agent-system", "ai-edumark", "anya-ai-sales-lead-qualification", "naman-enterprise-agent-control-plane", "naman-ai-workforce-simulator", "priyanka-meridian-customer-churn", "sanjay-internal-developer-platform", "dhyuti-ai-customer-support-agent"];
   rest.sort((a, b) => order.indexOf(a.slug) - order.indexOf(b.slug));
   return rest.slice(0, count);
 }
