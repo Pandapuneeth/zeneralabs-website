@@ -28,12 +28,19 @@ export function SiteHeader() {
 
   useEffect(() => {
     if (isContact || isPricing || isAmbassador || isHiring) return;
-    const ids = ["work", "impact", "services", "team"];
+    const ids = ["work", "impact", "services"];
+    const headerH = 160;
     const onScroll = () => {
       let current = "";
+      let closestTop = -Infinity;
       ids.forEach((id) => {
         const el = document.getElementById(id);
-        if (el && window.scrollY >= el.offsetTop - 160) current = id;
+        if (!el) return;
+        const top = el.getBoundingClientRect().top;
+        if (top <= headerH && top > closestTop) {
+          closestTop = top;
+          current = id;
+        }
       });
       setActiveSection(current);
     };

@@ -6,7 +6,7 @@ import type { TeamMember } from "@/lib/site";
 export function TeamMemberCard({ member, className }: { member: TeamMember; className?: string }) {
   return (
     <div
-      className={`group overflow-hidden rounded-2xl border border-border bg-card transition-colors duration-300 hover:border-primary/25 ${className ?? ""}`}
+      className={`group flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card transition-colors duration-300 hover:border-primary/25 ${className ?? ""}`}
     >
       <div className="relative aspect-square overflow-hidden">
         {member.photo ? (
@@ -43,13 +43,13 @@ export function TeamMemberCard({ member, className }: { member: TeamMember; clas
           </Badge>
         )}
       </div>
-      <div className="p-5">
+      <div className="flex flex-1 flex-col p-5">
         <h3 className="font-heading text-[15px] font-bold mb-1">{member.name}</h3>
         <p className="text-xs text-primary">{member.role}</p>
         {member.email && (
           <a
             href={`mailto:${member.email}`}
-            className="mt-2 block break-all text-[11px] text-muted-foreground transition-colors hover:text-foreground"
+            className="mt-auto pt-2 block break-all text-[11px] text-muted-foreground transition-colors hover:text-foreground"
           >
             {member.email}
           </a>

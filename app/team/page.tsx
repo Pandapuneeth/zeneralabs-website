@@ -60,14 +60,14 @@ export default function TeamPage() {
               <span className="font-heading text-[11px] font-bold tracking-[0.4em] text-primary/50 uppercase">Founders</span>
               <span className="h-px flex-1 bg-primary/20" aria-hidden="true" />
             </Reveal>
-            <div className="flex flex-wrap justify-center gap-5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch justify-items-center">
               {founders.map((member, i) => (
                 <Reveal
                   key={member.name}
                   delay={Math.min(i * 0.1, 0.3)}
-                  className="w-full max-w-[300px] sm:w-[300px]"
+                  className="w-full"
                 >
-                  <TeamMemberCard member={member} />
+                  <TeamMemberCard member={member} className="h-full" />
                 </Reveal>
               ))}
             </div>
