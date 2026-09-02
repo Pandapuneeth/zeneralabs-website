@@ -165,6 +165,7 @@ export const TEAM: TeamMember[] = [
     role: "Data Science & ML Engineer",
     badge: "Co-Founder",
     photo: "assets/vighnesh m.jpeg",
+    email: "vighneshm@zeneralabs.in",
   },
   {
     name: "Hamsini SY",
